@@ -34,9 +34,9 @@ describe("currentWeek", () => {
   })
 })
 
-const bronze = TIERS[0].points
-const silver = TIERS[1].points
-const master = TIERS[TIERS.length - 1].points
+const bronze = TIERS[0].points.value
+const silver = TIERS[1].points.value
+const master = TIERS[TIERS.length - 1].points.value
 
 describe("tierFor", () => {
   it("returns null below Bronze", () => {
@@ -97,14 +97,14 @@ describe("genesisProgress", () => {
   it("keeps the gap after three weeks", () => {
     expect(genesisProgress(GENESIS_RULES.pointsAfterThreeWeeks)).toMatchObject({
       current: GENESIS_RULES.pointsAfterThreeWeeks,
-      max: GENESIS_RULES.pointsToLiberate,
-      gapAfterThreeWeeks: GENESIS_RULES.gapAfterThreeWeeks,
+      max: GENESIS_RULES.pointsToLiberate.value,
+      gapAfterThreeWeeks: GENESIS_RULES.gapAfterThreeWeeks.value,
     })
   })
 
   it("clamps at liberation", () => {
     expect(genesisProgress(7000)).toMatchObject({
-      current: GENESIS_RULES.pointsToLiberate,
+      current: GENESIS_RULES.pointsToLiberate.value,
       percent: 100,
     })
   })
@@ -129,7 +129,7 @@ describe("taskCompletion", () => {
 
 describe("estimatedDaysToLiberation", () => {
   it("is zero once liberated", () => {
-    expect(estimatedDaysToLiberation(GENESIS_RULES.pointsToLiberate)).toBe(0)
+    expect(estimatedDaysToLiberation(GENESIS_RULES.pointsToLiberate.value)).toBe(0)
   })
 
   it("estimates a couple of days for the gap after three weeks", () => {

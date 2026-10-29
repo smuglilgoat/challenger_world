@@ -1,6 +1,12 @@
 import { Badge } from "@/components/ui/badge"
-import { STATUS_LABEL, type Status } from "@/lib/event-data"
+import { STATUS_LABEL, type ClaimStatus } from "@/lib/event-data"
 
-export function StatusBadge({ status }: { status: Status }) {
-  return <Badge variant={status === "confirmed" ? "default" : "secondary"}>{STATUS_LABEL[status]}</Badge>
+const STATUS_VARIANT: Record<ClaimStatus, "default" | "secondary" | "warning"> = {
+  confirmed: "default",
+  projected: "secondary",
+  disputed: "warning",
+}
+
+export function StatusBadge({ status }: { status: ClaimStatus }) {
+  return <Badge variant={STATUS_VARIANT[status]}>{STATUS_LABEL[status]}</Badge>
 }

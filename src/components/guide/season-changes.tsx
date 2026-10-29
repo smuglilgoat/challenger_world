@@ -3,6 +3,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ClaimBadge } from "@/components/claim-badge"
 import { StatusBadge } from "@/components/status-badge"
 import { QUANAH, SEASON_CHANGES } from "@/lib/event-data"
 
@@ -66,11 +67,9 @@ export function QuanahExplainer() {
           <TriangleAlertIcon />
           <AlertTitle className="flex flex-wrap items-center gap-2">
             Profile badge portability
-            <StatusBadge status="projected" />
+            <ClaimBadge claim={QUANAH.badgePortability} />
           </AlertTitle>
-          <AlertDescription>
-            {QUANAH.disputed} Treat the badge as staying in the event world until Nexon confirms otherwise.
-          </AlertDescription>
+          <AlertDescription>{QUANAH.badgePortability.note}</AlertDescription>
         </Alert>
       </CardContent>
     </Card>

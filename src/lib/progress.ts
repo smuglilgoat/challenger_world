@@ -4,7 +4,7 @@ const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000
 // Derived from the transcript: 6,030 points after 21 days of clears.
 const GENESIS_POINTS_PER_DAY = GENESIS_RULES.pointsAfterThreeWeeks / 21
 
-export type TierLike = { points: number }
+export type TierLike = { points: { value: number } }
 
 export function currentWeek(now: Date, startDate: string, totalWeeks: number): number {
   if (totalWeeks <= 0) return -1
@@ -17,7 +17,7 @@ export function currentWeek(now: Date, startDate: string, totalWeeks: number): n
 export function tierFor<T extends TierLike>(points: number, tiers: T[]): T | null {
   let reached: T | null = null
   for (const tier of tiers) {
-    if (tier.points <= points && (!reached || tier.points > reached.points)) {
+    if (tier.points.value <= points && (!reached || tier.points.value > reached.points.value)) {
       reached = tier
     }
   }
@@ -30,11 +30,11 @@ export function nextTier<T extends TierLike>(
 ): { tier: T; pointsNeeded: number } | null {
   let next: T | null = null
   for (const tier of tiers) {
-    if (tier.points > points && (!next || tier.points < next.points)) {
+    if (tier.points.value > points && (!next || tier.points.value < next.points.value)) {
       next = tier
     }
   }
-  return next ? { tier: next, pointsNeeded: next.points - points } : null
+  return next ? { tier: next, pointsNeeded: next.points.value - points } : null
 }
 
 function percentOf(value: number, max: number): number {
@@ -53,10 +53,10 @@ export function crestProgress(crests: number) {
 
 export function genesisProgress(points: number) {
   return {
-    current: Math.min(Math.max(points, 0), GENESIS_RULES.pointsToLiberate),
-    max: GENESIS_RULES.pointsToLiberate,
-    percent: percentOf(points, GENESIS_RULES.pointsToLiberate),
-    gapAfterThreeWeeks: GENESIS_RULES.gapAfterThreeWeeks,
+    current: Math.min(Math.max(points, 0), GENESIS_RULES.pointsToLiberate.value),
+    max: GENESIS_RULES.pointsToLiberate.value,
+    percent: percentOf(points, GENESIS_RULES.pointsToLiberate.value),
+    gapAfterThreeWeeks: GENESIS_RULES.gapAfterThreeWeeks.value,
   }
 }
 
@@ -74,6 +74,6 @@ export function taskCompletion(
 }
 
 export function estimatedDaysToLiberation(points: number): number {
-  if (points >= GENESIS_RULES.pointsToLiberate) return 0
-  return Math.ceil((GENESIS_RULES.pointsToLiberate - points) / GENESIS_POINTS_PER_DAY)
+  if (points >= GENESIS_RULES.pointsToLiberate.value) return 0
+  return Math.ceil((GENESIS_RULES.pointsToLiberate.value - points) / GENESIS_POINTS_PER_DAY)
 }

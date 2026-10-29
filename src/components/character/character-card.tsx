@@ -25,7 +25,7 @@ import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { StatDialog } from "@/components/character/stat-dialog"
 import { WeeklyChecklist } from "@/components/character/weekly-checklist"
-import { TIERS } from "@/lib/event-data"
+import { CREST_RULES, GENESIS_RULES, TIERS } from "@/lib/event-data"
 import { crestProgress, genesisProgress, nextTier, tierFor } from "@/lib/progress"
 import type { Character, CharacterRole } from "@/hooks/use-characters"
 
@@ -145,13 +145,13 @@ export function CharacterCard({ character, currentWeekIndex, onUpdate, onToggleT
           <StatDialog
             label="Crests"
             value={character.crests}
-            description="Item Burning Plus crests, up to 6,500."
+            description={`Item Burning Plus crests, up to ${CREST_RULES.max.toLocaleString()}.`}
             onSave={(value) => onUpdate({ crests: value })}
           />
           <StatDialog
             label="Genesis points"
             value={character.genesisPoints}
-            description="Genesis liberation points, up to 6,500."
+            description={`Genesis liberation points, up to ${GENESIS_RULES.pointsToLiberate.value.toLocaleString()}.`}
             onSave={(value) => onUpdate({ genesisPoints: value })}
           />
           <Button

@@ -15,7 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { StatusBadge } from "@/components/status-badge"
+import { ClaimBadge } from "@/components/claim-badge"
 import { TIERS } from "@/lib/event-data"
 
 export function TierTable() {
@@ -44,10 +44,12 @@ export function TierTable() {
             {TIERS.map((tier) => (
               <TableRow key={tier.name}>
                 <TableCell className="font-medium">{tier.name}</TableCell>
-                <TableCell className="text-right tabular-nums">{tier.points.toLocaleString()}</TableCell>
+                <TableCell className="text-right tabular-nums">
+                  {tier.points.value.toLocaleString()}
+                </TableCell>
                 <TableCell className="text-muted-foreground">{tier.rewards}</TableCell>
                 <TableCell className="text-right">
-                  <StatusBadge status={tier.status} />
+                  <ClaimBadge claim={tier.points} />
                 </TableCell>
               </TableRow>
             ))}

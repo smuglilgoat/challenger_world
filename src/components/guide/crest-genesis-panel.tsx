@@ -25,11 +25,11 @@ export function CrestGenesisPanel() {
         <CardHeader>
           <CardTitle>Crest &amp; Genesis math</CardTitle>
           <CardDescription>
-            Both tracks cap at 6,500. Crests max the Item Burning set; Genesis points liberate your Genesis
-            weapon.
+            Crests cap at {CREST_RULES.max.toLocaleString()}; Genesis needs{" "}
+            {GENESIS_RULES.pointsToLiberate.value.toLocaleString()} to liberate.
           </CardDescription>
           <CardAction>
-            <StatusBadge status="projected" />
+            <StatusBadge status={GENESIS_RULES.status} />
           </CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-5">
@@ -57,8 +57,8 @@ export function CrestGenesisPanel() {
             </div>
             <Progress value={genesis.percent} className="h-2" />
             <p className="text-sm text-muted-foreground">
-              Full Cernium clears plus one Black Mage solo leave you {GENESIS_RULES.gapAfterThreeWeeks} points
-              short.
+              Full Cernium clears plus one Black Mage solo leave you{" "}
+              {GENESIS_RULES.gapAfterThreeWeeks.value} points short.
             </p>
           </div>
 
@@ -75,12 +75,12 @@ export function CrestGenesisPanel() {
 
           <Alert>
             <TriangleAlertIcon />
-            <AlertTitle>The {GENESIS_RULES.gapAfterThreeWeeks}-point gap</AlertTitle>
+            <AlertTitle>The {GENESIS_RULES.gapAfterThreeWeeks.value}-point gap</AlertTitle>
             <AlertDescription>
-              Kill Black Mage on {GENESIS_RULES.realisticDate} for the last ~{GENESIS_RULES.gapAfterThreeWeeks}{" "}
-              points, or accept a {GENESIS_RULES.fallbackWeek} liberation. A {GENESIS_RULES.dayZeroDate}{" "}
-              liberation needs ~{GENESIS_RULES.gapAfterThreeWeeks} points on day zero in about 3 hours —
-              improbable.
+              Kill Black Mage on {GENESIS_RULES.realisticDate} for the last ~
+              {GENESIS_RULES.gapAfterThreeWeeks.value} points, or accept a {GENESIS_RULES.fallbackWeek}{" "}
+              liberation. A {GENESIS_RULES.dayZeroDate} liberation needs ~
+              {GENESIS_RULES.gapAfterThreeWeeks.value} points on day zero in about 3 hours — improbable.
             </AlertDescription>
           </Alert>
         </CardContent>

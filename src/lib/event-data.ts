@@ -70,11 +70,23 @@ export const SOURCES: Record<SourceId, Source> = {
   },
 }
 
-export type Status = "confirmed" | "projected"
+export type ClaimStatus = "confirmed" | "projected" | "disputed"
 
-export const STATUS_LABEL: Record<Status, string> = {
+export type Claim<T = unknown> = {
+  value: T
+  status: ClaimStatus
+  sources: SourceId[]
+  note?: string
+  /** Competing values when sources disagree. */
+  alternatives?: { value: unknown; source: SourceId; note?: string }[]
+}
+
+export type Status = ClaimStatus
+
+export const STATUS_LABEL: Record<ClaimStatus, string> = {
   confirmed: "Confirmed (GMS)",
   projected: "Projected (KMS/transcript)",
+  disputed: "Disputed",
 }
 
 export const EVENT = {
@@ -231,53 +243,65 @@ export const TIER_POINTS_PROJECTED = {
 
 export type Tier = {
   name: string
-  points: number
+  points: Claim<number>
   rewards: string
-  status: Status
+  status: ClaimStatus
+  source: SourceId
+}
+
+function tierPointsClaim(value: number): Claim<number> {
+  return { value, status: "projected", sources: ["wiki-overdrive", "wiki-availability"] }
 }
 
 export const TIERS: Tier[] = [
   {
     name: "Bronze",
-    points: TIER_POINTS_PROJECTED.bronze,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.bronze),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
   {
     name: "Silver",
-    points: TIER_POINTS_PROJECTED.silver,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.silver),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
   {
     name: "Gold",
-    points: TIER_POINTS_PROJECTED.gold,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.gold),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
   {
     name: "Platinum",
-    points: TIER_POINTS_PROJECTED.platinum,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.platinum),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
   {
     name: "Emerald",
-    points: TIER_POINTS_PROJECTED.emerald,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.emerald),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
   {
     name: "Diamond",
-    points: TIER_POINTS_PROJECTED.diamond,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.diamond),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
   {
     name: "Master",
-    points: TIER_POINTS_PROJECTED.master,
+    points: tierPointsClaim(TIER_POINTS_PROJECTED.master),
     rewards: "S3 reward tier — GMS reward list unconfirmed",
     status: "projected",
+    source: "wiki-overdrive",
   },
 ]
 
@@ -299,21 +323,29 @@ export const CREST_RULES = {
 } as const
 
 export const GENESIS_RULES = {
-  pointsToLiberate: 6500,
+  pointsToLiberate: {
+    value: 6500,
+    status: "projected",
+    sources: ["transcript"],
+  } satisfies Claim<number>,
   pointsAfterThreeWeeks: 6030,
-  gapAfterThreeWeeks: 470,
+  gapAfterThreeWeeks: {
+    value: 470,
+    status: "projected",
+    sources: ["transcript"],
+  } satisfies Claim<number>,
   realisticDate: "2026-12-01",
   fallbackWeek: "Week 4",
   dayZeroDate: "2026-11-26",
   status: "projected" as Status,
-  source: "transcript",
+  source: "transcript" as SourceId,
   notes: [
     "Three weeks of full Cernium clears plus one Black Mage solo leaves you at ~6,030 of 6,500.",
     "Kill Black Mage on 2026-12-01 for the last ~470 points, or accept a week-4 liberation.",
     "A 2026-11-26 liberation needs 470 points on day zero in ~3 hours — improbable (Lotus + Damien + Lucid).",
     "The Genesis Pass (~30k NX) shortens liberation to ~3–4 weeks but is weak value on Heroic.",
   ],
-} as const
+}
 
 export type TaskCategory =
   | "mobs"
@@ -605,6 +637,25 @@ export const SEASON_CHANGES: { title: string; detail: string; status: Status }[]
   },
 ]
 
+export const QUANAH_BADGE_PORTABILITY: Claim<string> = {
+  value: "World-locked to the event world",
+  status: "disputed",
+  sources: ["transcript"],
+  note: "Whether the badge is portable to your main world is disputed and unconfirmed.",
+  alternatives: [
+    {
+      value: "Portable to the main world",
+      source: "transcript",
+      note: "jando raises the possibility that the badge transfers with the character.",
+    },
+    {
+      value: "World-locked to the event world",
+      source: "transcript",
+      note: "Treat the badge as staying in the event world until Nexon confirms otherwise.",
+    },
+  ],
+}
+
 export const QUANAH = {
   name: "Quanah",
   status: "confirmed" as Status,
@@ -621,7 +672,7 @@ export const QUANAH = {
     "It grants a profile badge.",
     "Whether the badge is portable to your main world is disputed and unconfirmed.",
   ],
-  disputed: "Badge portability to your main world is disputed and unconfirmed.",
+  badgePortability: QUANAH_BADGE_PORTABILITY,
 } as const
 
 export const DAY_ZERO = {

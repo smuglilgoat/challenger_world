@@ -165,7 +165,7 @@ export function AddCharacterDialog({ onAdd, triggerLabel = "Add character" }: Pr
                   <SelectGroup>
                     {TIERS.map((tier) => (
                       <SelectItem key={tier.name} value={tier.name}>
-                        {tier.name} — {tier.points.toLocaleString()} pts
+                        {tier.name} — {tier.points.value.toLocaleString()} pts
                       </SelectItem>
                     ))}
                   </SelectGroup>
