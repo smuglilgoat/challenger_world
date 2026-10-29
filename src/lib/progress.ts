@@ -1,11 +1,8 @@
-export const MAX_CRESTS = 6500
-export const WEEKLY_CREST_CAP = 500
-export const MAX_GENESIS_POINTS = 6500
-export const GENESIS_GAP_AFTER_THREE_WEEKS = 470
+import { CREST_RULES, GENESIS_RULES } from "./event-data"
 
 const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000
 // Derived from the transcript: 6,030 points after 21 days of clears.
-const GENESIS_POINTS_PER_DAY = 6030 / 21
+const GENESIS_POINTS_PER_DAY = GENESIS_RULES.pointsAfterThreeWeeks / 21
 
 export type TierLike = { points: number }
 
@@ -47,19 +44,19 @@ function percentOf(value: number, max: number): number {
 
 export function crestProgress(crests: number) {
   return {
-    current: Math.min(Math.max(crests, 0), MAX_CRESTS),
-    max: MAX_CRESTS,
-    percent: percentOf(crests, MAX_CRESTS),
-    weeklyCap: WEEKLY_CREST_CAP,
+    current: Math.min(Math.max(crests, 0), CREST_RULES.max),
+    max: CREST_RULES.max,
+    percent: percentOf(crests, CREST_RULES.max),
+    weeklyCap: CREST_RULES.perWeek,
   }
 }
 
 export function genesisProgress(points: number) {
   return {
-    current: Math.min(Math.max(points, 0), MAX_GENESIS_POINTS),
-    max: MAX_GENESIS_POINTS,
-    percent: percentOf(points, MAX_GENESIS_POINTS),
-    gapAfterThreeWeeks: GENESIS_GAP_AFTER_THREE_WEEKS,
+    current: Math.min(Math.max(points, 0), GENESIS_RULES.pointsToLiberate),
+    max: GENESIS_RULES.pointsToLiberate,
+    percent: percentOf(points, GENESIS_RULES.pointsToLiberate),
+    gapAfterThreeWeeks: GENESIS_RULES.gapAfterThreeWeeks,
   }
 }
 
@@ -77,6 +74,6 @@ export function taskCompletion(
 }
 
 export function estimatedDaysToLiberation(points: number): number {
-  if (points >= MAX_GENESIS_POINTS) return 0
-  return Math.ceil((MAX_GENESIS_POINTS - points) / GENESIS_POINTS_PER_DAY)
+  if (points >= GENESIS_RULES.pointsToLiberate) return 0
+  return Math.ceil((GENESIS_RULES.pointsToLiberate - points) / GENESIS_POINTS_PER_DAY)
 }

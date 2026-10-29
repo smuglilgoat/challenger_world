@@ -8,7 +8,7 @@ import {
   taskCompletion,
   tierFor,
 } from "./progress"
-import { TIERS } from "./event-data"
+import { CREST_RULES, GENESIS_RULES, TIERS } from "./event-data"
 
 describe("currentWeek", () => {
   const start = "2026-11-11"
@@ -34,63 +34,79 @@ describe("currentWeek", () => {
   })
 })
 
+const bronze = TIERS[0].points
+const silver = TIERS[1].points
+const master = TIERS[TIERS.length - 1].points
+
 describe("tierFor", () => {
   it("returns null below Bronze", () => {
-    expect(tierFor(4999, TIERS)).toBeNull()
+    expect(tierFor(bronze - 1, TIERS)).toBeNull()
   })
 
-  it("returns Bronze exactly at 5000", () => {
-    expect(tierFor(5000, TIERS)?.name).toBe("Bronze")
+  it("returns Bronze exactly at its threshold", () => {
+    expect(tierFor(bronze, TIERS)?.name).toBe("Bronze")
   })
 
   it("stays Diamond just below Master", () => {
-    expect(tierFor(64999, TIERS)?.name).toBe("Diamond")
+    expect(tierFor(master - 1, TIERS)?.name).toBe("Diamond")
   })
 
-  it("returns Master exactly at 65000", () => {
-    expect(tierFor(65000, TIERS)?.name).toBe("Master")
+  it("returns Master exactly at its threshold", () => {
+    expect(tierFor(master, TIERS)?.name).toBe("Master")
   })
 })
 
 describe("nextTier", () => {
-  it("points at Bronze from 4999", () => {
-    expect(nextTier(4999, TIERS)).toEqual({ tier: TIERS[0], pointsNeeded: 1 })
+  it("points at Bronze from one point below", () => {
+    expect(nextTier(bronze - 1, TIERS)).toEqual({ tier: TIERS[0], pointsNeeded: 1 })
   })
 
-  it("points at Silver from 5000", () => {
-    expect(nextTier(5000, TIERS)).toEqual({ tier: TIERS[1], pointsNeeded: 5000 })
+  it("points at Silver from Bronze", () => {
+    expect(nextTier(bronze, TIERS)).toEqual({ tier: TIERS[1], pointsNeeded: silver - bronze })
   })
 
   it("returns null at Master", () => {
-    expect(nextTier(65000, TIERS)).toBeNull()
+    expect(nextTier(master, TIERS)).toBeNull()
   })
 })
 
 describe("crestProgress", () => {
-  it("reports the 6500 max and 500 weekly cap", () => {
-    expect(crestProgress(0)).toEqual({ current: 0, max: 6500, percent: 0, weeklyCap: 500 })
+  it("reports the max and weekly cap defined in event data", () => {
+    expect(crestProgress(0)).toEqual({
+      current: 0,
+      max: CREST_RULES.max,
+      percent: 0,
+      weeklyCap: CREST_RULES.perWeek,
+    })
   })
 
-  it("reports half at 3250", () => {
-    expect(crestProgress(3250).percent).toBe(50)
+  it("reads its max from event data", () => {
+    expect(crestProgress(123).max).toBe(CREST_RULES.max)
+  })
+
+  it("reports half at half the max", () => {
+    expect(crestProgress(CREST_RULES.max / 2).percent).toBe(50)
   })
 
   it("clamps above the max", () => {
-    expect(crestProgress(99999)).toMatchObject({ current: 6500, percent: 100 })
+    expect(crestProgress(99999)).toMatchObject({ current: CREST_RULES.max, percent: 100 })
   })
 })
 
 describe("genesisProgress", () => {
-  it("keeps the 470-point gap after three weeks", () => {
-    expect(genesisProgress(6030)).toMatchObject({
-      current: 6030,
-      max: 6500,
-      gapAfterThreeWeeks: 470,
+  it("keeps the gap after three weeks", () => {
+    expect(genesisProgress(GENESIS_RULES.pointsAfterThreeWeeks)).toMatchObject({
+      current: GENESIS_RULES.pointsAfterThreeWeeks,
+      max: GENESIS_RULES.pointsToLiberate,
+      gapAfterThreeWeeks: GENESIS_RULES.gapAfterThreeWeeks,
     })
   })
 
   it("clamps at liberation", () => {
-    expect(genesisProgress(7000)).toMatchObject({ current: 6500, percent: 100 })
+    expect(genesisProgress(7000)).toMatchObject({
+      current: GENESIS_RULES.pointsToLiberate,
+      percent: 100,
+    })
   })
 })
 
@@ -113,10 +129,10 @@ describe("taskCompletion", () => {
 
 describe("estimatedDaysToLiberation", () => {
   it("is zero once liberated", () => {
-    expect(estimatedDaysToLiberation(6500)).toBe(0)
+    expect(estimatedDaysToLiberation(GENESIS_RULES.pointsToLiberate)).toBe(0)
   })
 
-  it("estimates a couple of days for the 470-point gap", () => {
-    expect(estimatedDaysToLiberation(6030)).toBe(2)
+  it("estimates a couple of days for the gap after three weeks", () => {
+    expect(estimatedDaysToLiberation(GENESIS_RULES.pointsAfterThreeWeeks)).toBe(2)
   })
 })
