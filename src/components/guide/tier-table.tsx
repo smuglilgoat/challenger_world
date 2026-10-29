@@ -47,7 +47,18 @@ export function TierTable() {
                 <TableCell className="text-right tabular-nums">
                   {tier.points.value.toLocaleString()}
                 </TableCell>
-                <TableCell className="text-muted-foreground">{tier.rewards}</TableCell>
+                <TableCell className="text-muted-foreground">
+                  <ul className="flex flex-col gap-0.5">
+                    {tier.rewards.map((reward) => (
+                      <li key={reward.label}>
+                        {reward.label}
+                        {reward.detail && (
+                          <span className="text-muted-foreground"> — {reward.detail}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </TableCell>
                 <TableCell className="text-right">
                   <ClaimBadge claim={tier.points} />
                 </TableCell>

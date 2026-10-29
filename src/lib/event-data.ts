@@ -253,10 +253,12 @@ export const TIER_POINTS_PROJECTED = {
   master: 65000,
 } as const
 
+export type RewardItem = { label: string; detail?: string }
+
 export type Tier = {
   name: string
   points: Claim<number>
-  rewards: string
+  rewards: RewardItem[]
   status: ClaimStatus
   source: SourceId
 }
@@ -269,49 +271,49 @@ export const TIERS: Tier[] = [
   {
     name: "Bronze",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.bronze),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
   {
     name: "Silver",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.silver),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
   {
     name: "Gold",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.gold),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
   {
     name: "Platinum",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.platinum),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
   {
     name: "Emerald",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.emerald),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
   {
     name: "Diamond",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.diamond),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
   {
     name: "Master",
     points: tierPointsClaim(TIER_POINTS_PROJECTED.master),
-    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    rewards: [{ label: "GMS reward list pending" }],
     status: "projected",
     source: "wiki-overdrive",
   },
