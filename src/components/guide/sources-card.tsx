@@ -22,21 +22,31 @@ export function SourcesCard() {
           {Object.values(SOURCES).map((source) => (
             <li key={source.id} className="flex flex-col gap-1 rounded-lg border p-3">
               <div className="flex flex-wrap items-center gap-2">
-                <a
-                  href={source.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-sm font-medium underline underline-offset-4 hover:text-primary"
-                >
-                  {source.title}
-                  <ExternalLinkIcon className="size-3" aria-hidden />
-                </a>
+                {source.url ? (
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-medium underline underline-offset-4 hover:text-primary"
+                  >
+                    {source.title}
+                    <ExternalLinkIcon className="size-3" aria-hidden />
+                  </a>
+                ) : (
+                  <span className="text-sm font-medium">{source.title}</span>
+                )}
                 <Badge variant={KIND_VARIANT[source.kind]}>{SOURCE_KIND_LABEL[source.kind]}</Badge>
                 <span className="text-sm text-muted-foreground">
                   Retrieved {formatDate(source.retrieved)}
                 </span>
               </div>
-              <span className="truncate text-sm text-muted-foreground">{source.url}</span>
+              {source.url ? (
+                <span className="truncate text-sm text-muted-foreground">{source.url}</span>
+              ) : (
+                <span className="truncate text-sm text-muted-foreground">
+                  {source.path ?? "In this repository"}
+                </span>
+              )}
             </li>
           ))}
         </ul>

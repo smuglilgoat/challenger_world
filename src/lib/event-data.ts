@@ -12,7 +12,10 @@ export type SourceId =
 export type Source = {
   id: SourceId
   title: string
-  url: string
+  /** Public URL. Absent for sources that live in the repo (see `kind: "local"`). */
+  url?: string
+  /** Repo-relative path for sources that live in the repo (see `kind: "local"`). */
+  path?: string
   kind: SourceKind
   /** ISO date the source was read. */
   retrieved: string
@@ -64,7 +67,8 @@ export const SOURCES: Record<SourceId, Source> = {
   transcript: {
     id: "transcript",
     title: "jando pre-season video guide transcript",
-    url: "docs/jando video guide transcript.txt",
+    // Lives in the repo, not on the web — rendered as plain text, never a link.
+    path: "docs/jando video guide transcript.txt",
     kind: "local",
     retrieved: "2026-10-29",
   },

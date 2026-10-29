@@ -77,6 +77,10 @@ export function GuideHeader() {
             <StatusBadge status="projected" />
             <span>{STATUS_LABEL.projected} — KMS numbers and the pre-season plan, not yet GMS patch notes.</span>
           </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <StatusBadge status="disputed" />
+            <span>{STATUS_LABEL.disputed} — sources disagree; every competing value is listed next to the badge.</span>
+          </div>
         </div>
       </CardContent>
     </Card>
