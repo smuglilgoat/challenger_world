@@ -28,4 +28,27 @@ describe("character storage", () => {
 
     expect(parseStoredCharacters(serializeCharacters([withPlan]))).toEqual([withPlan])
   })
+
+  it("migrates a v1 payload without losing characters", () => {
+    const v1Character: Record<string, unknown> = { ...character }
+    delete v1Character.planProgress
+    const raw = JSON.stringify({ version: 1, characters: [v1Character] })
+
+    const loaded = parseStoredCharacters(raw)
+
+    expect(loaded).toHaveLength(1)
+    expect(loaded[0]).toMatchObject({
+      id: character.id,
+      name: character.name,
+      crests: character.crests,
+      weeks: character.weeks,
+      counts: character.counts,
+    })
+    expect(loaded[0].planId).toBeUndefined()
+    expect(loaded[0].planProgress).toEqual({})
+  })
+
+  it("falls back to an empty list for malformed JSON", () => {
+    expect(parseStoredCharacters("{not json")).toEqual([])
+  })
 })

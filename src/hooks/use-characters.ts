@@ -27,37 +27,47 @@ export type NewCharacter = Pick<Character, "name" | "job" | "world" | "role" | "
   targetTier?: string
 }
 
-type StoredState = { version: 1; characters: Character[] }
+type StoredState = { version: 2; characters: Character[] }
+type StoredCharacter = Omit<Character, "planProgress"> & {
+  planProgress?: Record<string, boolean>
+}
 
 const STORAGE_KEY = "cws4.characters.v1"
 
-function isCharacter(value: unknown): value is Character {
+function isCharacter(value: unknown): value is StoredCharacter {
   return (
     typeof value === "object" &&
     value !== null &&
-    typeof (value as Character).id === "string" &&
-    typeof (value as Character).name === "string"
+    typeof (value as StoredCharacter).id === "string" &&
+    typeof (value as StoredCharacter).name === "string"
   )
 }
 
+/** v1 → v2 added planId and planProgress; keep every existing field. */
+function migrateCharacter(character: StoredCharacter): Character {
+  return {
+    ...character,
+    weeks: character.weeks ?? {},
+    counts: character.counts ?? {},
+    points: character.points ?? 0,
+    notes: character.notes ?? "",
+    planId: character.planId,
+    planProgress: character.planProgress ?? {},
+  }
+}
+
 export function serializeCharacters(characters: Character[]): string {
-  const state: StoredState = { version: 1, characters }
+  const state: StoredState = { version: 2, characters }
   return JSON.stringify(state)
 }
 
 export function parseStoredCharacters(raw: string | null): Character[] {
   try {
     if (!raw) return []
-    const parsed = JSON.parse(raw) as Partial<StoredState>
-    if (parsed.version !== 1 || !Array.isArray(parsed.characters)) return []
-    return parsed.characters.filter(isCharacter).map((character) => ({
-      ...character,
-      weeks: character.weeks ?? {},
-      counts: character.counts ?? {},
-      points: character.points ?? 0,
-      notes: character.notes ?? "",
-      planProgress: character.planProgress ?? {},
-    }))
+    const parsed = JSON.parse(raw) as { version?: number; characters?: unknown }
+    if (!Array.isArray(parsed.characters)) return []
+    if (parsed.version !== 1 && parsed.version !== 2) return []
+    return parsed.characters.filter(isCharacter).map(migrateCharacter)
   } catch {
     return []
   }
