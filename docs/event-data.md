@@ -6,14 +6,18 @@ Single source of truth for the app. Every entry is tagged **Confirmed (GMS)** or
 
 ## Sources
 
-| Key | URL |
-| --- | --- |
-| Overdrive (wiki) | https://maplestorywiki.net/w/MapleStory:_Overdrive |
-| Availability (wiki) | https://maplestorywiki.net/w/Availability |
-| MMO Huts — Maplayer One | https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights |
-| Nexon — Challenger World and Burning Events | https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events |
-| Nexon — v.271 patch notes | https://www.nexon.com/maplestory/news/update/44597/v-271-maple-story-x-frieren-beyond-journeys-end-patch-notes |
-| jando pre-season transcript | `docs/jando video guide transcript.txt` |
+| ID | Title | Kind | Retrieved | URL |
+| --- | --- | --- | --- | --- |
+| `gms-maplayer-one` | MMO Huts — Maplayer One | Community | 2026-10-29 | https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights |
+| `kms-overdrive` | KMS Overdrive patch (MapleStory Wiki) | Community | 2026-10-29 | https://maplestorywiki.net/w/MapleStory:_Overdrive |
+| `wiki-availability` | MapleStory Wiki — Availability | Community | 2026-10-29 | https://maplestorywiki.net/w/Availability |
+| `wiki-overdrive` | MapleStory Wiki — Overdrive | Community | 2026-10-29 | https://maplestorywiki.net/w/MapleStory:_Overdrive |
+| `nexon-events` | Nexon — Challenger World and Burning Events | Official | 2026-10-29 | https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events |
+| `nexon-v271` | Nexon — v.271 patch notes | Official | 2026-10-29 | https://www.nexon.com/maplestory/news/update/44597/v-271-maple-story-x-frieren-beyond-journeys-end-patch-notes |
+| `transcript` | jando pre-season transcript | Local | 2026-10-29 | `docs/jando video guide transcript.txt` |
+
+Fact tables below refer to sources by ID. Add a new source by adding one entry to
+`SOURCES` in `src/lib/event-data.ts`.
 
 ## Event
 

@@ -1,16 +1,76 @@
-export type Status = "confirmed" | "projected"
+export type SourceKind = "official" | "community" | "local"
 
-export const SOURCES = {
-  overdrive: "https://maplestorywiki.net/w/MapleStory:_Overdrive",
-  availability: "https://maplestorywiki.net/w/Availability",
-  mmohuts:
-    "https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights",
-  nexonEvents:
-    "https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events",
-  nexonPatch:
-    "https://www.nexon.com/maplestory/news/update/44597/v-271-maple-story-x-frieren-beyond-journeys-end-patch-notes",
-  transcript: "docs/jando video guide transcript.txt",
-} as const
+export type SourceId =
+  | "gms-maplayer-one"
+  | "kms-overdrive"
+  | "wiki-availability"
+  | "wiki-overdrive"
+  | "nexon-events"
+  | "nexon-v271"
+  | "transcript"
+
+export type Source = {
+  id: SourceId
+  title: string
+  url: string
+  kind: SourceKind
+  /** ISO date the source was read. */
+  retrieved: string
+}
+
+export const SOURCES: Record<SourceId, Source> = {
+  "gms-maplayer-one": {
+    id: "gms-maplayer-one",
+    title: "MMO Huts — Maplayer One winter updates",
+    url: "https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights",
+    kind: "community",
+    retrieved: "2026-10-29",
+  },
+  "kms-overdrive": {
+    id: "kms-overdrive",
+    title: "KMS Overdrive patch (MapleStory Wiki)",
+    url: "https://maplestorywiki.net/w/MapleStory:_Overdrive",
+    kind: "community",
+    retrieved: "2026-10-29",
+  },
+  "wiki-availability": {
+    id: "wiki-availability",
+    title: "MapleStory Wiki — Availability",
+    url: "https://maplestorywiki.net/w/Availability",
+    kind: "community",
+    retrieved: "2026-10-29",
+  },
+  "wiki-overdrive": {
+    id: "wiki-overdrive",
+    title: "MapleStory Wiki — Overdrive",
+    url: "https://maplestorywiki.net/w/MapleStory:_Overdrive",
+    kind: "community",
+    retrieved: "2026-10-29",
+  },
+  "nexon-events": {
+    id: "nexon-events",
+    title: "Nexon — Challenger World and Burning Events",
+    url: "https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events",
+    kind: "official",
+    retrieved: "2026-10-29",
+  },
+  "nexon-v271": {
+    id: "nexon-v271",
+    title: "Nexon — v.271 patch notes",
+    url: "https://www.nexon.com/maplestory/news/update/44597/v-271-maple-story-x-frieren-beyond-journeys-end-patch-notes",
+    kind: "official",
+    retrieved: "2026-10-29",
+  },
+  transcript: {
+    id: "transcript",
+    title: "jando pre-season video guide transcript",
+    url: "docs/jando video guide transcript.txt",
+    kind: "local",
+    retrieved: "2026-10-29",
+  },
+}
+
+export type Status = "confirmed" | "projected"
 
 export const STATUS_LABEL: Record<Status, string> = {
   confirmed: "Confirmed (GMS)",
@@ -25,7 +85,7 @@ export const EVENT = {
   part2Date: "2026-12-16",
   totalWeeks: 12,
   status: "confirmed" as Status,
-  source: SOURCES.mmohuts,
+  source: "gms-maplayer-one",
   part1: [
     "New job Lethe",
     "Quanah event world",
@@ -229,7 +289,7 @@ export const CREST_RULES = {
   weeksToMax: 9,
   stage8Window: "Week 2–3",
   status: "projected" as Status,
-  source: SOURCES.transcript,
+  source: "transcript",
   notes: [
     "Crests are no longer consumed when you upgrade the Item Burning set.",
     "500 crests per week from killing 2,000 mobs.",
@@ -246,7 +306,7 @@ export const GENESIS_RULES = {
   fallbackWeek: "Week 4",
   dayZeroDate: "2026-11-26",
   status: "projected" as Status,
-  source: SOURCES.transcript,
+  source: "transcript",
   notes: [
     "Three weeks of full Cernium clears plus one Black Mage solo leaves you at ~6,030 of 6,500.",
     "Kill Black Mage on 2026-12-01 for the last ~470 points, or accept a week-4 liberation.",
@@ -370,7 +430,7 @@ export type PrepItem = {
   detail: string
   expiry?: string
   status: Status
-  source: string
+  source: SourceId
 }
 
 export const PREP_CHECKLIST: PrepItem[] = [
@@ -380,7 +440,7 @@ export const PREP_CHECKLIST: PrepItem[] = [
     detail:
       "~23 days, check in ~15 times. Back pet voucher, legendary scroll + legendary ring, ~50/5 note stones.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "inkwell-note",
@@ -389,7 +449,7 @@ export const PREP_CHECKLIST: PrepItem[] = [
       "5,000 Arcane Symbols (maxes 2 symbols) or 2,000 Sacred Symbols, ~90 frags, Venge EXP vouchers, Mister cards, potential scroll, transfer potion (268→270).",
     expiry: "2026-11-23",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "inkwell-gift",
@@ -397,7 +457,7 @@ export const PREP_CHECKLIST: PrepItem[] = [
     detail: "Claim once per account from the Maple Administrator NPC. Window: 2026-10-19 → 2026-11-22.",
     expiry: "2026-11-22",
     status: "confirmed",
-    source: SOURCES.nexonEvents,
+    source: "nexon-events",
   },
   {
     key: "genesis-pass",
@@ -405,56 +465,56 @@ export const PREP_CHECKLIST: PrepItem[] = [
     detail:
       "~30k NX, 2x purchasable. Liberates Genesis in ~3–4 weeks instead of ~3 months; weak value for Heroic players.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "challenger-pass",
     label: "Challenger Pass premium tracks",
     detail: "~20k NX each for the EXP and Premium tracks.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "operation-redive",
     label: "Operation: Re-Dive",
     detail: "~20k NX. Ships with Part 2 on 2026-12-16.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "quanah-pass",
     label: "Quanah pass",
     detail: "Likely 20–50k NX.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "back-pets",
     label: "Back pets",
     detail: "Winter countdown + latte rewards + new recruit mission ≈ up to 3 months free.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "new-recruit",
     label: "New recruit mission",
     detail: "Extra rewards plus another back pet.",
     status: "projected",
-    source: SOURCES.transcript,
+    source: "transcript",
   },
   {
     key: "level-260",
     label: "Lv. 260 + 6th Job",
     detail: "Required before the one designated character can transfer into Quanah.",
     status: "confirmed",
-    source: SOURCES.mmohuts,
+    source: "gms-maplayer-one",
   },
   {
     key: "burning",
     label: "Hyper Burning MAX / Beyond Burning",
     detail: "Hyper Burning MAX to Lv. 260, Beyond Burning 1+1 to Lv. 280, Hyper Blink 200→260.",
     status: "confirmed",
-    source: SOURCES.mmohuts,
+    source: "gms-maplayer-one",
   },
 ]
 
@@ -548,7 +608,7 @@ export const SEASON_CHANGES: { title: string; detail: string; status: Status }[]
 export const QUANAH = {
   name: "Quanah",
   status: "confirmed" as Status,
-  source: SOURCES.mmohuts,
+  source: "gms-maplayer-one",
   summary:
     "A temporary event world with its own Inspector Level system, special equipment skills, fast leveling, dungeon stages, challenge dungeons, and boss attempts tied to entry tickets.",
   requirements: [
@@ -566,7 +626,7 @@ export const QUANAH = {
 
 export const DAY_ZERO = {
   status: "projected" as Status,
-  source: SOURCES.transcript,
+  source: "transcript",
   steps: [
     "Reach Lv. 260 (30 min–3 h depending on how hard you go).",
     "Unlock Item Burning immediately.",
@@ -581,7 +641,7 @@ export const DAY_ZERO = {
 
 export const ECONOMY = {
   status: "projected" as Status,
-  source: SOURCES.transcript,
+  source: "transcript",
   facts: [
     "One blueberry ≈ 47% of a level at Lv. 260; 5 ≈ 2.5 levels.",
     "The XP blueberry farm caps at Lv. 280.",
