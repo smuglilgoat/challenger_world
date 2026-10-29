@@ -32,6 +32,7 @@ type StoredCharacter = Omit<Character, "planProgress"> & {
   planProgress?: Record<string, boolean>
 }
 
+// Keep the v1 key so existing saves are found and migrated to version 2.
 const STORAGE_KEY = "cws4.characters.v1"
 
 function isCharacter(value: unknown): value is StoredCharacter {
