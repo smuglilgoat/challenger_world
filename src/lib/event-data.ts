@@ -89,6 +89,18 @@ export const STATUS_LABEL: Record<ClaimStatus, string> = {
   disputed: "Disputed",
 }
 
+export const SOURCE_KIND_LABEL: Record<SourceKind, string> = {
+  official: "Official",
+  community: "Community",
+  local: "Local",
+}
+
+export const DATA_REVISION = {
+  label: "Pre-season — KMS projection",
+  date: "2026-10-29",
+  patchNotesUrl: null as string | null,
+}
+
 export const EVENT = {
   name: "Challenger World Season 4",
   game: "Global MapleStory (GMS)",

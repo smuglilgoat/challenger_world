@@ -4,7 +4,7 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 import { Separator } from "@/components/ui/separator"
 import { Countdown } from "@/components/countdown"
 import { StatusBadge } from "@/components/status-badge"
-import { EVENT, STATUS_LABEL } from "@/lib/event-data"
+import { DATA_REVISION, EVENT, STATUS_LABEL } from "@/lib/event-data"
 import { formatDate } from "@/lib/format"
 
 export function GuideHeader() {
@@ -28,6 +28,22 @@ export function GuideHeader() {
             Part 2: {formatDate(EVENT.part2Date)}
           </Badge>
         </div>
+
+        <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+          <span>
+            Data as of {DATA_REVISION.label} ({DATA_REVISION.date})
+          </span>
+          {DATA_REVISION.patchNotesUrl && (
+            <a
+              href={DATA_REVISION.patchNotesUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline underline-offset-4 hover:text-primary"
+            >
+              GMS patch notes
+            </a>
+          )}
+        </p>
 
         <Separator />
 
