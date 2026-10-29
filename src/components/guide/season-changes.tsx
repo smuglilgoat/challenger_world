@@ -5,7 +5,7 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 import { Separator } from "@/components/ui/separator"
 import { ClaimBadge } from "@/components/claim-badge"
 import { StatusBadge } from "@/components/status-badge"
-import { QUANAH, SEASON_CHANGES } from "@/lib/event-data"
+import { QUANAH, SEASON_CHANGES, SOURCES } from "@/lib/event-data"
 
 export function SeasonChanges() {
   return (
@@ -37,8 +37,11 @@ export function QuanahExplainer() {
       <CardHeader>
         <CardTitle>{QUANAH.name} — the new event world</CardTitle>
         <CardDescription>{QUANAH.summary}</CardDescription>
-        <CardAction>
+        <CardAction className="flex flex-wrap items-center justify-end gap-1">
           <StatusBadge status={QUANAH.status} />
+          <span className="text-xs text-muted-foreground">
+            Source: {SOURCES[QUANAH.source].title}
+          </span>
         </CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">

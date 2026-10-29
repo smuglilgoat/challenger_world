@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox"
 import { Field, FieldContent, FieldDescription, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { StatusBadge } from "@/components/status-badge"
-import { PREP_CHECKLIST } from "@/lib/event-data"
+import { PREP_CHECKLIST, SOURCES } from "@/lib/event-data"
 import { formatDate } from "@/lib/format"
 
 const PREP_KEY = "cws4.prep.v1"
@@ -55,6 +55,9 @@ export function PrepChecklist() {
                   {item.expiry && <Badge variant="destructive">Expires {formatDate(item.expiry)}</Badge>}
                 </div>
                 <FieldDescription>{item.detail}</FieldDescription>
+                <span className="text-xs text-muted-foreground">
+                  Source: {SOURCES[item.source].title}
+                </span>
               </FieldContent>
             </Field>
           ))}

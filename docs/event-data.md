@@ -14,15 +14,16 @@ for humans.
   visible instead of silently overwritten.
 - **Source registry** — `SOURCES` is keyed by `SourceId`; facts point at IDs, not
   URLs.
-- **Data revision** — `DATA_REVISION` frames the whole guide. One edit flips it
-  when the real patch notes land.
+- **Data revision** — `DATA_REVISION` is a label, a date, and an optional patch
+  notes link shown in the guide header. It does not change any fact: every claim
+  carries its own status, and those statuses move independently as patch notes
+  land.
 
 ## Sources
 
 | ID | Title | Kind | Retrieved | URL |
 | --- | --- | --- | --- | --- |
 | `gms-maplayer-one` | MMO Huts — Maplayer One | Community | 2026-10-29 | https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights |
-| `kms-overdrive` | KMS Overdrive patch (MapleStory Wiki) | Community | 2026-10-29 | https://maplestorywiki.net/w/MapleStory:_Overdrive |
 | `wiki-availability` | MapleStory Wiki — Availability | Community | 2026-10-29 | https://maplestorywiki.net/w/Availability |
 | `wiki-overdrive` | MapleStory Wiki — Overdrive | Community | 2026-10-29 | https://maplestorywiki.net/w/MapleStory:_Overdrive |
 | `nexon-events` | Nexon — Challenger World and Burning Events | Official | 2026-10-29 | https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events |
@@ -30,15 +31,19 @@ for humans.
 | `transcript` | jando pre-season transcript | Local | 2026-10-29 | `docs/jando video guide transcript.txt` |
 
 Add a new source by adding one entry to `SOURCES`; the guide's Sources card picks
-it up automatically.
+it up automatically. A source that no fact cites yet (such as `nexon-v271`, the
+official GMS patch notes kept ready for the augmentation) still renders normally.
 
 ## Data revision
 
 | Field | Value |
 | --- | --- |
 | Label | Pre-season — KMS projection |
-| Date | 2026-10-29 |
+| Date | 2026-10-29 (rendered through `formatDate`) |
 | GMS patch notes | not published yet (`patchNotesUrl: null`) |
+
+This block only labels the data set in the header. It does not change claim
+statuses; update the individual claim when a fact is confirmed.
 
 ## Event
 
@@ -84,16 +89,17 @@ timeline and the tracker cannot drift apart.
 
 ### Disputed claim — badge portability
 
-`QUANAH_BADGE_PORTABILITY` is the first `disputed` claim.
+`QUANAH_BADGE_PORTABILITY` is the disputed claim. The transcript mentions both
+positions without settling them, so the claim keeps one conservative value and
+lists only the genuinely competing position as an alternative.
 
 | Field | Value | Source |
 | --- | --- | --- |
-| Default position | World-locked to the event world | `transcript` |
+| Claimed value | World-locked to the event world | `transcript` |
 | Alternative | Portable to the main world | `transcript` |
-| Alternative | World-locked to the event world | `transcript` |
 
-The UI renders the alternatives next to the warning badge so the reader sees the
-disagreement instead of a single confident answer.
+The UI renders the claim's own value first, then each alternative with its source
+and note, so the reader sees the disagreement instead of a single confident answer.
 
 ## Season 4 changes vs Season 3
 
@@ -142,7 +148,9 @@ number here moves the guide, the progress bar and the cap together.
 | Genesis Pass | ~30k NX, 2x purchasable, ~3–4 weeks instead of ~3 months; low value for Heroic | Projected | `transcript` |
 
 `estimatedDaysToLiberation()` derives its daily rate from
-`pointsAfterThreeWeeks / 21`, so it has no constant of its own.
+`pointsAfterThreeWeeks / GENESIS_CALENDAR_DAYS`, where the calendar constant is
+named and commented (2026-11-11 → 2026-12-01 is 20 elapsed days, 21 calendar days
+inclusive), so it has no event constant of its own.
 
 ## Tier thresholds
 
@@ -238,17 +246,24 @@ liberation missions.
 
 1. **New source** — add one entry to `SOURCES` in `src/lib/event-data.ts` and one
    row to the Sources table above. Every fact refers to it by ID.
-2. **New fact** — add it to `event-data.ts`, mirror it here, and bump
+2. **New fact** — add it to `event-data.ts`, mirror it here, and update
    `DATA_REVISION` (`label`, `date`, and `patchNotesUrl` once the GMS notes
-   exist). One revision edit reframes the whole guide.
+   exist) so the header reflects the revision. `DATA_REVISION` does not change
+   claim statuses; set those on each fact.
 3. **Conflicting values** — keep the current value and add
    `alternatives: [{ value, source, note }]` to the claim, with
-   `status: "disputed"`. The UI renders each alternative and its source.
+   `status: "disputed"`. Only list genuinely competing positions; the UI renders
+   the claim's own value first, then each alternative with its source and note.
 4. **New tier reward** — add a `RewardItem` to the tier's `rewards` array.
-   `TierTable` renders the list as-is.
+   `TierTable` renders the list as-is. A tier's points live only in its
+   `points` claim.
 5. **New plan** — add a `Plan` to `PLANS` with per-week targets; the character
    card's selector and checklist pick it up automatically.
-6. **Numeric change** — change it only in `event-data.ts`. `progress.ts` imports
-   the constants, so the guide and the progress bars cannot disagree.
+6. **Numeric change** — numeric event facts live only in `event-data.ts`. Prose
+   in `WEEKS`, `PLANS`, `WEEKLY_TASKS`, `SEASON_CHANGES` and the rules `notes`
+   interpolates those constants, and `progress.ts` imports them, so changing a
+   number is a one-line edit that moves the guide, the prose and the progress
+   bars together. Do not paste a number into a string.
 7. **Stored schema change** — bump the `version` in `use-characters.ts` and add a
-   migration in `migrateCharacter`; never discard saved characters.
+   migration in `migrateCharacter`; never discard saved characters. Keep the
+   `cws4.characters.v1` storage key so existing saves are still found.

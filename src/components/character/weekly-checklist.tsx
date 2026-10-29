@@ -66,7 +66,11 @@ export function WeeklyChecklist({
         </Select>
       </div>
 
-      <Progress value={completion.percent} className="h-2" />
+      <Progress
+        value={completion.percent}
+        aria-label="Weekly checklist completion"
+        className="h-2"
+      />
 
       {week && <p className="text-sm text-muted-foreground">{week.focus}</p>}
 
@@ -159,7 +163,11 @@ export function WeeklyChecklist({
 
         {plan && (
           <>
-            <Progress value={planDone.percent} className="h-2" />
+            <Progress
+              value={planDone.percent}
+              aria-label="Progression plan completion"
+              className="h-2"
+            />
             <p className="text-sm text-muted-foreground">{plan.summary}</p>
             {planTargets.length > 0 ? (
               <FieldGroup className="gap-3">

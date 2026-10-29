@@ -32,15 +32,19 @@ type StoredCharacter = Omit<Character, "planProgress"> & {
   planProgress?: Record<string, boolean>
 }
 
-// Keep the v1 key so existing saves are found and migrated to version 2.
+// Stored under the v1 key on purpose: renaming it would orphan every existing
+// save. The payload carries `version: 2`; bump the version, not the key.
 const STORAGE_KEY = "cws4.characters.v1"
+
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+}
 
 function isCharacter(value: unknown): value is StoredCharacter {
   return (
-    typeof value === "object" &&
-    value !== null &&
-    typeof (value as StoredCharacter).id === "string" &&
-    typeof (value as StoredCharacter).name === "string"
+    isPlainObject(value) &&
+    typeof value.id === "string" &&
+    typeof value.name === "string"
   )
 }
 
@@ -48,12 +52,18 @@ function isCharacter(value: unknown): value is StoredCharacter {
 function migrateCharacter(character: StoredCharacter): Character {
   return {
     ...character,
-    weeks: character.weeks ?? {},
-    counts: character.counts ?? {},
+    weeks: isPlainObject(character.weeks)
+      ? (character.weeks as Record<string, boolean>)
+      : {},
+    counts: isPlainObject(character.counts)
+      ? (character.counts as Record<string, number>)
+      : {},
     points: character.points ?? 0,
     notes: character.notes ?? "",
     planId: character.planId,
-    planProgress: character.planProgress ?? {},
+    planProgress: isPlainObject(character.planProgress)
+      ? (character.planProgress as Record<string, boolean>)
+      : {},
   }
 }
 

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest"
+import progressSource from "./progress.ts?raw"
 import {
   crestProgress,
   currentWeek,
@@ -151,7 +152,26 @@ describe("estimatedDaysToLiberation", () => {
     expect(estimatedDaysToLiberation(GENESIS_RULES.pointsToLiberate.value)).toBe(0)
   })
 
-  it("estimates a couple of days for the gap after three weeks", () => {
+  it("pins the daily rate for known point totals", () => {
     expect(estimatedDaysToLiberation(GENESIS_RULES.pointsAfterThreeWeeks)).toBe(2)
+    expect(estimatedDaysToLiberation(0)).toBe(23)
+    expect(estimatedDaysToLiberation(6000)).toBe(2)
+  })
+})
+
+describe("progress.ts event constants", () => {
+  it("declares no numeric event literal of its own", () => {
+    const forbidden = [
+      /\b500\b/,
+      /\b2000\b/,
+      /\b2400\b/,
+      /\b470\b/,
+      /\b6030\b/,
+      /\b6500\b/,
+      /\/\s*21\b/,
+    ]
+    for (const pattern of forbidden) {
+      expect(progressSource).not.toMatch(pattern)
+    }
   })
 })

@@ -11,14 +11,19 @@ export function ClaimBadge({ claim, className }: { claim: Claim<unknown>; classN
   return (
     <div className={cn("flex flex-wrap items-center gap-1", className)}>
       <StatusBadge status={claim.status} />
+      <Badge>{claimValue(claim.value)}</Badge>
       {claim.alternatives?.map((alternative) => (
-        <Badge
+        <span
           key={`${alternative.source}:${String(alternative.value)}`}
-          variant="outline"
-          title={alternative.note}
+          className="inline-flex flex-wrap items-center gap-1"
         >
-          {claimValue(alternative.value)} · {SOURCES[alternative.source].title}
-        </Badge>
+          <Badge variant="outline">
+            {claimValue(alternative.value)} · {SOURCES[alternative.source].title}
+          </Badge>
+          {alternative.note && (
+            <span className="text-xs text-muted-foreground">{alternative.note}</span>
+          )}
+        </span>
       ))}
     </div>
   )

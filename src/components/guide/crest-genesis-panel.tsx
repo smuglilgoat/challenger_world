@@ -3,7 +3,6 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -12,7 +11,13 @@ import {
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
 import { StatusBadge } from "@/components/status-badge"
-import { CREST_RULES, GENESIS_RULES, MILESTONES } from "@/lib/event-data"
+import {
+  CREST_RULES,
+  GENESIS_RULES,
+  MILESTONES,
+  SOURCES,
+  STATUS_LABEL,
+} from "@/lib/event-data"
 import { crestProgress, genesisProgress } from "@/lib/progress"
 
 export function CrestGenesisPanel() {
@@ -28,9 +33,6 @@ export function CrestGenesisPanel() {
             Crests cap at {CREST_RULES.max.toLocaleString()}; Genesis needs{" "}
             {GENESIS_RULES.pointsToLiberate.value.toLocaleString()} to liberate.
           </CardDescription>
-          <CardAction>
-            <StatusBadge status={GENESIS_RULES.status} />
-          </CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-5">
           <div className="flex flex-col gap-2">
@@ -40,11 +42,18 @@ export function CrestGenesisPanel() {
                 {CREST_RULES.perWeek} / {CREST_RULES.max} per week
               </span>
             </div>
-            <Progress value={crests.percent} className="h-2" />
+            <Progress
+              value={crests.percent}
+              aria-label="Item Burning crest progress"
+              className="h-2"
+            />
             <p className="text-sm text-muted-foreground">
               {CREST_RULES.perWeek} crests per week from {CREST_RULES.mobsPerWeek.toLocaleString()} mobs, plus up
               to {CREST_RULES.bossCap.toLocaleString()} boss crests that accrue instead of resetting. About{" "}
               {CREST_RULES.weeksToMax} weeks to max; stage 8 lands around {CREST_RULES.stage8Window}.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {STATUS_LABEL[CREST_RULES.status]} · {SOURCES[CREST_RULES.source].title}
             </p>
           </div>
 
@@ -55,10 +64,17 @@ export function CrestGenesisPanel() {
                 {genesis.current.toLocaleString()} / {genesis.max.toLocaleString()}
               </span>
             </div>
-            <Progress value={genesis.percent} className="h-2" />
+            <Progress
+              value={genesis.percent}
+              aria-label="Genesis points after three weeks"
+              className="h-2"
+            />
             <p className="text-sm text-muted-foreground">
               Full Cernium clears plus one Black Mage solo leave you{" "}
               {GENESIS_RULES.gapAfterThreeWeeks.value} points short.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {STATUS_LABEL[GENESIS_RULES.status]} · {SOURCES[GENESIS_RULES.source].title}
             </p>
           </div>
 

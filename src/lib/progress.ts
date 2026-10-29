@@ -1,7 +1,9 @@
 import { CREST_RULES, GENESIS_RULES, type Week } from "./event-data"
 
-// Derived from the transcript: 6,030 points after 21 days of clears.
-const GENESIS_POINTS_PER_DAY = GENESIS_RULES.pointsAfterThreeWeeks / 21
+// 2026-11-11 → 2026-12-01 is 20 elapsed days, 21 calendar days inclusive.
+const GENESIS_CALENDAR_DAYS = 21
+// Derived from the transcript: 6,030 points over that calendar window.
+const GENESIS_POINTS_PER_DAY = GENESIS_RULES.pointsAfterThreeWeeks / GENESIS_CALENDAR_DAYS
 
 export type TierLike = { points: { value: number } }
 

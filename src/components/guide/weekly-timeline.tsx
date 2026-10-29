@@ -3,7 +3,7 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 import { StatusBadge } from "@/components/status-badge"
 import { cn } from "@/lib/utils"
 import { currentWeek } from "@/lib/progress"
-import { DAY_ZERO, EVENT, WEEKS } from "@/lib/event-data"
+import { DAY_ZERO, SOURCES, WEEKS } from "@/lib/event-data"
 import { formatShortDate } from "@/lib/format"
 
 export function WeeklyTimeline() {
@@ -15,7 +15,7 @@ export function WeeklyTimeline() {
         <CardHeader>
           <CardTitle>Weekly timeline</CardTitle>
           <CardDescription>
-            {EVENT.totalWeeks} weeks from launch. Reset day is Monday; dates are confirmed, weekly focus is
+            {WEEKS.length} weeks from launch. Reset day is Monday; dates are confirmed, weekly focus is
             projected.
           </CardDescription>
           <CardAction>
@@ -69,6 +69,9 @@ export function WeeklyTimeline() {
               <li key={step}>{step}</li>
             ))}
           </ol>
+          <p className="mt-2 text-xs text-muted-foreground">
+            Source: {SOURCES[DAY_ZERO.source].title}
+          </p>
         </CardContent>
       </Card>
     </div>

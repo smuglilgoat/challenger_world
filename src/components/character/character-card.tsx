@@ -103,7 +103,11 @@ export function CharacterCard({
                 {crests.current.toLocaleString()} / {crests.max.toLocaleString()}
               </span>
             </div>
-            <Progress value={crests.percent} className="h-2" />
+            <Progress
+              value={crests.percent}
+              aria-label={`${character.name} Item Burning crest progress`}
+              className="h-2"
+            />
             <span className="text-sm text-muted-foreground">{crests.weeklyCap} crests per week</span>
           </div>
 
@@ -114,7 +118,11 @@ export function CharacterCard({
                 {genesis.current.toLocaleString()} / {genesis.max.toLocaleString()}
               </span>
             </div>
-            <Progress value={genesis.percent} className="h-2" />
+            <Progress
+              value={genesis.percent}
+              aria-label={`${character.name} Genesis point progress`}
+              className="h-2"
+            />
             <span className="text-sm text-muted-foreground">
               {genesis.gapAfterThreeWeeks} short after three full weeks
             </span>

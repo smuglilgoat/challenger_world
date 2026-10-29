@@ -2,7 +2,6 @@ export type SourceKind = "official" | "community" | "local"
 
 export type SourceId =
   | "gms-maplayer-one"
-  | "kms-overdrive"
   | "wiki-availability"
   | "wiki-overdrive"
   | "nexon-events"
@@ -26,13 +25,6 @@ export const SOURCES: Record<SourceId, Source> = {
     id: "gms-maplayer-one",
     title: "MMO Huts — Maplayer One winter updates",
     url: "https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights",
-    kind: "community",
-    retrieved: "2026-10-29",
-  },
-  "kms-overdrive": {
-    id: "kms-overdrive",
-    title: "KMS Overdrive patch (MapleStory Wiki)",
-    url: "https://maplestorywiki.net/w/MapleStory:_Overdrive",
     kind: "community",
     retrieved: "2026-10-29",
   },
@@ -111,7 +103,6 @@ export const EVENT = {
   startDate: "2026-11-11",
   endDate: "2027-02-09",
   part2Date: "2026-12-16",
-  totalWeeks: 12,
   status: "confirmed" as Status,
   source: "gms-maplayer-one",
   part1: [
@@ -127,6 +118,58 @@ export const EVENT = {
     "Mystic Frontier Champions Season 2",
   ],
 } as const
+
+export const CREST_RULES = {
+  perWeek: 500,
+  mobsPerWeek: 2000,
+  bossCap: 2400,
+  max: 6500,
+  weeksToMax: 9,
+  stage8Window: "Week 2–3",
+  status: "projected" as Status,
+  source: "transcript" as SourceId,
+  notes: [] as string[],
+}
+
+// Built after the numeric fields so the prose cannot drift from the constants.
+CREST_RULES.notes = [
+  "Crests are no longer consumed when you upgrade the Item Burning set.",
+  `${CREST_RULES.perWeek} crests per week from killing ${CREST_RULES.mobsPerWeek.toLocaleString()} mobs.`,
+  `Boss crests accrue instead of resetting weekly, up to ${CREST_RULES.bossCap.toLocaleString()}.`,
+  "Week 0 crests are worth grabbing — they push you a week ahead.",
+]
+
+// Genesis liberation and the Item Burning crest total both happen to be 6,500.
+// They are separate facts from separate systems, so neither is derived from the
+// other: a patch note can move one without moving the other.
+export const GENESIS_RULES = {
+  pointsToLiberate: {
+    value: 6500,
+    status: "projected",
+    sources: ["transcript"],
+  } satisfies Claim<number>,
+  pointsAfterThreeWeeks: 6030,
+  gapAfterThreeWeeks: {
+    value: 470,
+    status: "projected",
+    sources: ["transcript"],
+  } satisfies Claim<number>,
+  realisticDate: "2026-12-01",
+  fallbackWeek: "Week 4",
+  dayZeroDate: "2026-11-26",
+  status: "projected" as Status,
+  source: "transcript" as SourceId,
+  notes: [] as string[],
+}
+
+GENESIS_RULES.notes = [
+  `Three weeks of full Cernium clears plus one Black Mage solo leaves you at ~${GENESIS_RULES.pointsAfterThreeWeeks.toLocaleString()} of ${GENESIS_RULES.pointsToLiberate.value.toLocaleString()}.`,
+  `Kill Black Mage on ${GENESIS_RULES.realisticDate} for the last ~${GENESIS_RULES.gapAfterThreeWeeks.value} points, or accept a week-4 liberation.`,
+  `A ${GENESIS_RULES.dayZeroDate} liberation needs ${GENESIS_RULES.gapAfterThreeWeeks.value} points on day zero in ~3 hours — improbable (Lotus + Damien + Lucid).`,
+  "The Genesis Pass (~30k NX) shortens liberation to ~3–4 weeks but is weak value on Heroic.",
+]
+
+const capCrests = () => `Cap ${CREST_RULES.perWeek} crests`
 
 export type Week = {
   index: number
@@ -144,7 +187,7 @@ export const WEEKS: Week[] = [
     focus: "Launch week — get to 260 and start every clock you can.",
     keyTargets: [
       "Reach Lv. 260 and complete 6th Job",
-      "Unlock Item Burning and grab 500 crests (2,000 mobs)",
+      `Unlock Item Burning and grab ${CREST_RULES.perWeek} crests (${CREST_RULES.mobsPerWeek.toLocaleString()} mobs)`,
       "Kill 5,000 mobs for weekly frags",
       "Arcane River + Grandis dailies and weeklies",
       "Boss clears for meso, including Hard Lotus",
@@ -156,9 +199,9 @@ export const WEEKS: Week[] = [
     index: 1,
     label: "Week 1",
     startDate: "2026-11-16",
-    focus: "First full reset — boss crests accrue toward the 2,400 cap.",
+    focus: `First full reset — boss crests accrue toward the ${CREST_RULES.bossCap.toLocaleString()} cap.`,
     keyTargets: [
-      "Cap 500 crests",
+      capCrests(),
       "Clear bosses up to Normal Mayrin / Chaos Tenebris and below",
       "Cernium clears for Genesis points",
     ],
@@ -169,7 +212,7 @@ export const WEEKS: Week[] = [
     startDate: "2026-11-23",
     focus: "Item Burning should sit around stage 8.",
     keyTargets: [
-      "Cap 500 crests",
+      capCrests(),
       "Hold Item Burning stage 8",
       "Inkwell note expires 2026-11-23 — redeem it",
     ],
@@ -178,29 +221,29 @@ export const WEEKS: Week[] = [
     index: 3,
     label: "Week 3",
     startDate: "2026-11-30",
-    focus: "Genesis check: ~6,030 points after full Cernium + one Black Mage solo.",
+    focus: `Genesis check: ~${GENESIS_RULES.pointsAfterThreeWeeks.toLocaleString()} points after full Cernium + one Black Mage solo.`,
     keyTargets: [
-      "Kill Black Mage on 2026-12-01 for the last ~470 points",
+      `Kill Black Mage on ${GENESIS_RULES.realisticDate} for the last ~${GENESIS_RULES.gapAfterThreeWeeks.value} points`,
       "Otherwise accept a week-4 liberation",
-      "Cap 500 crests",
+      capCrests(),
     ],
   },
   {
     index: 4,
     label: "Week 4",
     startDate: "2026-12-07",
-    focus: "Fallback liberation week if the 2026-12-01 Black Mage kill slipped.",
-    keyTargets: ["Liberate Genesis", "Cap 500 crests", "Keep boss crests at the cap"],
+    focus: `Fallback liberation week if the ${GENESIS_RULES.realisticDate} Black Mage kill slipped.`,
+    keyTargets: ["Liberate Genesis", capCrests(), "Keep boss crests at the cap"],
   },
   {
     index: 5,
     label: "Week 5",
     startDate: "2026-12-14",
-    focus: "Part 2 lands 2026-12-16: HEXA Skill Nodes, Bellona, Operation: Re-Dive.",
+    focus: `Part 2 lands ${EVENT.part2Date}: HEXA Skill Nodes, Bellona, Operation: Re-Dive.`,
     keyTargets: [
       "Unlock the 3rd set of HEXA Skill Nodes",
       "Try Bellona",
-      "Cap 500 crests",
+      capCrests(),
     ],
   },
   {
@@ -208,41 +251,41 @@ export const WEEKS: Week[] = [
     label: "Week 6",
     startDate: "2026-12-21",
     focus: "Mid-season — keep the weekly crest and mission routine.",
-    keyTargets: ["Cap 500 crests", "Season Missions", "Weekly Growth Pass if behind"],
+    keyTargets: [capCrests(), "Season Missions", "Weekly Growth Pass if behind"],
   },
   {
     index: 7,
     label: "Week 7",
     startDate: "2026-12-28",
     focus: "Item Burning is close to finished.",
-    keyTargets: ["Cap 500 crests", "Push Item Burning stages", "Season Missions"],
+    keyTargets: [capCrests(), "Push Item Burning stages", "Season Missions"],
   },
   {
     index: 8,
     label: "Week 8",
     startDate: "2027-01-04",
-    focus: "Item Burning set should be maxed (~9 weeks of 500/week plus boss crests).",
-    keyTargets: ["Finish the Item Burning set", "Cap 500 crests", "Season Missions"],
+    focus: `Item Burning set should be maxed (~${CREST_RULES.weeksToMax} weeks of ${CREST_RULES.perWeek}/week plus boss crests).`,
+    keyTargets: ["Finish the Item Burning set", capCrests(), "Season Missions"],
   },
   {
     index: 9,
     label: "Week 9",
     startDate: "2027-01-11",
     focus: "Clean-up: rings, scrolls and the Chosen Seren spec.",
-    keyTargets: ["Finish ring and scroll sources", "Season Missions", "Cap 500 crests"],
+    keyTargets: ["Finish ring and scroll sources", "Season Missions", capCrests()],
   },
   {
     index: 10,
     label: "Week 10",
     startDate: "2027-01-18",
     focus: "Tier push and remaining season missions.",
-    keyTargets: ["Push tier points", "Season Missions", "Cap 500 crests"],
+    keyTargets: ["Push tier points", "Season Missions", capCrests()],
   },
   {
     index: 11,
     label: "Week 11",
     startDate: "2027-01-25",
-    focus: "Final stretch — the event ends 2027-02-09.",
+    focus: `Final stretch — the event ends ${EVENT.endDate}.`,
     keyTargets: ["Spend Challenger Coins", "Finish remaining missions", "Final tier push"],
   },
 ]
@@ -264,8 +307,7 @@ export const PLANS: Plan[] = [
     name: "jando's pre-season route",
     author: "jando",
     source: "transcript",
-    summary:
-      "12 weekly resets. Item Burning stage 8 by week 2–3, Genesis liberation around 6,030 points after three weeks, and a Black Mage kill on 2026-12-01 for the last ~470.",
+    summary: `${WEEKS.length} weekly resets. Item Burning stage 8 by week 2–3, Genesis liberation around ${GENESIS_RULES.pointsAfterThreeWeeks.toLocaleString()} points after three weeks, and a Black Mage kill on ${GENESIS_RULES.realisticDate} for the last ~${GENESIS_RULES.gapAfterThreeWeeks.value}.`,
     weeks: [
       {
         weekIndex: 0,
@@ -273,7 +315,7 @@ export const PLANS: Plan[] = [
           { label: "Reach Lv. 260", detail: "30 min–3 h with Hyper Burning rates." },
           { label: "Unlock Item Burning" },
           {
-            label: "Kill 2,000 mobs for 500 crests",
+            label: `Kill ${CREST_RULES.mobsPerWeek.toLocaleString()} mobs for ${CREST_RULES.perWeek} crests`,
             detail: "Week 0 crests push you a week ahead.",
           },
           { label: "Kill 5,000 mobs for weekly frags" },
@@ -287,9 +329,9 @@ export const PLANS: Plan[] = [
       {
         weekIndex: 1,
         targets: [
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
           {
-            label: "Take the full 2,400 boss crests",
+            label: `Take the full ${CREST_RULES.bossCap.toLocaleString()} boss crests`,
             detail: "Normal Mayrin and below, Chaos Tenebris and below.",
           },
           { label: "Cernium clears for Genesis points" },
@@ -298,7 +340,7 @@ export const PLANS: Plan[] = [
       {
         weekIndex: 2,
         targets: [
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
           { label: "Hold Item Burning stage 8", detail: "Going further is hard this early." },
         ],
       },
@@ -306,35 +348,38 @@ export const PLANS: Plan[] = [
         weekIndex: 3,
         targets: [
           {
-            label: "Reach ~6,030 Genesis points",
+            label: `Reach ~${GENESIS_RULES.pointsAfterThreeWeeks.toLocaleString()} Genesis points`,
             detail: "Full Cernium clears plus one Black Mage solo.",
           },
           {
-            label: "Kill Black Mage on 2026-12-01 for the last ~470 points",
+            label: `Kill Black Mage on ${GENESIS_RULES.realisticDate} for the last ~${GENESIS_RULES.gapAfterThreeWeeks.value} points`,
             detail: "Otherwise wait for the reset.",
           },
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
         ],
       },
       {
         weekIndex: 4,
         targets: [
-          { label: "Liberate Genesis if the 2026-12-01 kill slipped" },
-          { label: "Cap 500 crests" },
+          { label: `Liberate Genesis if the ${GENESIS_RULES.realisticDate} kill slipped` },
+          { label: capCrests() },
         ],
       },
       {
         weekIndex: 5,
         targets: [
-          { label: "Unlock the 3rd set of HEXA Skill Nodes", detail: "Part 2 lands 2026-12-16." },
+          {
+            label: "Unlock the 3rd set of HEXA Skill Nodes",
+            detail: `Part 2 lands ${EVENT.part2Date}.`,
+          },
           { label: "Try Bellona" },
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
         ],
       },
       {
         weekIndex: 6,
         targets: [
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
           { label: "Keep boss crests at the cap" },
           { label: "Season Missions" },
         ],
@@ -342,7 +387,7 @@ export const PLANS: Plan[] = [
       {
         weekIndex: 7,
         targets: [
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
           { label: "Push Item Burning stages" },
           { label: "Season Missions" },
         ],
@@ -352,9 +397,9 @@ export const PLANS: Plan[] = [
         targets: [
           {
             label: "Finish the Item Burning set",
-            detail: "~9 weeks of 500/week plus boss crests.",
+            detail: `~${CREST_RULES.weeksToMax} weeks of ${CREST_RULES.perWeek}/week plus boss crests.`,
           },
-          { label: "Cap 500 crests" },
+          { label: capCrests() },
           { label: "Season Missions" },
         ],
       },
@@ -370,7 +415,7 @@ export const PLANS: Plan[] = [
       },
       {
         weekIndex: 10,
-        targets: [{ label: "Push tier points" }, { label: "Cap 500 crests" }],
+        targets: [{ label: "Push tier points" }, { label: capCrests() }],
       },
       {
         weekIndex: 11,
@@ -384,24 +429,12 @@ export const PLANS: Plan[] = [
   },
 ]
 
-export const TIER_POINTS_PROJECTED = {
-  bronze: 5000,
-  silver: 10000,
-  gold: 15000,
-  platinum: 20000,
-  emerald: 30000,
-  diamond: 40000,
-  master: 65000,
-} as const
-
 export type RewardItem = { label: string; detail?: string }
 
 export type Tier = {
   name: string
   points: Claim<number>
   rewards: RewardItem[]
-  status: ClaimStatus
-  source: SourceId
 }
 
 function tierPointsClaim(value: number): Claim<number> {
@@ -411,96 +444,40 @@ function tierPointsClaim(value: number): Claim<number> {
 export const TIERS: Tier[] = [
   {
     name: "Bronze",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.bronze),
+    points: tierPointsClaim(5000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
   {
     name: "Silver",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.silver),
+    points: tierPointsClaim(10000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
   {
     name: "Gold",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.gold),
+    points: tierPointsClaim(15000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
   {
     name: "Platinum",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.platinum),
+    points: tierPointsClaim(20000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
   {
     name: "Emerald",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.emerald),
+    points: tierPointsClaim(30000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
   {
     name: "Diamond",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.diamond),
+    points: tierPointsClaim(40000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
   {
     name: "Master",
-    points: tierPointsClaim(TIER_POINTS_PROJECTED.master),
+    points: tierPointsClaim(65000),
     rewards: [{ label: "GMS reward list pending" }],
-    status: "projected",
-    source: "wiki-overdrive",
   },
 ]
-
-export const CREST_RULES = {
-  perWeek: 500,
-  mobsPerWeek: 2000,
-  bossCap: 2400,
-  max: 6500,
-  weeksToMax: 9,
-  stage8Window: "Week 2–3",
-  status: "projected" as Status,
-  source: "transcript",
-  notes: [
-    "Crests are no longer consumed when you upgrade the Item Burning set.",
-    "500 crests per week from killing 2,000 mobs.",
-    "Boss crests accrue instead of resetting weekly, up to 2,400.",
-    "Week 0 crests are worth grabbing — they push you a week ahead.",
-  ],
-} as const
-
-export const GENESIS_RULES = {
-  pointsToLiberate: {
-    value: 6500,
-    status: "projected",
-    sources: ["transcript"],
-  } satisfies Claim<number>,
-  pointsAfterThreeWeeks: 6030,
-  gapAfterThreeWeeks: {
-    value: 470,
-    status: "projected",
-    sources: ["transcript"],
-  } satisfies Claim<number>,
-  realisticDate: "2026-12-01",
-  fallbackWeek: "Week 4",
-  dayZeroDate: "2026-11-26",
-  status: "projected" as Status,
-  source: "transcript" as SourceId,
-  notes: [
-    "Three weeks of full Cernium clears plus one Black Mage solo leaves you at ~6,030 of 6,500.",
-    "Kill Black Mage on 2026-12-01 for the last ~470 points, or accept a week-4 liberation.",
-    "A 2026-11-26 liberation needs 470 points on day zero in ~3 hours — improbable (Lotus + Damien + Lucid).",
-    "The Genesis Pass (~30k NX) shortens liberation to ~3–4 weeks but is weak value on Heroic.",
-  ],
-}
 
 export type TaskCategory =
   | "mobs"
@@ -524,11 +501,11 @@ export type WeeklyTask = {
 export const WEEKLY_TASKS: WeeklyTask[] = [
   {
     key: "mobs-2000",
-    label: "Kill 2,000 mobs",
-    detail: "Item Burning Plus: 500 crests per week.",
+    label: `Kill ${CREST_RULES.mobsPerWeek.toLocaleString()} mobs`,
+    detail: `Item Burning Plus: ${CREST_RULES.perWeek} crests per week.`,
     category: "mobs",
     kind: "count",
-    target: 2000,
+    target: CREST_RULES.mobsPerWeek,
   },
   {
     key: "mobs-5000",
@@ -576,7 +553,7 @@ export const WEEKLY_TASKS: WeeklyTask[] = [
   {
     key: "bosses",
     label: "Weekly boss clears",
-    detail: "Meso and boss crests up to the 2,400 cap.",
+    detail: `Meso and boss crests up to the ${CREST_RULES.bossCap.toLocaleString()} cap.`,
     category: "bosses",
     kind: "boolean",
   },
@@ -664,7 +641,7 @@ export const PREP_CHECKLIST: PrepItem[] = [
   {
     key: "operation-redive",
     label: "Operation: Re-Dive",
-    detail: "~20k NX. Ships with Part 2 on 2026-12-16.",
+    detail: `~20k NX. Ships with Part 2 on ${EVENT.part2Date}.`,
     status: "projected",
     source: "transcript",
   },
@@ -787,7 +764,7 @@ export const SEASON_CHANGES: { title: string; detail: string; status: Status }[]
   },
   {
     title: "Item Burning Plus",
-    detail: "Crests are no longer consumed; 500/week from 2,000 mobs; boss crests accrue to 2,400.",
+    detail: `Crests are no longer consumed; ${CREST_RULES.perWeek}/week from ${CREST_RULES.mobsPerWeek.toLocaleString()} mobs; boss crests accrue to ${CREST_RULES.bossCap.toLocaleString()}.`,
     status: "projected",
   },
 ]
@@ -796,17 +773,12 @@ export const QUANAH_BADGE_PORTABILITY: Claim<string> = {
   value: "World-locked to the event world",
   status: "disputed",
   sources: ["transcript"],
-  note: "Whether the badge is portable to your main world is disputed and unconfirmed.",
+  note: "The transcript mentions both positions without settling it.",
   alternatives: [
     {
       value: "Portable to the main world",
       source: "transcript",
       note: "jando raises the possibility that the badge transfers with the character.",
-    },
-    {
-      value: "World-locked to the event world",
-      source: "transcript",
-      note: "Treat the badge as staying in the event world until Nexon confirms otherwise.",
     },
   ],
 }
@@ -825,7 +797,7 @@ export const QUANAH = {
   notes: [
     "The transfer is one-way and irreversible.",
     "It grants a profile badge.",
-    "Whether the badge is portable to your main world is disputed and unconfirmed.",
+    "The transcript mentions both badge-portability positions without settling it.",
   ],
   badgePortability: QUANAH_BADGE_PORTABILITY,
 } as const
@@ -836,7 +808,7 @@ export const DAY_ZERO = {
   steps: [
     "Reach Lv. 260 (30 min–3 h depending on how hard you go).",
     "Unlock Item Burning immediately.",
-    "Kill 5,000 mobs for weekly frags and 2,000 for Item Burning crests.",
+    `Kill 5,000 mobs for weekly frags and ${CREST_RULES.mobsPerWeek.toLocaleString()} for Item Burning crests.`,
     "Arcane River + Grandis dailies and weeklies.",
     "Boss clears for meso (~1.4b for an End-Lomein-worth).",
     "Hard Lotus for an extra week of loot.",
@@ -846,8 +818,6 @@ export const DAY_ZERO = {
 } as const
 
 export const ECONOMY = {
-  status: "projected" as Status,
-  source: "transcript",
   facts: [
     "One blueberry ≈ 47% of a level at Lv. 260; 5 ≈ 2.5 levels.",
     "The XP blueberry farm caps at Lv. 280.",

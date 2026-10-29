@@ -48,6 +48,27 @@ describe("character storage", () => {
     expect(loaded[0].planProgress).toEqual({})
   })
 
+  it("coerces malformed progress maps to empty objects", () => {
+    const raw = JSON.stringify({
+      version: 2,
+      characters: [
+        {
+          ...character,
+          weeks: "nope",
+          counts: ["nope"],
+          planProgress: "nope",
+        },
+      ],
+    })
+
+    const loaded = parseStoredCharacters(raw)
+
+    expect(loaded).toHaveLength(1)
+    expect(loaded[0].weeks).toEqual({})
+    expect(loaded[0].counts).toEqual({})
+    expect(loaded[0].planProgress).toEqual({})
+  })
+
   it("falls back to an empty list for malformed JSON", () => {
     expect(parseStoredCharacters("{not json")).toEqual([])
   })
