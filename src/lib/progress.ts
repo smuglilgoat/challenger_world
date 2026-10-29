@@ -79,6 +79,21 @@ export function taskCompletion(
   }
 }
 
+export function planCompletion(
+  character: { planProgress: Record<string, boolean> },
+  targets: { label: string }[],
+  weekIndex: number
+) {
+  const done = targets.filter(
+    (_, targetIndex) => character.planProgress[`${weekIndex}:${targetIndex}`]
+  ).length
+  return {
+    done,
+    total: targets.length,
+    percent: targets.length === 0 ? 0 : Math.round((done / targets.length) * 100),
+  }
+}
+
 export function estimatedDaysToLiberation(points: number): number {
   if (points >= GENESIS_RULES.pointsToLiberate.value) return 0
   return Math.ceil((GENESIS_RULES.pointsToLiberate.value - points) / GENESIS_POINTS_PER_DAY)

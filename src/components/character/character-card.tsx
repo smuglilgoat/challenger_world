@@ -40,10 +40,18 @@ type Props = {
   currentWeekIndex: number
   onUpdate: (patch: Partial<Character>) => void
   onToggleTask: (taskKey: string, weekIndex: number) => void
+  onTogglePlanTarget: (weekIndex: number, targetIndex: number) => void
   onRemove: () => void
 }
 
-export function CharacterCard({ character, currentWeekIndex, onUpdate, onToggleTask, onRemove }: Props) {
+export function CharacterCard({
+  character,
+  currentWeekIndex,
+  onUpdate,
+  onToggleTask,
+  onTogglePlanTarget,
+  onRemove,
+}: Props) {
   const [weekIndex, setWeekIndex] = useState(currentWeekIndex)
   const crests = crestProgress(character.crests)
   const genesis = genesisProgress(character.genesisPoints)
@@ -171,6 +179,7 @@ export function CharacterCard({ character, currentWeekIndex, onUpdate, onToggleT
           weekIndex={weekIndex}
           onWeekChange={setWeekIndex}
           onToggleTask={onToggleTask}
+          onTogglePlanTarget={onTogglePlanTarget}
           onUpdate={onUpdate}
         />
       </CardContent>

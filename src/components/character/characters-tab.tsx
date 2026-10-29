@@ -14,7 +14,14 @@ import { WEEKS } from "@/lib/event-data"
 import { currentWeek } from "@/lib/progress"
 
 export function CharactersTab() {
-  const { characters, addCharacter, updateCharacter, removeCharacter, toggleTask } = useCharacters()
+  const {
+    characters,
+    addCharacter,
+    updateCharacter,
+    removeCharacter,
+    toggleTask,
+    togglePlanTarget,
+  } = useCharacters()
   const weekIndex = Math.max(0, currentWeek(new Date(), WEEKS))
 
   return (
@@ -51,6 +58,9 @@ export function CharactersTab() {
               currentWeekIndex={weekIndex}
               onUpdate={(patch) => updateCharacter(character.id, patch)}
               onToggleTask={(taskKey, week) => toggleTask(character.id, taskKey, week)}
+              onTogglePlanTarget={(week, targetIndex) =>
+                togglePlanTarget(character.id, week, targetIndex)
+              }
               onRemove={() => removeCharacter(character.id)}
             />
           ))}

@@ -18,6 +18,8 @@ export type Character = {
   weeks: Record<string, boolean>
   counts: Record<string, number>
   notes: string
+  planId?: string
+  planProgress: Record<string, boolean>
   createdAt: string
 }
 
@@ -38,9 +40,13 @@ function isCharacter(value: unknown): value is Character {
   )
 }
 
-function load(): Character[] {
+export function serializeCharacters(characters: Character[]): string {
+  const state: StoredState = { version: 1, characters }
+  return JSON.stringify(state)
+}
+
+export function parseStoredCharacters(raw: string | null): Character[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return []
     const parsed = JSON.parse(raw) as Partial<StoredState>
     if (parsed.version !== 1 || !Array.isArray(parsed.characters)) return []
@@ -50,7 +56,16 @@ function load(): Character[] {
       counts: character.counts ?? {},
       points: character.points ?? 0,
       notes: character.notes ?? "",
+      planProgress: character.planProgress ?? {},
     }))
+  } catch {
+    return []
+  }
+}
+
+function load(): Character[] {
+  try {
+    return parseStoredCharacters(localStorage.getItem(STORAGE_KEY))
   } catch {
     return []
   }
@@ -64,9 +79,8 @@ export function useCharacters() {
   const [characters, setCharacters] = useState<Character[]>(load)
 
   useEffect(() => {
-    const state: StoredState = { version: 1, characters }
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+      localStorage.setItem(STORAGE_KEY, serializeCharacters(characters))
     } catch {
       // Storage can be full or blocked; the app keeps working in memory.
     }
@@ -87,6 +101,7 @@ export function useCharacters() {
       weeks: {},
       counts: {},
       notes: "",
+      planProgress: {},
       createdAt: new Date().toISOString(),
     }
     setCharacters((current) => [...current, character])
@@ -116,5 +131,32 @@ export function useCharacters() {
     )
   }, [])
 
-  return { characters, addCharacter, updateCharacter, removeCharacter, toggleTask }
+  const togglePlanTarget = useCallback(
+    (characterId: string, weekIndex: number, targetIndex: number) => {
+      const storageKey = `${weekIndex}:${targetIndex}`
+      setCharacters((current) =>
+        current.map((character) =>
+          character.id === characterId
+            ? {
+                ...character,
+                planProgress: {
+                  ...character.planProgress,
+                  [storageKey]: !character.planProgress[storageKey],
+                },
+              }
+            : character
+        )
+      )
+    },
+    []
+  )
+
+  return {
+    characters,
+    addCharacter,
+    updateCharacter,
+    removeCharacter,
+    toggleTask,
+    togglePlanTarget,
+  }
 }

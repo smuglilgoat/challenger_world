@@ -5,6 +5,7 @@ import {
   estimatedDaysToLiberation,
   genesisProgress,
   nextTier,
+  planCompletion,
   taskCompletion,
   tierFor,
 } from "./progress"
@@ -129,6 +130,19 @@ describe("taskCompletion", () => {
 
   it("handles an empty task list", () => {
     expect(taskCompletion(character, [], 0)).toEqual({ done: 0, total: 0, percent: 0 })
+  })
+})
+
+describe("planCompletion", () => {
+  const targets = [{ label: "a" }, { label: "b" }, { label: "c" }]
+  const character = { planProgress: { "0:0": true, "0:2": true, "1:0": true } }
+
+  it("counts only the selected week's targets", () => {
+    expect(planCompletion(character, targets, 0)).toEqual({ done: 2, total: 3, percent: 67 })
+  })
+
+  it("handles a week with no targets", () => {
+    expect(planCompletion(character, [], 2)).toEqual({ done: 0, total: 0, percent: 0 })
   })
 })
 

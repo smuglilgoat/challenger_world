@@ -243,6 +243,143 @@ export const WEEKS: Week[] = [
   },
 ]
 
+export type PlanTarget = { label: string; detail?: string }
+
+export type Plan = {
+  id: string
+  name: string
+  author: string
+  source: SourceId
+  summary: string
+  weeks: { weekIndex: number; targets: PlanTarget[] }[]
+}
+
+export const PLANS: Plan[] = [
+  {
+    id: "jando-pre-season",
+    name: "jando's pre-season route",
+    author: "jando",
+    source: "transcript",
+    summary:
+      "12 weekly resets. Item Burning stage 8 by week 2–3, Genesis liberation around 6,030 points after three weeks, and a Black Mage kill on 2026-12-01 for the last ~470.",
+    weeks: [
+      {
+        weekIndex: 0,
+        targets: [
+          { label: "Reach Lv. 260", detail: "30 min–3 h with Hyper Burning rates." },
+          { label: "Unlock Item Burning" },
+          {
+            label: "Kill 2,000 mobs for 500 crests",
+            detail: "Week 0 crests push you a week ahead.",
+          },
+          { label: "Kill 5,000 mobs for weekly frags" },
+          { label: "Arcane River + Grandis dailies and weeklies" },
+          { label: "Boss clears for meso", detail: "~1.4b for an End-Lomein-worth." },
+          { label: "Hard Lotus", detail: "An extra week of loot." },
+          { label: "Monster Park ×5" },
+          { label: "Start Genesis liberation missions" },
+        ],
+      },
+      {
+        weekIndex: 1,
+        targets: [
+          { label: "Cap 500 crests" },
+          {
+            label: "Take the full 2,400 boss crests",
+            detail: "Normal Mayrin and below, Chaos Tenebris and below.",
+          },
+          { label: "Cernium clears for Genesis points" },
+        ],
+      },
+      {
+        weekIndex: 2,
+        targets: [
+          { label: "Cap 500 crests" },
+          { label: "Hold Item Burning stage 8", detail: "Going further is hard this early." },
+        ],
+      },
+      {
+        weekIndex: 3,
+        targets: [
+          {
+            label: "Reach ~6,030 Genesis points",
+            detail: "Full Cernium clears plus one Black Mage solo.",
+          },
+          {
+            label: "Kill Black Mage on 2026-12-01 for the last ~470 points",
+            detail: "Otherwise wait for the reset.",
+          },
+          { label: "Cap 500 crests" },
+        ],
+      },
+      {
+        weekIndex: 4,
+        targets: [
+          { label: "Liberate Genesis if the 2026-12-01 kill slipped" },
+          { label: "Cap 500 crests" },
+        ],
+      },
+      {
+        weekIndex: 5,
+        targets: [
+          { label: "Unlock the 3rd set of HEXA Skill Nodes", detail: "Part 2 lands 2026-12-16." },
+          { label: "Try Bellona" },
+          { label: "Cap 500 crests" },
+        ],
+      },
+      {
+        weekIndex: 6,
+        targets: [
+          { label: "Cap 500 crests" },
+          { label: "Keep boss crests at the cap" },
+          { label: "Season Missions" },
+        ],
+      },
+      {
+        weekIndex: 7,
+        targets: [
+          { label: "Cap 500 crests" },
+          { label: "Push Item Burning stages" },
+          { label: "Season Missions" },
+        ],
+      },
+      {
+        weekIndex: 8,
+        targets: [
+          {
+            label: "Finish the Item Burning set",
+            detail: "~9 weeks of 500/week plus boss crests.",
+          },
+          { label: "Cap 500 crests" },
+          { label: "Season Missions" },
+        ],
+      },
+      {
+        weekIndex: 9,
+        targets: [
+          {
+            label: "Finish ring and scroll sources",
+            detail: "4 rings and at least 2 free legendary scrolls.",
+          },
+          { label: "Build Chosen Seren-ready spec" },
+        ],
+      },
+      {
+        weekIndex: 10,
+        targets: [{ label: "Push tier points" }, { label: "Cap 500 crests" }],
+      },
+      {
+        weekIndex: 11,
+        targets: [
+          { label: "Spend Challenger Coins" },
+          { label: "Finish remaining missions" },
+          { label: "Final tier push" },
+        ],
+      },
+    ],
+  },
+]
+
 export const TIER_POINTS_PROJECTED = {
   bronze: 5000,
   silver: 10000,

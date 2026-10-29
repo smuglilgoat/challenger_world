@@ -10,9 +10,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Separator } from "@/components/ui/separator"
 import { Textarea } from "@/components/ui/textarea"
-import { WEEKLY_TASKS, WEEKS } from "@/lib/event-data"
-import { taskCompletion } from "@/lib/progress"
+import { PLANS, WEEKLY_TASKS, WEEKS } from "@/lib/event-data"
+import { planCompletion, taskCompletion } from "@/lib/progress"
 import type { Character } from "@/hooks/use-characters"
 
 type Props = {
@@ -20,14 +21,25 @@ type Props = {
   weekIndex: number
   onWeekChange: (weekIndex: number) => void
   onToggleTask: (taskKey: string, weekIndex: number) => void
+  onTogglePlanTarget: (weekIndex: number, targetIndex: number) => void
   onUpdate: (patch: Partial<Character>) => void
 }
 
-export function WeeklyChecklist({ character, weekIndex, onWeekChange, onToggleTask, onUpdate }: Props) {
+export function WeeklyChecklist({
+  character,
+  weekIndex,
+  onWeekChange,
+  onToggleTask,
+  onTogglePlanTarget,
+  onUpdate,
+}: Props) {
   const tasks = WEEKLY_TASKS.filter((task) => task.kind !== "note")
   const noteTask = WEEKLY_TASKS.find((task) => task.kind === "note")
   const completion = taskCompletion(character, tasks, weekIndex)
   const week = WEEKS[weekIndex]
+  const plan = PLANS.find((item) => item.id === character.planId)
+  const planTargets = plan?.weeks.find((item) => item.weekIndex === weekIndex)?.targets ?? []
+  const planDone = planCompletion(character, planTargets, weekIndex)
 
   return (
     <div className="flex flex-col gap-4">
@@ -110,6 +122,71 @@ export function WeeklyChecklist({ character, weekIndex, onWeekChange, onToggleTa
           </Field>
         )}
       </FieldGroup>
+
+      <Separator />
+
+      <div className="flex flex-col gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex flex-col gap-0.5">
+            <span className="text-sm font-medium">Progression plan</span>
+            <span className="text-sm text-muted-foreground">
+              {plan
+                ? `${plan.author} · ${planDone.done} / ${planDone.total} targets`
+                : "Attach a community route to this character."}
+            </span>
+          </div>
+          <Select
+            value={character.planId ?? "none"}
+            onValueChange={(value) =>
+              onUpdate({ planId: value === "none" ? undefined : value })
+            }
+          >
+            <SelectTrigger size="sm" aria-label="Select progression plan">
+              <SelectValue placeholder="No plan" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="none">No plan</SelectItem>
+                {PLANS.map((item) => (
+                  <SelectItem key={item.id} value={item.id}>
+                    {item.name}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {plan && (
+          <>
+            <Progress value={planDone.percent} className="h-2" />
+            <p className="text-sm text-muted-foreground">{plan.summary}</p>
+            {planTargets.length > 0 ? (
+              <FieldGroup className="gap-3">
+                {planTargets.map((target, targetIndex) => {
+                  const storageKey = `${weekIndex}:${targetIndex}`
+                  const inputId = `plan-${character.id}-${weekIndex}-${targetIndex}`
+                  return (
+                    <Field key={storageKey} orientation="horizontal">
+                      <Checkbox
+                        id={inputId}
+                        checked={character.planProgress[storageKey] ?? false}
+                        onCheckedChange={() => onTogglePlanTarget(weekIndex, targetIndex)}
+                      />
+                      <FieldContent>
+                        <FieldLabel htmlFor={inputId}>{target.label}</FieldLabel>
+                        {target.detail && <FieldDescription>{target.detail}</FieldDescription>}
+                      </FieldContent>
+                    </Field>
+                  )
+                })}
+              </FieldGroup>
+            ) : (
+              <p className="text-sm text-muted-foreground">No targets for this week.</p>
+            )}
+          </>
+        )}
+      </div>
     </div>
   )
 }
