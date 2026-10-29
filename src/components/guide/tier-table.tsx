@@ -60,7 +60,7 @@ export function TierTable() {
                   </ul>
                 </TableCell>
                 <TableCell className="text-right">
-                  <ClaimBadge claim={tier.points} />
+                  <ClaimBadge claim={tier.points} className="justify-end" />
                 </TableCell>
               </TableRow>
             ))}
