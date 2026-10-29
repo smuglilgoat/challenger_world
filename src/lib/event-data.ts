@@ -1,0 +1,596 @@
+export type Status = "confirmed" | "projected"
+
+export const SOURCES = {
+  overdrive: "https://maplestorywiki.net/w/MapleStory:_Overdrive",
+  availability: "https://maplestorywiki.net/w/Availability",
+  mmohuts:
+    "https://mmohuts.com/news/maplestorys-maplayer-one-winter-updates-add-lethe-quanah-bellona-and-shorter-boss-fights",
+  nexonEvents:
+    "https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events",
+  nexonPatch:
+    "https://www.nexon.com/maplestory/news/update/44597/v-271-maple-story-x-frieren-beyond-journeys-end-patch-notes",
+  transcript: "docs/jando video guide transcript.txt",
+} as const
+
+export const STATUS_LABEL: Record<Status, string> = {
+  confirmed: "Confirmed (GMS)",
+  projected: "Projected (KMS/transcript)",
+}
+
+export const EVENT = {
+  name: "Challenger World Season 4",
+  game: "Global MapleStory (GMS)",
+  startDate: "2026-11-11",
+  endDate: "2027-02-09",
+  part2Date: "2026-12-16",
+  totalWeeks: 12,
+  status: "confirmed" as Status,
+  source: SOURCES.mmohuts,
+  part1: [
+    "New job Lethe",
+    "Quanah event world",
+    "Challenger World Season 4",
+    "Quality-of-life changes",
+  ],
+  part2: [
+    "3rd set of 6th-job HEXA Skill Nodes",
+    "New boss Bellona",
+    "Operation: Re-Dive",
+    "Mystic Frontier Champions Season 2",
+  ],
+} as const
+
+export type Week = {
+  index: number
+  label: string
+  startDate: string
+  focus: string
+  keyTargets: string[]
+}
+
+export const WEEKS: Week[] = [
+  {
+    index: 0,
+    label: "Week 0",
+    startDate: "2026-11-11",
+    focus: "Launch week — get to 260 and start every clock you can.",
+    keyTargets: [
+      "Reach Lv. 260 and complete 6th Job",
+      "Unlock Item Burning and grab 500 crests (2,000 mobs)",
+      "Kill 5,000 mobs for weekly frags",
+      "Arcane River + Grandis dailies and weeklies",
+      "Boss clears for meso, including Hard Lotus",
+      "Monster Park ×5",
+      "Start Genesis liberation missions",
+    ],
+  },
+  {
+    index: 1,
+    label: "Week 1",
+    startDate: "2026-11-16",
+    focus: "First full reset — boss crests accrue toward the 2,400 cap.",
+    keyTargets: [
+      "Cap 500 crests",
+      "Clear bosses up to Normal Mayrin / Chaos Tenebris and below",
+      "Cernium clears for Genesis points",
+    ],
+  },
+  {
+    index: 2,
+    label: "Week 2",
+    startDate: "2026-11-23",
+    focus: "Item Burning should sit around stage 8.",
+    keyTargets: [
+      "Cap 500 crests",
+      "Hold Item Burning stage 8",
+      "Inkwell note expires 2026-11-23 — redeem it",
+    ],
+  },
+  {
+    index: 3,
+    label: "Week 3",
+    startDate: "2026-11-30",
+    focus: "Genesis check: ~6,030 points after full Cernium + one Black Mage solo.",
+    keyTargets: [
+      "Kill Black Mage on 2026-12-01 for the last ~470 points",
+      "Otherwise accept a week-4 liberation",
+      "Cap 500 crests",
+    ],
+  },
+  {
+    index: 4,
+    label: "Week 4",
+    startDate: "2026-12-07",
+    focus: "Fallback liberation week if the 2026-12-01 Black Mage kill slipped.",
+    keyTargets: ["Liberate Genesis", "Cap 500 crests", "Keep boss crests at the cap"],
+  },
+  {
+    index: 5,
+    label: "Week 5",
+    startDate: "2026-12-14",
+    focus: "Part 2 lands 2026-12-16: HEXA Skill Nodes, Bellona, Operation: Re-Dive.",
+    keyTargets: [
+      "Unlock the 3rd set of HEXA Skill Nodes",
+      "Try Bellona",
+      "Cap 500 crests",
+    ],
+  },
+  {
+    index: 6,
+    label: "Week 6",
+    startDate: "2026-12-21",
+    focus: "Mid-season — keep the weekly crest and mission routine.",
+    keyTargets: ["Cap 500 crests", "Season Missions", "Weekly Growth Pass if behind"],
+  },
+  {
+    index: 7,
+    label: "Week 7",
+    startDate: "2026-12-28",
+    focus: "Item Burning is close to finished.",
+    keyTargets: ["Cap 500 crests", "Push Item Burning stages", "Season Missions"],
+  },
+  {
+    index: 8,
+    label: "Week 8",
+    startDate: "2027-01-04",
+    focus: "Item Burning set should be maxed (~9 weeks of 500/week plus boss crests).",
+    keyTargets: ["Finish the Item Burning set", "Cap 500 crests", "Season Missions"],
+  },
+  {
+    index: 9,
+    label: "Week 9",
+    startDate: "2027-01-11",
+    focus: "Clean-up: rings, scrolls and the Chosen Seren spec.",
+    keyTargets: ["Finish ring and scroll sources", "Season Missions", "Cap 500 crests"],
+  },
+  {
+    index: 10,
+    label: "Week 10",
+    startDate: "2027-01-18",
+    focus: "Tier push and remaining season missions.",
+    keyTargets: ["Push tier points", "Season Missions", "Cap 500 crests"],
+  },
+  {
+    index: 11,
+    label: "Week 11",
+    startDate: "2027-01-25",
+    focus: "Final stretch — the event ends 2027-02-09.",
+    keyTargets: ["Spend Challenger Coins", "Finish remaining missions", "Final tier push"],
+  },
+]
+
+export const TIER_POINTS_PROJECTED = {
+  bronze: 5000,
+  silver: 10000,
+  gold: 15000,
+  platinum: 20000,
+  emerald: 30000,
+  diamond: 40000,
+  master: 65000,
+} as const
+
+export type Tier = {
+  name: string
+  points: number
+  rewards: string
+  status: Status
+}
+
+export const TIERS: Tier[] = [
+  {
+    name: "Bronze",
+    points: TIER_POINTS_PROJECTED.bronze,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+  {
+    name: "Silver",
+    points: TIER_POINTS_PROJECTED.silver,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+  {
+    name: "Gold",
+    points: TIER_POINTS_PROJECTED.gold,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+  {
+    name: "Platinum",
+    points: TIER_POINTS_PROJECTED.platinum,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+  {
+    name: "Emerald",
+    points: TIER_POINTS_PROJECTED.emerald,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+  {
+    name: "Diamond",
+    points: TIER_POINTS_PROJECTED.diamond,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+  {
+    name: "Master",
+    points: TIER_POINTS_PROJECTED.master,
+    rewards: "S3 reward tier — GMS reward list unconfirmed",
+    status: "projected",
+  },
+]
+
+export const CREST_RULES = {
+  perWeek: 500,
+  mobsPerWeek: 2000,
+  bossCap: 2400,
+  max: 6500,
+  weeksToMax: 9,
+  stage8Window: "Week 2–3",
+  status: "projected" as Status,
+  source: SOURCES.transcript,
+  notes: [
+    "Crests are no longer consumed when you upgrade the Item Burning set.",
+    "500 crests per week from killing 2,000 mobs.",
+    "Boss crests accrue instead of resetting weekly, up to 2,400.",
+    "Week 0 crests are worth grabbing — they push you a week ahead.",
+  ],
+} as const
+
+export const GENESIS_RULES = {
+  pointsToLiberate: 6500,
+  pointsAfterThreeWeeks: 6030,
+  gapAfterThreeWeeks: 470,
+  realisticDate: "2026-12-01",
+  fallbackWeek: "Week 4",
+  dayZeroDate: "2026-11-26",
+  status: "projected" as Status,
+  source: SOURCES.transcript,
+  notes: [
+    "Three weeks of full Cernium clears plus one Black Mage solo leaves you at ~6,030 of 6,500.",
+    "Kill Black Mage on 2026-12-01 for the last ~470 points, or accept a week-4 liberation.",
+    "A 2026-11-26 liberation needs 470 points on day zero in ~3 hours — improbable (Lotus + Damien + Lucid).",
+    "The Genesis Pass (~30k NX) shortens liberation to ~3–4 weeks but is weak value on Heroic.",
+  ],
+} as const
+
+export type TaskCategory =
+  | "mobs"
+  | "dailies"
+  | "weeklies"
+  | "item-burning"
+  | "bosses"
+  | "genesis"
+  | "monster-park"
+  | "notes"
+
+export type WeeklyTask = {
+  key: string
+  label: string
+  detail: string
+  category: TaskCategory
+  kind: "count" | "boolean" | "note"
+  target?: number
+}
+
+export const WEEKLY_TASKS: WeeklyTask[] = [
+  {
+    key: "mobs-2000",
+    label: "Kill 2,000 mobs",
+    detail: "Item Burning Plus: 500 crests per week.",
+    category: "mobs",
+    kind: "count",
+    target: 2000,
+  },
+  {
+    key: "mobs-5000",
+    label: "Kill 5,000 mobs",
+    detail: "Weekly frags.",
+    category: "mobs",
+    kind: "count",
+    target: 5000,
+  },
+  {
+    key: "arcane-dailies",
+    label: "Arcane River dailies",
+    detail: "Symbols and Arcane Force.",
+    category: "dailies",
+    kind: "boolean",
+  },
+  {
+    key: "arcane-weeklies",
+    label: "Arcane River weeklies",
+    detail: "Weekly Arcane River clear.",
+    category: "weeklies",
+    kind: "boolean",
+  },
+  {
+    key: "grandis-dailies",
+    label: "Grandis dailies",
+    detail: "Sacred Symbols and Sacred Force.",
+    category: "dailies",
+    kind: "boolean",
+  },
+  {
+    key: "grandis-weeklies",
+    label: "Grandis weeklies",
+    detail: "Weekly Grandis clear.",
+    category: "weeklies",
+    kind: "boolean",
+  },
+  {
+    key: "item-burning-stage",
+    label: "Item Burning stage mission",
+    detail: "Complete the weekly stage mission.",
+    category: "item-burning",
+    kind: "boolean",
+  },
+  {
+    key: "bosses",
+    label: "Weekly boss clears",
+    detail: "Meso and boss crests up to the 2,400 cap.",
+    category: "bosses",
+    kind: "boolean",
+  },
+  {
+    key: "hard-lotus",
+    label: "Hard Lotus",
+    detail: "An extra week of loot.",
+    category: "bosses",
+    kind: "boolean",
+  },
+  {
+    key: "genesis",
+    label: "Genesis liberation mission",
+    detail: "Cernium clears and Black Mage for points.",
+    category: "genesis",
+    kind: "boolean",
+  },
+  {
+    key: "monster-park",
+    label: "Monster Park ×5",
+    detail: "The Monster Park Extreme XP perk now needs 5 runs per week.",
+    category: "monster-park",
+    kind: "count",
+    target: 5,
+  },
+  {
+    key: "note",
+    label: "Notes",
+    detail: "Anything else worth remembering this week.",
+    category: "notes",
+    kind: "note",
+  },
+]
+
+export type PrepItem = {
+  key: string
+  label: string
+  detail: string
+  expiry?: string
+  status: Status
+  source: string
+}
+
+export const PREP_CHECKLIST: PrepItem[] = [
+  {
+    key: "winter-countdown",
+    label: "Winter countdown check-ins",
+    detail:
+      "~23 days, check in ~15 times. Back pet voucher, legendary scroll + legendary ring, ~50/5 note stones.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "inkwell-note",
+    label: "Redeem the Inkwell note",
+    detail:
+      "5,000 Arcane Symbols (maxes 2 symbols) or 2,000 Sacred Symbols, ~90 frags, Venge EXP vouchers, Mister cards, potential scroll, transfer potion (268→270).",
+    expiry: "2026-11-23",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "inkwell-gift",
+    label: "Inkwell's Thank You Gift",
+    detail: "Claim once per account from the Maple Administrator NPC. Window: 2026-10-19 → 2026-11-22.",
+    expiry: "2026-11-22",
+    status: "confirmed",
+    source: SOURCES.nexonEvents,
+  },
+  {
+    key: "genesis-pass",
+    label: "Genesis Pass / Genesis Pass Plus",
+    detail:
+      "~30k NX, 2x purchasable. Liberates Genesis in ~3–4 weeks instead of ~3 months; weak value for Heroic players.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "challenger-pass",
+    label: "Challenger Pass premium tracks",
+    detail: "~20k NX each for the EXP and Premium tracks.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "operation-redive",
+    label: "Operation: Re-Dive",
+    detail: "~20k NX. Ships with Part 2 on 2026-12-16.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "quanah-pass",
+    label: "Quanah pass",
+    detail: "Likely 20–50k NX.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "back-pets",
+    label: "Back pets",
+    detail: "Winter countdown + latte rewards + new recruit mission ≈ up to 3 months free.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "new-recruit",
+    label: "New recruit mission",
+    detail: "Extra rewards plus another back pet.",
+    status: "projected",
+    source: SOURCES.transcript,
+  },
+  {
+    key: "level-260",
+    label: "Lv. 260 + 6th Job",
+    detail: "Required before the one designated character can transfer into Quanah.",
+    status: "confirmed",
+    source: SOURCES.mmohuts,
+  },
+  {
+    key: "burning",
+    label: "Hyper Burning MAX / Beyond Burning",
+    detail: "Hyper Burning MAX to Lv. 260, Beyond Burning 1+1 to Lv. 280, Hyper Blink 200→260.",
+    status: "confirmed",
+    source: SOURCES.mmohuts,
+  },
+]
+
+export type Milestone = {
+  level: number
+  label: string
+  note: string
+  status: Status
+}
+
+export const MILESTONES: Milestone[] = [
+  {
+    level: 260,
+    label: "Lv. 260",
+    note: "6th Job, temporary Lv. 30 Sol Janus, and Quanah transfer eligibility.",
+    status: "confirmed",
+  },
+  {
+    level: 268,
+    label: "Lv. 268",
+    note: "Inkwell transfer potion: 268 → 270 instantly.",
+    status: "projected",
+  },
+  {
+    level: 280,
+    label: "Lv. 280",
+    note: "XP blueberry farm caps out here.",
+    status: "projected",
+  },
+]
+
+export const SEASON_CHANGES: { title: string; detail: string; status: Status }[] = [
+  {
+    title: "Challenger Pass split",
+    detail: "Separate EXP and Premium Passes; duration extended to 13 weeks.",
+    status: "confirmed",
+  },
+  {
+    title: "Arcane Seal",
+    detail: "New item.",
+    status: "confirmed",
+  },
+  {
+    title: "Sol Janus Skill Support",
+    detail: "Temporary Lv. 30 Sol Janus, reverted after world leaping.",
+    status: "confirmed",
+  },
+  {
+    title: "Season Missions",
+    detail:
+      "Ability, Arcane Force, Sacred Force, Equipment, V Matrix, HEXA Matrix, Combat Power — earn Challenger Coins.",
+    status: "confirmed",
+  },
+  {
+    title: "Weekly Growth Pass",
+    detail: "10,000 Maple Points to complete previously-incomplete missions.",
+    status: "confirmed",
+  },
+  {
+    title: "Heroic Sol Erda",
+    detail: "Sol Erda Fragments from hunting become account-shareable.",
+    status: "confirmed",
+  },
+  {
+    title: "Monster Park Extreme removed",
+    detail: "Pending removal on 2026-11-11; the MP Extreme XP perk now needs 5 Monster Park runs/week.",
+    status: "confirmed",
+  },
+  {
+    title: "Ursus",
+    detail: "One daily entry with the same total meso.",
+    status: "confirmed",
+  },
+  {
+    title: "Boss practice",
+    detail: "Individual phases supported.",
+    status: "confirmed",
+  },
+  {
+    title: "Boss HP",
+    detail: "Major bosses to ~2/3 HP with shorter time limits; no across-the-board Intense Power Crystal price change.",
+    status: "confirmed",
+  },
+  {
+    title: "Item Burning Plus",
+    detail: "Crests are no longer consumed; 500/week from 2,000 mobs; boss crests accrue to 2,400.",
+    status: "projected",
+  },
+]
+
+export const QUANAH = {
+  name: "Quanah",
+  status: "confirmed" as Status,
+  source: SOURCES.mmohuts,
+  summary:
+    "A temporary event world with its own Inspector Level system, special equipment skills, fast leveling, dungeon stages, challenge dungeons, and boss attempts tied to entry tickets.",
+  requirements: [
+    "Lv. 260",
+    "6th Job Advancement completed",
+    "One designated Challenger World character",
+  ],
+  notes: [
+    "The transfer is one-way and irreversible.",
+    "It grants a profile badge.",
+    "Whether the badge is portable to your main world is disputed and unconfirmed.",
+  ],
+  disputed: "Badge portability to your main world is disputed and unconfirmed.",
+} as const
+
+export const DAY_ZERO = {
+  status: "projected" as Status,
+  source: SOURCES.transcript,
+  steps: [
+    "Reach Lv. 260 (30 min–3 h depending on how hard you go).",
+    "Unlock Item Burning immediately.",
+    "Kill 5,000 mobs for weekly frags and 2,000 for Item Burning crests.",
+    "Arcane River + Grandis dailies and weeklies.",
+    "Boss clears for meso (~1.4b for an End-Lomein-worth).",
+    "Hard Lotus for an extra week of loot.",
+    "Monster Park ×5.",
+    "Genesis liberation missions.",
+  ],
+} as const
+
+export const ECONOMY = {
+  status: "projected" as Status,
+  source: SOURCES.transcript,
+  facts: [
+    "One blueberry ≈ 47% of a level at Lv. 260; 5 ≈ 2.5 levels.",
+    "The XP blueberry farm caps at Lv. 280.",
+    "You do not need to buy anything for the weekly reset.",
+    "The event shop sells EXP Express boosters and blueberry farm tickets.",
+    "4 XP coupons total, limited to 2/week.",
+    "Burn two characters and designate one for Quanah at Lv. 260.",
+    "A third low-investment mule is possible via Monster Park ×7/day.",
+    "4 ring sources: hyperburn track ×2 internal flame ring vouchers, Lv. 210 selection coupon, countdown event, new recruit event; at least 2 free legendary scrolls.",
+    "That is enough spec to clear Chosen Seren (Tenebris).",
+  ],
+} as const
