@@ -49,12 +49,45 @@ npm run lint       # oxlint
 Netlify site `challenger-world-guide`, built from `netlify.toml`
 (`npm run build` → `dist`, SPA fallback).
 
-Continuous deployment: the site is linked to this repo via the Netlify
-GitHub App, and `main` is the production branch — every push to `main`
-builds and deploys automatically. Deploy Previews are built for pull
-requests.
+### Continuous deployment
 
-To deploy from the CLI instead:
+Every push to `main` builds and deploys to production automatically, via
+`.github/workflows/deploy.yml`:
+
+```
+push to main -> npm ci -> npm test -> npm run typecheck -> npm run build
+             -> netlify deploy --dir=dist --prod
+```
+
+`main` is the production branch. Test and typecheck are gates — a failing
+check means no deploy and the previous version stays live.
+
+Credentials live in repository secrets, never in the repo:
+
+| Secret | Value |
+| --- | --- |
+| `NETLIFY_AUTH_TOKEN` | Netlify personal access token (Team → API access) |
+| `NETLIFY_SITE_ID` | `54efbd52-092c-4d6b-b944-4da514b3dfd4` |
+
+### Switching to native Netlify Git CD
+
+The Netlify GitHub App is not installed on the account yet, so the site has
+no repo link and the workflow above does the deploying. To hand over to
+Netlify's own Git CD:
+
+1. In Netlify, open the site → **Site configuration** → **Version control**
+   → **Connect repository** → pick `smuglilgoat/challenger_world` and
+   install the Netlify GitHub App on it.
+2. Set the production branch to `main` and the build command to
+   `npm run build` with publish directory `dist` (or leave them blank —
+   `netlify.toml` supplies both).
+3. Delete `.github/workflows/deploy.yml` so the two paths do not both
+   deploy.
+
+Until then the Actions workflow is the only thing publishing, and it works
+as-is.
+
+### Deploying from the CLI
 
 ```bash
 npx netlify-cli login
