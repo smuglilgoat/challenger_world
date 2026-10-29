@@ -8,29 +8,34 @@ import {
   taskCompletion,
   tierFor,
 } from "./progress"
-import { CREST_RULES, GENESIS_RULES, TIERS } from "./event-data"
+import { CREST_RULES, GENESIS_RULES, TIERS, WEEKS } from "./event-data"
 
 describe("currentWeek", () => {
-  const start = "2026-11-11"
-
-  it("returns -1 before the event starts", () => {
-    expect(currentWeek(new Date(2026, 10, 10, 23, 59), start, 12)).toBe(-1)
+  it("returns -1 before the first week starts", () => {
+    expect(currentWeek(new Date(2026, 10, 10, 23, 59), WEEKS)).toBe(-1)
   })
 
-  it("returns 0 on launch day", () => {
-    expect(currentWeek(new Date(2026, 10, 11, 0, 0), start, 12)).toBe(0)
+  it("changes index exactly on each week start date", () => {
+    WEEKS.forEach((week, index) => {
+      const start = new Date(`${week.startDate}T00:00:00`)
+      expect(currentWeek(start, WEEKS)).toBe(index)
+
+      const dayBefore = new Date(start)
+      dayBefore.setDate(dayBefore.getDate() - 1)
+      expect(currentWeek(dayBefore, WEEKS)).toBe(index - 1)
+    })
   })
 
-  it("advances one week per seven days", () => {
-    expect(currentWeek(new Date(2026, 11, 2), start, 12)).toBe(3)
+  it("ignores the time of day", () => {
+    expect(currentWeek(new Date(2026, 10, 16, 23, 59), WEEKS)).toBe(1)
   })
 
   it("clamps to the last week after the event ends", () => {
-    expect(currentWeek(new Date(2027, 5, 1), start, 12)).toBe(11)
+    expect(currentWeek(new Date(2027, 5, 1), WEEKS)).toBe(WEEKS.length - 1)
   })
 
   it("returns -1 for an empty season", () => {
-    expect(currentWeek(new Date(2026, 11, 1), start, 0)).toBe(-1)
+    expect(currentWeek(new Date(2026, 11, 1), [])).toBe(-1)
   })
 })
 

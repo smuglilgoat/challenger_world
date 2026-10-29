@@ -10,12 +10,12 @@ import {
   EmptyTitle,
 } from "@/components/ui/empty"
 import { useCharacters } from "@/hooks/use-characters"
-import { EVENT } from "@/lib/event-data"
+import { WEEKS } from "@/lib/event-data"
 import { currentWeek } from "@/lib/progress"
 
 export function CharactersTab() {
   const { characters, addCharacter, updateCharacter, removeCharacter, toggleTask } = useCharacters()
-  const weekIndex = Math.max(0, currentWeek(new Date(), EVENT.startDate, EVENT.totalWeeks))
+  const weekIndex = Math.max(0, currentWeek(new Date(), WEEKS))
 
   return (
     <div className="flex flex-col gap-4">

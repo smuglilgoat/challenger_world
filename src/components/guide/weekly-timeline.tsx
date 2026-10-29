@@ -7,7 +7,7 @@ import { DAY_ZERO, EVENT, WEEKS } from "@/lib/event-data"
 import { formatShortDate } from "@/lib/format"
 
 export function WeeklyTimeline() {
-  const activeWeek = currentWeek(new Date(), EVENT.startDate, EVENT.totalWeeks)
+  const activeWeek = currentWeek(new Date(), WEEKS)
 
   return (
     <div className="flex flex-col gap-4">

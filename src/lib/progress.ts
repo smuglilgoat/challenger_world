@@ -1,17 +1,23 @@
-import { CREST_RULES, GENESIS_RULES } from "./event-data"
+import { CREST_RULES, GENESIS_RULES, type Week } from "./event-data"
 
-const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000
 // Derived from the transcript: 6,030 points after 21 days of clears.
 const GENESIS_POINTS_PER_DAY = GENESIS_RULES.pointsAfterThreeWeeks / 21
 
 export type TierLike = { points: { value: number } }
 
-export function currentWeek(now: Date, startDate: string, totalWeeks: number): number {
-  if (totalWeeks <= 0) return -1
-  const start = new Date(`${startDate}T00:00:00`)
-  const elapsed = now.getTime() - start.getTime()
-  if (elapsed < 0) return -1
-  return Math.min(Math.floor(elapsed / MS_PER_WEEK), totalWeeks - 1)
+function startOfDay(date: Date): number {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime()
+}
+
+export function currentWeek(now: Date, weeks: Week[]): number {
+  const today = startOfDay(now)
+  let index = -1
+  for (let i = 0; i < weeks.length; i++) {
+    const start = new Date(`${weeks[i].startDate}T00:00:00`).getTime()
+    if (start > today) break
+    index = i
+  }
+  return index
 }
 
 export function tierFor<T extends TierLike>(points: number, tiers: T[]): T | null {
