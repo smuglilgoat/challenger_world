@@ -28,6 +28,7 @@ for humans.
 | `wiki-overdrive` | MapleStory Wiki — Overdrive | Community | 2026-10-29 | https://maplestorywiki.net/w/MapleStory:_Overdrive |
 | `nexon-events` | Nexon — Challenger World and Burning Events | Official | 2026-10-29 | https://www.nexon.com/maplestory/news/events/41132/challenger-world-and-burning-events |
 | `nexon-v271` | Nexon — v.271 patch notes | Official | 2026-10-29 | https://www.nexon.com/maplestory/news/update/44597/v-271-maple-story-x-frieren-beyond-journeys-end-patch-notes |
+| `nexon-pts-v272` | Nexon — v.272 Public Test Server patch notes | Official | 2026-10-30 | https://www.nexon.com/maplestory/public-test-server/news/update/47293/v-272-public-test-server-patch-notes |
 | `transcript` | jando pre-season transcript | Local | 2026-10-29 | `docs/jando video guide transcript.txt` |
 
 Add a new source by adding one entry to `SOURCES`; the guide's Sources card picks
@@ -38,12 +39,13 @@ official GMS patch notes kept ready for the augmentation) still renders normally
 
 | Field | Value |
 | --- | --- |
-| Label | Pre-season — KMS projection |
-| Date | 2026-10-29 (rendered through `formatDate`) |
-| GMS patch notes | not published yet (`patchNotesUrl: null`) |
+| Label | v.272 Public Test Server |
+| Date | 2026-10-29 |
+| Patch notes | https://www.nexon.com/maplestory/public-test-server/news/update/47293/v-272-public-test-server-patch-notes |
 
-This block only labels the data set in the header. It does not change claim
-statuses; update the individual claim when a fact is confirmed.
+The v.272 Public Test Server patch notes are the authoritative source for
+Challenger World Season 4 and Quanah. The extracted text is kept in the repo at
+`docs/v272 public test server patch notes.txt`.
 
 ## Event
 
@@ -79,27 +81,31 @@ timeline and the tracker cannot drift apart.
 
 ## Quanah (event world)
 
+Source: `nexon-pts-v272` for everything below. The PTS notes describe Quanah
+in full; the pre-season article only summarised it.
+
 | Fact | Value | Status | Sources |
 | --- | --- | --- | --- |
-| Type | Temporary event world with its own Inspector Level system | Confirmed | `gms-maplayer-one` |
-| Features | Special equipment skills, fast leveling, dungeon stages, challenge dungeons, boss attempts on entry tickets | Confirmed | `gms-maplayer-one` |
-| Transfer requirement | Lv. 260 **and** 6th Job Advancement | Confirmed | `gms-maplayer-one` |
-| Transfer | One designated Challenger World character; one-way and irreversible | Confirmed | `gms-maplayer-one` |
-| Reward | Profile badge | Confirmed | `gms-maplayer-one` |
+| Type | Event world built around inspector training | Confirmed | `nexon-pts-v272` |
+| Period | 2026-11-11 (after maintenance) – 2027-02-09 11:59 PM UTC | Confirmed | `nexon-pts-v272` |
+| Transfer requirement | Lv. 260, 6th Job Advancement, created in Challenger World and designated as a Quanah World Leap character | Confirmed | `nexon-pts-v272` |
+| Designation | Made at character creation to receive Hyper Burning MAX benefits | Confirmed | `nexon-pts-v272` |
+| Beyond Burning | Quanah World Leap characters cannot be designated for Beyond Burning | Confirmed | `nexon-pts-v272` |
+| Equipment rules | Heroic World specs; no cubes, no Rebirth Flames; Quanah Crystals only | Confirmed | `nexon-pts-v272` |
+| Star cap | 30 for Quanah gear, 22 for gear transferable to other worlds | Confirmed | `nexon-pts-v272` |
+| Inspector Level | Up to Lv. 100; resets to Lv. 1 on death in Proving Fields or Battlesim | Confirmed | `nexon-pts-v272` |
+| Proving Fields | Basic Lv. 270 / Intermediate Lv. 280 / Advanced Lv. 290; solo or a party of up to 6 | Confirmed | `nexon-pts-v272` |
+| Badge | Inspector's Mapae, from Black Mage (Hard or Extreme) | Confirmed | `nexon-pts-v272` |
+| Badge portability | Transferable once within your account after a World Leap | Confirmed | `nexon-pts-v272` |
+| After Quanah | World Leap to a world matching the original Challenger type | Confirmed | `nexon-pts-v272` |
 
-### Disputed claim — badge portability
+### Resolved claim — badge portability
 
-`QUANAH_BADGE_PORTABILITY` is the disputed claim. The transcript mentions both
-positions without settling them, so the claim keeps one conservative value and
-lists only the genuinely competing position as an alternative.
-
-| Field | Value | Source |
-| --- | --- | --- |
-| Claimed value | World-locked to the event world | `transcript` |
-| Alternative | Portable to the main world | `transcript` |
-
-The UI renders the claim's own value first, then each alternative with its source
-and note, so the reader sees the disagreement instead of a single confident answer.
+`QUANAH_BADGE_PORTABILITY` was the disputed claim: the pre-season transcript
+mentioned both "world-locked" and "portable" without settling it. The v.272 PTS
+notes settle it — the badge **can be transferred once within your account after a
+World Leap** — so the claim is now `confirmed` with `nexon-pts-v272` as its
+source and no alternatives.
 
 ## Season 4 changes vs Season 3
 
@@ -154,23 +160,152 @@ inclusive), so it has no event constant of its own.
 
 ## Tier thresholds
 
-Season 3 thresholds, shipped as projected until GMS patch notes land. Each tier
-carries a `Claim<number>`; a competing threshold goes in `alternatives` with its
-source instead of replacing the value.
+There are **9 tiers**, confirmed by `nexon-pts-v272`: Bronze, Silver, Gold,
+Platinum, Emerald, Sapphire, Diamond, Master, Challenger.
 
-| Tier | Points | Status | Sources |
-| --- | --- | --- | --- |
-| Bronze | 5,000 | Projected | `wiki-overdrive`, `wiki-availability` |
-| Silver | 10,000 | Projected | `wiki-overdrive`, `wiki-availability` |
-| Gold | 15,000 | Projected | `wiki-overdrive`, `wiki-availability` |
-| Platinum | 20,000 | Projected | `wiki-overdrive`, `wiki-availability` |
-| Emerald | 30,000 | Projected | `wiki-overdrive`, `wiki-availability` |
-| Diamond | 40,000 | Projected | `wiki-overdrive`, `wiki-availability` |
-| Master | 65,000 | Projected | `wiki-overdrive`, `wiki-availability` |
+Bronze to Platinum are claimable only in Challenger World. Emerald, Sapphire,
+Diamond, Master and Challenger are claimable in either Challenger World or your
+main world via the Event List.
+
+The PTS notes do **not** publish the point thresholds. Season 3 numbers are
+shipped as projected; `Sapphire` and `Challenger` carry `null` because no
+threshold is known at all, and `tierFor`/`nextTier` skip null thresholds so an
+unpublished tier cannot corrupt the ordering.
+
+| Tier | Points | Claimable in | Status | Sources |
+| --- | --- | --- | --- | --- |
+| Bronze | 5,000 | Challenger only | Projected | `wiki-overdrive`, `wiki-availability` |
+| Silver | 10,000 | Challenger only | Projected | `wiki-overdrive`, `wiki-availability` |
+| Gold | 15,000 | Challenger only | Projected | `wiki-overdrive`, `wiki-availability` |
+| Platinum | 20,000 | Challenger only | Projected | `wiki-overdrive`, `wiki-availability` |
+| Emerald | 30,000 | Either world | Projected | `wiki-overdrive`, `wiki-availability` |
+| Sapphire | not published | Either world | Projected | `wiki-overdrive`, `wiki-availability` |
+| Diamond | 40,000 | Either world | Projected | `wiki-overdrive`, `wiki-availability` |
+| Master | 65,000 | Either world | Projected | `wiki-overdrive`, `wiki-availability` |
+| Challenger | not published | Either world | Projected | `wiki-overdrive`, `wiki-availability` |
 
 Rewards are a `RewardItem[]`; the placeholder is
 `{ label: "GMS reward list pending" }`. Real rewards drop in without touching
 `TierTable`.
+
+## Mission point tables
+
+Published in `nexon-pts-v272`. These are the real numbers behind Challenger
+Points and Coins.
+
+### Level missions — `LEVEL_MISSIONS`
+
+Reaching a level completes the mission automatically in the Challenger World UI.
+
+| Levels | Points each | Coins each |
+| --- | --- | --- |
+| 260 | 3,000 | 3,000 |
+| 261–269 | 300 | 300 |
+| 270–274 | 700 | 600 |
+| 275–279 | 1,000 | 900 |
+| 280–284 | 1,500 | 1,200 |
+| 285–289 | 2,000 | 1,500 |
+| 290 | 5,000 | 2,500 |
+
+### Boss missions — `BOSS_MISSIONS`
+
+Practice Mode clears count, but only when solo or in a solo party. Clearing a
+harder difficulty counts for every lower difficulty of the same boss.
+
+| Boss | Difficulty | Points | Coins | Advanced |
+| --- | --- | --- | --- | --- |
+| Zakum | Chaos | 100 | 100 | — |
+| Pierre | Chaos | 200 | 100 | — |
+| Von Bon | Chaos | 200 | 100 | — |
+| Crimson Queen | Chaos | 200 | 200 | — |
+| Magnus | Hard | 250 | 200 | — |
+| Vellum | Chaos | 250 | 200 | — |
+| Papulatus | Chaos | 300 | 200 | — |
+| Lotus | Normal / Hard | 400 / 1,500 | 200 / 400 | — |
+| Damien | Normal / Hard | 400 / 1,500 | 200 / 400 | — |
+| Guardian Angel Slime | Normal / Chaos | 500 / 2,500 | 200 / 600 | — |
+| Lucid | Easy / Normal / Hard | 500 / 1,000 / 2,000 | 200 / 300 / 600 | — |
+| Will | Easy / Normal / Hard | 500 / 1,000 / 2,500 | 200 / 300 / 600 | — |
+| Kai | Normal | 1,000 | 300 | — |
+| Gloom | Normal / Chaos | 1,000 / 2,500 | 300 / 600 | — |
+| Verus Hilla | Normal / Hard | 2,000 / 3,000 | 600 / 1,000 | — |
+| Darknell | Normal / Hard | 1,000 / 3,000 | 300 / 1,000 | — |
+| Black Mage | Hard | 6,000 | 1,400 | 20 |
+| Chosen Seren | Normal / Hard | 6,000 / 7,000 | 1,400 / 2,000 | 20 / 30 |
+| Kalos the Guardian | Easy / Normal | 7,000 / 9,000 | 2,000 / 3,000 | 30 / 60 |
+| First Adversary | Easy / Normal | 7,000 / 9,000 | 2,000 / 3,000 | 30 / 60 |
+| Kaling | Easy | 9,000 | 3,000 | 60 |
+| Mayrin | Normal / Hard | 5,000 / 9,000 | 1,200 / 3,000 | 10 / 60 |
+
+### Weekly progression missions — `WEEKLY_MISSIONS`
+
+Complete one of the three, then click "Complete" in the Challenger World UI.
+Resets every **Wednesday** at 12:00 AM UTC — not Monday.
+
+| Mission | Coins |
+| --- | --- |
+| Defeat 5,000 enemies near your level | 1,500 |
+| Complete Monster Park 6 times | — |
+| Complete Symbol Daily Quests 12 times | — |
+
+Maximum 1,500 Challenger Coins per week even if all three are finished. A missed
+mission can be backfilled with a Weekly Progression Pass for 10,000 Maple Points.
+
+## Confirmed event details
+
+All from `nexon-pts-v272`.
+
+### Mayrin — season boss — `MAYRIN`
+
+| Fact | Value |
+| --- | --- |
+| Period | 2026-11-12 12:00 AM UTC – 2027-02-09 11:59 PM UTC |
+| Normal / Hard level | Lv. 270+ / Lv. 280+ |
+| Party size | 1 (solo) |
+| Time limit | 20 minutes |
+| Frequency | Weekly, once per account |
+
+### Blueberry Farm — `BLUEBERRY_FARM`
+
+| Fact | Value |
+| --- | --- |
+| Level range | Lv. 260–300 |
+| Time limit | 30 minutes |
+| Re-entry | Up to 24 hours after using an entry pass |
+| Entry passes | From the Challenger Pass |
+| EXP note | Lv. 280 and above earn the same EXP as Lv. 279 |
+| Other | No EXP buffs inside, and no Multi-Kills |
+
+### Challenger World rules — `CHALLENGER_WORLD_RULES`
+
+| Fact | Value |
+| --- | --- |
+| Characters | Up to 5 |
+| World lock | The first world type chosen is permanent for the account |
+| Tera Burning | Up to 3 characters, Lv. 10–200, 2 extra levels per level-up |
+| Unavailable | Transfer Link Skill, Legion, Legion Artifact System, Monster Collection, Expand Character Slots |
+| Meso Market | Closes 2027-02-10, before maintenance |
+
+### Item Burning Plus — `ITEM_BURNING_PLUS`
+
+8 stage missions. Challenger World only, Lv. 200+, requires the "A Greater Power"
+quest. One per account, and it cannot be combined with another Item Burning
+event.
+
+### Monster Park — `MONSTER_PARK`
+
+Sweep feature added; Monster Park Extreme and its related contents removed; a
+new Extreme Monster Parker weekly quest replaces it (clear Monster Park 5 times,
+claimable on up to 2 characters per world); Monster Park Extreme Momo sells for
+150 Monster Park Commemorative Coins, up to 5 times a week per world.
+
+### Genesis Pass — `GENESIS_PASS`
+
+On sale 2026-11-12 – 2027-02-08, expiring 2027-02-09. One per account,
+untradable. Lv. 255+ only, and not for characters that finished the final
+Genesis awakening. Grants 6-player Genesis Mission parties (up from 2), 3x Trace
+of Darkness, a special boss buff, and a guaranteed Attack Power or Magic ATT
+Weapon Soul on liberation.
 
 ## Community progression plans
 
@@ -247,16 +382,19 @@ liberation missions.
 1. **New source** — add one entry to `SOURCES` in `src/lib/event-data.ts` and one
    row to the Sources table above. Every fact refers to it by ID.
 2. **New fact** — add it to `event-data.ts`, mirror it here, and update
-   `DATA_REVISION` (`label`, `date`, and `patchNotesUrl` once the GMS notes
-   exist) so the header reflects the revision. `DATA_REVISION` does not change
-   claim statuses; set those on each fact.
+   `DATA_REVISION` (`label`, `date`, `patchNotesUrl`) so the header reflects the
+   revision. `DATA_REVISION` does not change claim statuses; set those on each
+   fact. The current revision is the v.272 Public Test Server notes; the live
+   GMS patch notes will be the next one.
 3. **Conflicting values** — keep the current value and add
    `alternatives: [{ value, source, note }]` to the claim, with
    `status: "disputed"`. Only list genuinely competing positions; the UI renders
    the claim's own value first, then each alternative with its source and note.
 4. **New tier reward** — add a `RewardItem` to the tier's `rewards` array.
    `TierTable` renders the list as-is. A tier's points live only in its
-   `points` claim.
+   `points` claim. A tier whose threshold is still unknown keeps
+   `points.value === null`; `tierFor` and `nextTier` skip null thresholds, so
+   tier order comes from the list order and never from the numbers.
 5. **New plan** — add a `Plan` to `PLANS` with per-week targets; the character
    card's selector and checklist pick it up automatically.
 6. **Numeric change** — numeric event facts live only in `event-data.ts`. Prose

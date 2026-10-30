@@ -24,7 +24,8 @@ export function TierTable() {
       <CardHeader>
         <CardTitle>Tier thresholds</CardTitle>
         <CardDescription>
-          Season 3 point thresholds, shipped until the GMS patch notes land.
+          There are 9 tiers. Bronze to Platinum are claimable only in Challenger World; Emerald
+          and up are claimable in your main world too. Point thresholds are not published yet.
         </CardDescription>
         <CardAction>
           <Badge variant="secondary">Projected — S3 thresholds</Badge>
@@ -36,6 +37,7 @@ export function TierTable() {
             <TableRow>
               <TableHead>Tier</TableHead>
               <TableHead className="text-right">Points</TableHead>
+              <TableHead>Claimable in</TableHead>
               <TableHead>Rewards</TableHead>
               <TableHead className="text-right">Status</TableHead>
             </TableRow>
@@ -45,7 +47,14 @@ export function TierTable() {
               <TableRow key={tier.name}>
                 <TableCell className="font-medium">{tier.name}</TableCell>
                 <TableCell className="text-right tabular-nums">
-                  {tier.points.value.toLocaleString()}
+                  {tier.points.value === null ? (
+                    <span className="text-muted-foreground">Not published</span>
+                  ) : (
+                    tier.points.value.toLocaleString()
+                  )}
+                </TableCell>
+                <TableCell className="text-muted-foreground">
+                  {tier.claimableIn === "either" ? "Either world" : "Challenger only"}
                 </TableCell>
                 <TableCell className="text-muted-foreground">
                   <ul className="flex flex-col gap-0.5">

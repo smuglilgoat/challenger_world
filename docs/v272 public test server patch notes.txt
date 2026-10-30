@@ -1,0 +1,2089 @@
+
+Information in the Public Test Server Patch Notes may change before the update goes live. Full details will be provided in the v.272 Patch Notes. Events and content listed here will be available in the Public Test Server. Ongoing events that are already live will not be included in the Public Test Server Patch Notes.
+TABLE OF CONTENTS
+- New Content
+- Tester Support Box
+- New Job: Lethe
+- Blueberry Farm
+- New Updates
+- Enhancement Changes
+- Epic Dungeon Changes
+- Monster Park Changes
+- Guild Changes
+- Legion Changes
+- MVP Changes
+- Special Skill Ring
+- Skill Changes
+- Job Skills
+- General Skills
+- Repeated Skill Input Improvement
+- Boss & Mob Changes
+- Item Changes
+- Map Changes
+- Quest & Story Changes
+- UI Changes
+- Content Improvements
+- Operation Ultima Events
+- Operation Ultima: Chapter 1
+- Ultima Report
+- Etherion Relics
+- Shadow Bounties
+- Shadow Supplies
+- Specter Blast
+- Challenger World Events
+- Challenger World
+- New Season Boss: Mayrin
+- Defeat Mayrin Event
+- Returning Boss: Kai
+- Sol Janus Skill Support
+- Challenger Pass
+- Arcane Seal
+- Quanah World Events
+- Quanah World
+- Dimensional Skills
+- Proving Fields
+- Infinite Dungeon: Battlesim
+- Healing Tree Infirmary
+- Burning Events
+- Hyper Burning MAX
+- Hyper Blink
+- Beyond Burning
+- Item Burning Plus
+- Other Events
+- New Recruit Support Mission
+- Genesis Pass
+NEW CONTENT
+Tester Support Box
+During the Public Test Server period, a Tester Support Box will be automatically added to your inventory. Receive the following items to help with testing:
+- Level Up
+- Weapon
+- Mesos (Character Level x 30,000,000 Mesos)
+- Maple Points (x500,000)
+- Honor EXP (x29,500)
+- Pet
+- Character Slot Coupon
+- Enhancement Items
+- (Interactive Worlds) Teleport World Map 1-Day Pass
+- Arcane Symbols (x50)
+- Sacred Symbols (x50)
+- Nodestones (x15)
+- Vestige of Erion and Traces of Battle
+- Sol Erda
+- Sol Erda Fragments (x100 each use)
+- Legion Coins (x37,500)
+- Grand Master Legion I
+- Boss Clear Records/Crystal Sale Records
+- Also resets Monster Park records.
+- Worldwide Party Points
+The Tester Support Box will only be available in the Public Test Server.
+Back to Top
+New Job: Lethe
+Class | 
+Magician | 
+Job | 
+Lethe | 
+Primary Stat | 
+INT | 
+Secondary Stat | 
+LUK | 
+Legion Bonus | 
+All Stats
+(+10 / +20 / +30 / +40 / +50)
+Max HP
+(+500 / +1,000 / +1,500 / +2,000 / +2,500)
+ | 
+Primary Weapon | 
+Dominium | 
+Secondary Weapon | 
+Quill | 
+Link Skill | 
+Covenant
+Passive
+Mastery Level: 3
+Damage While a Summon is Active: +12%
+ | 
+Back to Top
+Blueberry Farm
+Requirements
+- Lv. 260 - Lv. 300 characters (Lv. 260 - Lv. 300 Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Use a Blueberry Farm Entry Pass, then select 'Blueberry Farm' from the Event List to move to the Blueberry Farm Entrance. Talk to Miho to enter Blueberry Farm.
+- Defeat Blueberries to help with the harvest and earn EXP based on your level.
+Blueberry Farm Details
+- Blueberry Farm has a 30-minute time limit. You can enter for up to 24 hours after using an entry pass.
+- EXP buff effects are not applied while inside Blueberry Farm, and Multi-Kills do not occur.
+- Lv. 280 and above characters earn the same EXP as a Lv. 279 character.
+- Defeat the Giant Blueberry to bring the harvest to 100% and automatically exit the farm.
+- If you exit before the harvest reaches 100%, you can re-enter Blueberry Farm before the time limit ends.
+- You can use your next entry pass once the current harvest reaches 100% or when the time limit ends.
+- Blueberry Farm Entry Passes can be obtained from the Challenger Pass.
+Back to Top
+NEW UPDATES
+Enhancement Changes
+Auto-Enhancement
+- Added an Auto-Enhancement feature which automatically resets enhancements until a set target is reached. This feature is available for Star Force, Bonus Stats, Potential, and Bonus Potential in the Enhance UI. An Auto-Enhancement feature is also available for Ability resets.
+- Star Force: Set a target Star Force level and choose an Enhancement Mode level. Enhancement Mode settings replace the previous Safeguard settings.
+- 15 - 17 Stars: Enhancement Mode Lv. 1 - 3 or Safeguard can be selected.
+- 18 - 21 Stars: Enhancement Mode Lv. 1 - 4 can be selected.
+- Bonus Stats: Set target Bonus Stats for automatic resets.
+- Bonus Stat auto-reset can be used with Powerful, Burning, Eternal, Black, and Abyssal Rebirth Flames, as well as Bonus Stat resets using mesos.
+- Targets can be set up to Tier 7. Powerful and Burning Rebirth Flames can only be used to set targets up to Tier 6.
+- Potential and Bonus Potential: Set target Potential options for automatic resets.
+- Available only for Legendary-rank items.
+- Ability: Set up to six target lines for automatic Ability resets. Auto-Enhancement stops when a target option matches the selected rank and has a value equal to or greater than the specified value, or when you don't have enough Honor EXP.
+- Auto-Enhancement cannot be used for Star Force enhancements with Advanced Equip. Enhancement Scrolls or Equipment Enhancement Scrolls.
+- Auto-Enhancement stops if you are automatically moved to another channel during channel maintenance.
+General Enhancement Changes
+- The Trace Restoration and Star Force Restoration will be combined into one tab as 'Trace Restoration'.
+- Removed the Special Skill Ring Level Swap feature.
+Back to Top
+Epic Dungeon Changes
+High Mountain
+- Changed the total number of stages to 5.
+- Decreased the movement speed of Raging Gluttony.
+- Decreased the HP of the following monsters:
+- Trace of Debilitating
+- Ritual of Debilitating
+- Debilitating Follower
+- Trace of Profanation
+- Ritual of Profanation
+- Profanation Follower
+- Trace of Fear
+- Ritual of Fear
+- Fear Follower
+- Sticky Abyss
+- Divided Debilitating Tynos
+- Tynos
+- Removed the time limit to defeat the following monsters:
+- Judgment of Profanation
+- Wrath of Profanation
+- Judgment of Fear
+- Wrath of Fear
+- Tynos's Fragment
+- Rewards for clearing High Mountain have been adjusted:
+Heroic Worlds
+- EXP
+- Sol Erda: Untradable, 30-day duration.
+- Sol Erda Fragment (x50): Untradable, Permanent.
+Interactive Worlds
+- EXP
+- Sol Erda: Untradable, 30-day duration.
+- Sol Erda Fragment (x15): Tradable within world, Permanent.
+Sol Erda Bonus Rewards
+Interactive Worlds Only
+Lv. 1
+- Sol Erda (x3): Untradable, 30-day duration.
+- Sol Erda Fragment (x30): Tradable within world, Permanent.
+Lv. 2
+- Sol Erda (x8): Untradable, 30-day duration.
+- Sol Erda Fragment (x60): Tradable within world, Permanent.
+EXP Bonus Rewards
+Interactive Worlds Only
+Lv. 1
+- EXP
+- Sol Erda Fragment (x30): Tradable within world, Permanent.
+Lv. 2
+- EXP
+- Sol Erda Fragment (x60): Tradable within world, Permanent.
+Angler Company
+- Changed the total number of stages to 5.
+- Changed so Hack - Conversion cannot be reused for a very short time in Stage 4.
+- Increased the Rail Cannon fire damage dealt to Centurion.
+- Increased the Laser Pattern and Tentacle Slam damage dealt to Triton.
+- Decreased the HP of the following monsters:
+- Angler Scout A
+- Angler Trooper A
+- Angler Titan A
+- Angler Scout B
+- Angler Trooper B
+- Angler Titan B
+- Rewards for clearing Angler Company have been adjusted:
+Heroic Worlds
+- EXP
+- Dense Sol Erda Energy: Untradable, 30-day duration.
+- Sol Erda: Untradable, 30-day duration.
+- Sol Erda Fragment (x65): Untradable, Permanent.
+Interactive Worlds
+- EXP
+- Dense Sol Erda Energy: Untradable, 30-day duration.
+- Sol Erda: Untradable, 30-day duration.
+- Sol Erda Fragment (x15): Tradable within world, Permanent.
+Sol Erda Bonus Rewards
+Interactive Worlds Only
+Lv. 1
+- Dense Sol Erda Energy (x4): Untradable, 30-day duration.
+- Sol Erda (x4): Untradable, 30-day duration.
+- Sol Erda Fragment (x30): Tradable within world, Permanent.
+Lv. 2
+- Dense Sol Erda Energy (x8): Untradable, 30-day duration.
+- Sol Erda (x8): Untradable, 30-day duration.
+- Sol Erda Fragment (x60): Tradable within world, Permanent.
+EXP Bonus Rewards
+Interactive Worlds Only
+Lv. 1
+- EXP
+- Sol Erda Fragment (x30): Tradable within world, Permanent.
+Lv. 2
+- EXP
+- Sol Erda Fragment (x60): Tradable within world, Permanent.
+Nightmare Paradise
+- Changed the total number of stages to 5.
+- Decreased the HP of the following monsters:
+- Contaminated Tree Toad
+- Contaminated Snake
+- Contaminated Bear
+- Changed the Spirit required to use Nimbus Cloud to 300.
+- Changed the number of key inputs required for Tiger Slash when attacking Contaminated Zigang to 3.
+- Changed so the following skills are no longer removed when mounting the Nimbus Cloud:
+- Evil Eye
+- Scurvy Summons
+- HEXA Scurvy Summons
+- Tempest Bombardment
+- HEXA Tempest Bombardment
+- Fires of Creation
+- Rewards for clearing Nightmare Paradise have been adjusted:
+Heroic Worlds
+- EXP
+- Sol Erda (x2): Untradable, 30-day duration.
+- Sol Erda Fragment (x80): Untradable, Permanent.
+Interactive Worlds
+- EXP
+- Sol Erda (x2): Untradable, 30-day duration.
+- Sol Erda Fragment (x15): Tradable within world, Permanent.
+Sol Erda Bonus Rewards
+Interactive Worlds Only
+Lv. 1
+- Sol Erda (x8): Untradable, 30-day duration.
+- Sol Erda Fragment (x30): Tradable within world, Permanent.
+Lv. 2
+- Sol Erda (x16): Untradable, 30-day duration.
+- Sol Erda Fragment (x60): Tradable within world, Permanent.
+EXP Bonus Rewards
+Interactive Worlds Only
+Lv. 1
+- EXP
+- Sol Erda Fragment (x30): Tradable within world, Permanent.
+Lv. 2
+- EXP
+- Sol Erda Fragment (x60): Tradable within world, Permanent.
+- Note: If you have a play record in High Mountain, Angler Company, or Nightmare Paradise before the maintenance on November 11, 2026, your progress records will be adjusted to match the changed stages.
+General Epic Dungeon Changes
+- Changed the Epic Dungeon Express Pass price to 5,000 Maple Points.
+- Story Mode can now be skipped regardless of whether it has been cleared for the first time within the account.
+Back to Top
+Monster Park Changes
+Monster Park Sweep Feature
+- A Sweep feature has been added to Monster Park dungeons allowing you to clear multiple Monster Park runs at once.
+- You'll have the ability to set the number of sweeps when entering Monster Park.
+- Clearing Monster Park dungeon once will grant rewards for the number of sweeps you set.
+- If you have Monster Park Free Entry Tickets, the number of free entries shown includes them.
+- Monster Park Free Entry Tickets are used before Maple Points.
+Extreme Monster Parker Quest
+- 'Extreme Monster Parker' is a new weekly quest that can be completed by characters Lv. 260 and above by clearing Monster Park dungeons 5 times.
+- Rewards can be claimed once on up to 2 characters per world.
+- Added Extreme Monster Parker quest to the Maple Planner.
+General Monster Park Changes
+- Monster Park Extreme Momo can be purchased at the General Store for 150 Monster Park Commemorative Coins.
+- Can be purchased up to 5 times a week per world.
+- Removed Monster Park Extreme and its related contents.
+Back to Top
+Guild Changes
+Account Groups
+- An Account Group feature has been added, allowing multiple characters in a world to act together as one guild member.
+- When applying to join a guild, you can select up to 6 characters in the world to join as one guild member.
+- Characters in an Account Group can access guild benefits like Guild Skills and Guild Noblesse Skills.
+- Attendance, contribution, and guild content records are recorded 1 time per Account Group.
+- For Sharenian Culvert, the highest score within the Account Group is recorded.
+- If the character that achieved the highest Sharenian Culvert score in the Account Group leaves the guild, all records are reset.
+- When a representative character is set in an Account Group, that character's name is always displayed to other guild members.
+- You can leave an Account Group with an individual character, or leave the guild with the entire Account Group at once. Guild leaders cannot use the mass-leave function, and the representative character cannot leave the guild.
+- When a guild member is expelled, all characters in their Account Group are expelled.
+- Guild weekly missions can be participated in once per Account Group.
+Guild Recruitment/Management
+- Added an option so you can set the minimum character level required to join your guild.
+- Added an Auto-Join option to the guild joining method. When an application meets the guild's joining conditions, the character automatically joins the guild without administrator approval.
+- Improved the search and filter functions in Guild Search and the Recruitment Board.
+- A guild can now receive up to 200 membership applications at the same time.
+- Changed the method of creating an Alliance: 2 guild leaders can create an Alliance without forming a party and can then invite members afterward.
+- Ranks with access to permissions can now delete intermediate ranks. When a rank is deleted, lower ranks move up one rank.
+- The Guild UI has been changed.
+Back to Top
+Legion Changes
+Legion Members
+- The Legion Synergy Grid system that utilizes Legion Blocks has been removed.
+- Legion Stats can now be obtained by allocating Legion Points, which can be earned by raising your Legion Rank and Legion members' levels.
+- The Legion Raid composition used to obtain Legion Points is now configured automatically, in order of the highest-level characters in the world.
+Character Rank | 
+Legion Points | 
+B | 
+1 | 
+A | 
+2 | 
+S | 
+3 | 
+SS | 
+4 | 
+SSS | 
+5 | 
+- Legion Stats are divided into two categories:
+- Basic Stats: Can be obtained when the Legion system is unlocked.
+- Expanded Stats: Unlocked as you reach certain Legion Ranks.
+Basic Stats | 
+Expanded Stats | 
+STR | 
+Critical Damage | 
+DEX | 
+Boss Damage | 
+INT | 
+Ignore Defense | 
+LUK | 
+Critical Rate | 
+Attack Power | 
+Buff Duration | 
+Magic ATT | 
+Normal Enemy Damage Increase | 
+Max HP | 
+EXP Obtained | 
+Max MP | 
+Status Resistance | 
+- Legion Member Bonuses will automatically apply once the character is Rank B or higher.
+- Event Legion Blocks (such as Ride or Die and Abyssal Expedition) are now included automatically and don’t count toward the Legion Member number.
+- Only the two highest Event Legion Blocks are applied.
+- Characters with high Combat Power are placed automatically in the Legion Raid Field, and all characters in the world can enter the Legion Raid Field directly.
+- The purchase limits for the following items are now account-wide:
+- Basic Legion Meso Box
+- Intermediate Legion Meso Box
+- Advanced Legion Meso Box
+Legion Champion
+- The 5th Legion Champion Slot is now available and can be unlocked once four Legion Champions reach Rank A or higher.
+- The '[Legion Champion] Legendary Champion' achievement has been added.
+General Legion Changes
+- Increased the number of Legion Stat Presets to 10.
+- Added a function to set names for Legion Stat Presets.
+- Added a button to reset all selected Ability Levels in the Champion's Renown UI.
+- Changed so owned Champion Coins can be used until 11:59 PM UTC on the 7th of the following month.
+- Carried-over Champion Coins expire at 12:00 AM UTC on the 8th of each month.
+- Carried-over Champion Coins are used first when using Champion's Renown.
+Back to Top
+MVP Changes
+- Added an MVP Resort UI.
+- Check the level and EXP you can reach after using up your remaining MVP Resort time.
+- Your usage time and EXP obtained are displayed when you leave the MVP Resort.
+- Added a feature where you can set an automatic exit level.
+- Added a feature where you can turn the EXP obtained effect on/off.
+- The MVP Express Pass can now be used at the MVP Resort and Luxe Sauna Room.
+- The Symbol Express Pass will now be unavailable from 11:55 PM UTC to 12:05 AM UTC the following day.
+Back to Top
+Special Skill Ring
+Special Skill Rings can now be obtained through crafting!
+How to Participate
+- Accept the '[Neon's Research] Call from Veritas' quest from the lightbulb notifier on the left side of the screen to start, and then talk to Neon to access the Special Skill Ring UI.
+Ring Box Crafting
+- Use Ardent Essence, obtained from extracting Special Skill Rings to craft Green, Red, Black, and White Boss Ring Boxes.
+- There's a base success rate for each box you want to craft. Use the slider to add more materials and increase the success rate.
+Ring Fusion
+- Fuse three owned Special Skill Rings of the same level to obtain one random Special Skill Ring of that level.
+- Only Lv. 1 - 4 Special Skill Rings can be used for fusion. Lv. 5 - 6 rings cannot be used.
+Ring Extraction
+- Extract owned Special Skill Rings to obtain Ardent Essence.
+Back to Top
+Skill Changes
+Job Skills
+Explorers
+Hero
+Ultrasonic Slash
+- Sword Aura Attack Damage (Lv. 30): 8725% → 6108%
+- Changed the following skill icons:
+- Raging Blow - Reinforce
+- Raging Blow - Spread
+- Raging Blow - Extra Strike
+Paladin
+Dominus Oblivion
+- Impact Damage (Lv. 30): 10924% → 7647%
+- Judgment of Light Damage (Lv. 30): 10908% → 7636%
+Dark Knight
+Dark Halidom
+- Pierce Damage (Lv. 30): 4115% → 2881%
+- Strike Damage (Lv. 30): 5534% → 3874%
+Evil Eye's Punishment
+- Changed the skill effects.
+HEXA Evil Eye Shock
+- Changed the skill description.
+Arch Mage (Fire/Poison)
+Immortal Flame
+- Rain of Fire Damage (Lv. 30): 3920% → 2735%
+- Flame Explosion Damage (Lv. 30): 4655% → 3256%
+- Changed the following skill descriptions:
+- Elemental Adaptation (Fire, Poison)
+- Infernal Venom
+Arch Mage (Ice/Lightning)
+Frozen Lightning
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+Thunder Sphere
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+Elquines
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+HEXA Thunder Sphere
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+HEXA Elquines
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+Elemental Adaptation (Ice, Lightning)
+- Changed the skill description.
+Parabolic Bolt
+- Electric Discharge Damage (Lv. 30): 4712% → 3298%
+- Lightning of Swiftness Damage (Lv. 30): 2079% → 1455%
+Bishop
+Divine Protection
+- Changed the skill description.
+Commandment of Heaven
+- Light Damage (Lv. 30): 3996% → 2797%
+- Angel's Punishment Damage (Lv. 30): 4928% → 3450%
+Bow Master
+Flashpoint
+- Arrow Shock Damage (Lv. 30): 7590% → 5316%
+- Point-Blank Explosion Damage (Lv. 30): 7905% → 5528%
+Marksman
+Split Shot
+- Duration: 72 seconds → 75 seconds
+- Split Damage (Lv. 30): 1302% → 1631%
+- Changed the maximum number of additional attacks that can activate to 140.
+Fatal Trigger
+- Burst Damage (Lv. 30): 7953% → 5567%
+- Strike Damage (Lv. 30): 8134% → 5694%
+Pathfinder
+Piercing Relic
+- Condensed Curse Damage (Lv. 30): 8848% → 6183%
+Night Lord
+Deep Strike
+- Wave Damage (Lv. 30): 7325% → 5128%
+- Explosion Damage (Lv. 30): 8167% → 5717%
+Shadower
+Covetous Darkness
+- Slash Damage (Lv. 30): 7165% → 5016%
+- Explosion Damage (Lv. 30): 8295% → 5807%
+Dual Blade
+Yama's Decree
+- Power Unbound Damage (Lv. 30): 5779% → 4045%
+- Slash Damage (Lv. 30): 7683% → 5378%
+- Inevitable Judgment Damage (Lv. 30): 10495% → 7347%
+Buccaneer
+Sea Serpent's Rage
+- Changed the skill description.
+HEXA Sea Serpent
+- Changed the skill description.
+Haymaker
+- Aftershock Damage (Lv. 30): 6055% → 4235%
+- Fatal Wound Damage (Lv. 30): 6510% → 4550%
+Corsair
+All Aboard
+- Changed the skill icon.
+Firecracker Fusillade
+- Air Shot Damage (Lv. 30): 6159% → 4311%
+- Bullet Blast Damage (Lv. 30): 6159% → 4311%
+Cannoneer
+Monkey Mortar
+- Changed the skill description.
+HEXA Monkey Mortar
+- Changed the skill description.
+Barrel of Monkeys
+- Blast Damage (Lv. 30): 5810% → 4067%
+- Spread Bombardment Damage (Lv. 30): 6090% → 4263%
+Cygnus Knights
+Mihile
+Royal Guard
+- Attack Power Increase Buff Duration: 20 seconds → 60 seconds
+- Changed so you can counterattack while colliding with a boss affected by the Unable to Act status effect.
+- Changed so you can counterattack while colliding with a boss in a Groggy state.
+HEXA Royal Guard
+- Attack Power Increase Buff Duration: 20 seconds → 60 seconds
+- Changed so you can counterattack while colliding with a boss affected by the Unable to Act status effect.
+- Changed so you can counterattack while colliding with a boss in a Groggy state.
+Soul Link
+- Changed the skill icon.
+Dawn Warrior
+Totality
+- Wind Pressure of Unity Damage (Lv. 30): 4942% → 3459%
+- Soul Slash's Savage Slash Damage (Lv. 30): 5440% → 3808%
+- Changed the following skill descriptions:
+- Cosmic Burst
+- Flare Slash
+- HEXA Cosmic Burst
+- Equinox Cycle
+Blaze Wizard
+Orbital Flame - Range
+- Changed the skill icon.
+Phoenix Run
+- Changed the skill description.
+Salamander Mischief
+- Changed so the Magic ATT Increase buff remains even when the character dies.
+Flame Concerto
+- Flame Performance Damage (Lv. 30): 4340% → 3044%
+- Explosive Flame Damage (Lv. 30): 7000% → 4900%
+Eternity
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+Wind Archer
+Elemental Tempest
+- Wave Damage (Lv. 30): 8027% → 5619%
+- Arrow Rain Damage (Lv. 30): 8204% → 5743%
+Thunder Breaker
+Annihilating Rush
+- Onslaught Damage (Lv. 30): 6160% → 4312%
+- Torrent Damage (Lv. 30): 6510% → 4557%
+Heroes
+Aran
+Hailstorm Howl
+- Storm Damage (Lv. 30): 8610% → 6027%
+- Frozen Slash Damage (Lv. 30): 7805% → 5464%
+Ol' Reliable
+- Changed the skill icon.
+Evan
+Mana Burst I
+- Changed the skill icon.
+Mana Burst II
+- Changed the skill icon.
+Mana Burst III
+- Changed the skill icon.
+Enhanced Magic Debris
+- Changed the skill icon.
+United Horizons
+- Magic ATT Damage (Lv. 30): 7621% → 5320%
+- Resonance Wave Damage (Lv. 30): 8298% → 5810%
+Elemental Radiance
+- Changed so the magic circle gains 1 charge when casting Sol Hecate: Styx.
+- Changed so the magic circle gains 1 charge when casting Sol Hecate: Phlegethon.
+Luminous
+Lustrous Orb
+- Encroaching Darkness Damage (Lv. 30): 5320% → 3710%
+- Flash Damage (Lv. 30): 5320% → 3710%
+Mercedes
+Primeval Spirits
+- Arrow Rain Damage (Lv. 30): 8785% → 6158%
+- Changed the following skill descriptions:
+- Spikes Royale
+- HEXA Spikes Royale
+- Wrath of Enlil
+- HEXA Wrath of Enlil
+Phantom
+Moonlit Serenade
+- Slash Damage (Lv. 30): 6765% → 4733%
+- Moonlight Damage (Lv. 30): 8560% → 5997%
+Shade
+Promise Unbroken
+- Spirit Pressure Damage (Lv. 30): 2219% → 1553%
+- Spirit Execution Damage (Lv. 30): 1897% → 1328%
+- Added a duration for Divine Punishment.
+Resistance
+Blaster
+Vanguard Strike
+- Impact Damage (Lv. 30): 3045% → 2132%
+- Energetic Remnant Damage (Lv. 30): 4375% → 3063%
+Battle Mage
+Duskbound Aura
+- Eruption Damage (Lv. 30): 6300% → 4410%
+- Crack Explosion Damage (Lv. 30): 7945% → 5565%
+Abyssal Lightning
+- Netherworld Lightning Damage (Lv. 30): 1650% → 1980%
+- Increased Netherworld Lightning's activation range by ~598%.
+- Added a limit on the maximum number of Netherworld Lightning activations.
+- Changed the following skill icons:
+- Dark Aura - Boss Rush
+- Weakening Aura - Enhance
+- Blue Aura - Dispel Magic
+Wild Hunter
+Gear Storm
+- Heavy Strike Damage (Lv. 30): 3290% → 2303%
+- Indiscriminate Bombardment Damage (Lv. 30): 7735% → 5415%
+Xenon
+Neoteric Snap
+- Wave Damage (Lv. 30): 7000% → 4900%
+- Energetic Eruption Damage (Lv. 30): 4331% → 3032%
+- Quantum Blade Damage (Lv. 30): 1365% → 956%
+- Added a duration for Quantum Gate.
+Mechanic
+Mechanized Extinction
+- Bombardment Damage (Lv. 30): 8331% → 5832%
+Robo Conversion: CB-P1
+- Changed so the summon will no longer attack while in the Boss Reward Room.
+- Changed the following skill icons:
+- Hidden Peace
+- Heavy Salvo Plus - Spread
+- AP Salvo Plus - Extra Strike
+Demon Slayer
+Amethystine Incursion
+- Explosion Damage (Lv. 30): 10815% → 7560%
+Demon Avenger
+Rageborne Devil
+- Rifts of Wrath Damage (Lv. 30): 7280% → 5110%
+- Red Annihilation Damage (Lv. 30): 7385% → 5180%
+Nova
+Kaiser
+Inferno Breath
+- Added a function that triggers HEXA Tempest Blades' Dragon Blow.
+HEXA Inferno Breath
+- Added a function that triggers HEXA Tempest Blades' Dragon Blow.
+Ultimate Inferno Breath
+- Added a function that triggers HEXA Tempest Blades' Dragon Blow.
+Pyroclastic Instinct
+- Flame Damage (Lv. 30): 10325% → 7213%
+Kain
+[Possess] Strike Arrow
+- Removed the re-manifestation cooldown.
+HEXA [Possess] Strike Arrow
+- Removed the re-manifestation cooldown.
+[Possess/Execute] Churning Malice
+- Manifested Malice Damage (Lv. 30): 3500% → 2450%
+- Strike Damage (Lv. 30): 3815% → 2661%
+- Blessing of the End Damage (Lv. 30): 4480% → 3148%
+Cadena
+Brutal Rampage
+- Flying Strike Damage (Lv. 30): 11620% → 8123%
+- Crush Damage (Lv. 30): 11830% → 8292%
+- Changed the following skill icons:
+- Chain Arts: Thrash II
+- Chain Arts: Thrash III
+- Chain Arts: Thrash IV
+Angelic Buster
+Surprise Encore
+- Wave Damage (Lv. 30): 7313% → 5111%
+- Charm Release Damage (Lv. 30): 7167% → 5002%
+Transcendence
+Zero
+Bitemporis
+- Awakening Damage (Lv. 30): 5460% → 3815%
+- Collapse Damage (Lv. 30): 5880% → 4130%
+- Stacking Damage (Lv. 30): 6160% → 4305%
+- Changed the icon effect showing when a Combo Skill can be activated.
+Friends World
+Kinesis
+Psychic Castle
+- Changed the skill description.
+Fractal Horizon
+- Impact Damage (Lv. 30): 1540% → 1078%
+- Changed the following skill icons:
+- Ultimate: Pressure
+- Kinetic Combo
+- HEXA Kinetic Combo
+Flora
+Adele
+Einheit
+- Slash Damage (Lv. 30): 7910% → 5537%
+Illium
+Excidium
+- Wave Damage (Lv. 30): 6895% → 4830%
+- Explosion Damage (Lv. 30): 7245% → 5075%
+Khali
+Wake the Void
+- Rush Damage (Lv. 30): 5800% → 4060%
+- Transcendent Chakri Damage (Lv. 30): 6185% → 4330%
+Ark
+Whisper of Deepest Abyss
+- Abyssal Aura Damage (Lv. 30): 5565% → 3896%
+- Abyssal Blade Damage (Lv. 30): 6965% → 4876%
+Anima
+Lara
+Arbor Away
+- Changed the skill description.
+- Changed the buff so it stays active when changing maps.
+- Removed the tree's area.
+Cornucopia
+- Energy Damage (Lv. 30): 8435% → 5905%
+Hoyoung
+Millennium Spirit
+- Energy Damage (Lv. 30): 4410% → 3087%
+- Whirling Spirit Damage (Lv. 30): 4270% → 2989%
+Ren
+Rising Azure Dragon: Heartbound Verse
+- Falling Flower Damage (Lv. 30): 3075% → 2153%
+- Heaven Strike Damage (Lv. 30): 5450% → 3815%
+- Sky Force Damage (Lv. 30): 3678% → 2573%
+General Skills
+General Skill Changes
+- Increased the Max Damage limit to 10 trillion.
+- Changed so Erda Shower can no longer be used in boss battle maps, Mu Lung Dojo, or Sharenian Culvert.
+- Changed the skill description of Sol Janus: Dawn/Dusk.
+- Changed the description of Damage Range in Character Info.
+- Memories
+- Attack Power & Magic ATT: 25% → 16%
+- Sol Hecate: Styx
+- Decreased the resistance time after Immobilization is applied from 47 seconds → 39 seconds.
+- Grit I
+- Changed the skill icon.
+- Grandis Goddess's Blessing
+- Increased the chance for Nova's cooldown not to apply to 100%.
+- Changed the cooldown for the following Special Nodes to 120 seconds:
+- Frenzied Strength I
+- Lethal Strike I
+- Defense Smash I
+- Defense Smash II
+- Boss Slayer I
+- Boss Slayer II
+- Boss Slayer III
+- Comeback
+- Relentless Attack
+- Auto Recovery
+- Withstand
+- Withstand II
+- One Target Only I
+- Grit I
+- Fatal Strike I
+- Counterattack I
+HEXA Matrix Reset Scroll
+Requirements
+- Lv. 260 and above characters (Zero characters must have completed Story Quest Act 2).
+- Completed the 6th Job Advancement.
+- Players can claim a HEXA Matrix Reset Scroll (once per character) by talking to Maple Administrator.
+- HEXA Matrix Reset Scroll: Untradable, expires December 16, 2026 2:00 AM UTC.
+Repeated Skill Input Improvement
+- Added a Repeated Skill Input Improvement feature in the Laboratory tab of Game Settings that processes repeated attack, jump, and skill inputs at set intervals, regardless of your PC's processing speed.
+- When enabled, you can directly edit the Wait Time and Repeat Time of repeated key inputs:
+- Wait Time: Set the wait time of repeated key inputs.
+- Repeat Time: Set the interval between repeated key inputs.
+- The feature does not work while entering text or when certain UI windows are open.
+- Skill Repeated Input does not apply to the following skills:
+- Boss Slayers
+- Undeterred
+- For the Guild!
+- Hard Hitter
+- Link Manager
+- Loadout
+- Sol Hecate: Pactum
+- Hero's Echo
+- Exclusive Spell
+- Intensive Time
+- Ever-Burning Ember
+- In Champion Raid: Draco Isle, the tagged character's Skill Repeated Input settings are used when characters are tagged.
+Back to Top
+Boss & Mob Changes
+Boss Changes
+- Changed the Monthly and Weekly Boss time limit to 20 minutes.
+- Reduced the HP of the following bosses:
+Boss | 
+Difficulty | 
+HP Reduced | 
+Zakum | 
+Chaos | 
+~32.5% | 
+Magnus | 
+Hard | 
+~31.7% | 
+Papulatus | 
+Chaos | 
+~31.3% | 
+Lotus | 
+Normal, Hard | 
+~31.6% | 
+Extreme | 
+~32.2% | 
+Damien | 
+Normal, Hard | 
+~31.5% | 
+Guardian Angel Slime | 
+Normal, Chaos | 
+~31.4% | 
+Lucid | 
+Easy, Normal | 
+~31.5% | 
+Hard | 
+~28.5% | 
+Will | 
+Easy, Normal, Hard | 
+~32.9% | 
+Gloom | 
+Normal, Chaos | 
+~32.3% | 
+Verus Hilla | 
+Normal, Hard | 
+~31.4% | 
+Darknell | 
+Normal, Hard | 
+~31.3% | 
+Black Mage | 
+Hard | 
+~64.9% | 
+Extreme | 
+~32.3% | 
+Chosen Seren | 
+Normal, Hard, Extreme | 
+~32.1% | 
+Kalos the Guardian | 
+Easy, Normal, Chaos, Extreme | 
+~33.2% | 
+First Adversary | 
+Easy, Normal, Hard, Extreme | 
+~32.2% | 
+Kaling | 
+Easy, Normal, Hard, Extreme | 
+~32.2% | 
+Malefic Star | 
+Normal, Hard | 
+~32.0% | 
+Limbo | 
+Normal, Hard | 
+~32.5% | 
+Baldrix | 
+Normal, Hard | 
+~32.2% | 
+Jupiter | 
+Normal, Hard | 
+~32.0% | 
+- Cygnus
+- Easy
+- Removed Cygnus (Easy).
+- The following achievements have been moved to the Memories tab:
+- Fallen Empress, Is This Okay?
+- Empress! Empress!
+- Welcome to the Garden
+- The following Artifact Missions and Quests can no longer be completed:
+- Defeat Easy Cygnus First Clear Mission (Artifact Special Mission)
+- Defeat Easy Cygnus Mission (Artifact Boss Mission)
+- 'Cygnus Empress Extermination and Golden Glory'
+- Removed defeating Easy Cygnus as a completion condition for the 'Fallen Empress Savior' quest.
+- Normal
+- Changed Cygnus (Normal) to be a Daily Boss.
+- Changed the amount of Boss Reward Points obtainable to 30.
+- Changed the individual Guild Contribution amount obtained to 500.
+- Decreased the drop rate for Cygnus Soul Shards.
+- The following Artifact Missions can no longer be completed:
+- Defeat Normal Cygnus First Clear Mission (Artifact Special Mission)
+- Defeat Normal Cygnus Mission (Artifact Boss Mission)
+- Hilla (Hard)
+- Changed Hilla (Hard) to be a Daily Boss.
+- Changed the amount of Boss Reward Points obtainable to 30.
+- Changed the individual Guild Contribution amount obtained to 500.
+- The following Artifact Missions can no longer be completed:
+- Defeat Hard Hilla First Clear Mission (Artifact Special Mission)
+- Defeat Hard Hilla Mission (Artifact Boss Mission)
+- Pink Bean (Chaos)
+- Changed Pink Bean (Chaos) to be a Daily Boss.
+- Changed the amount of Boss Reward Points obtainable to 30.
+- Changed the individual Guild Contribution amount obtained to 500.
+- Decreased the drop rates for the following items:
+- Black Bean Mark
+- Golden Clover Belt
+- Pink Holy Cup
+- The following Artifact Missions can no longer be completed:
+- Defeat Chaos Pink Bean First Clear Mission (Artifact Special Mission)
+- Defeat Chaos Pink Bean Mission (Artifact Boss Mission)
+- Will (Easy, Normal, Hard)
+- Removed the Arcane Force guide message that appears when entering.
+- Removed the Dark Executor pattern.
+- Changed the Moonlight Gauge so it no longer decreases when hit by Watching Eyes.
+- Phase 1
+- Changed the guide message:
+- When entering Phase 1
+- For the Spatial Collapse pattern
+- For the Moonlight Protective Shield pattern
+- When failing the Moonlight Protective Shield pattern
+- Phase 2
+- Added a guide message when the Phase 2 Mirror of Lies pattern fails.
+- Changed the guide message:
+- When entering Phase 2
+- For the Phase 2 Mirror of Lies pattern
+- Changed the crack effect of the Phase 2 Mirror of Lies pattern.
+- Changed the Spider Legs effect of the Phase 2 Mirror of Lies pattern.
+- Changed the knockback pattern so it no longer applies Confusion.
+- (Normal) Decreased damage taken from Abyssal Veils by ~11%.
+- (Hard) Decreased damage taken from Abyssal Veils by ~10%.
+- Phase 3
+- Changed the guide message when entering Phase 3.
+- Changed the Phase 3 Spider Web pattern so webs spawn less often when there are fewer players.
+- Verus Hilla (Normal, Hard)
+- Added a guide message:
+- The first time you're hit by a Red Thread
+- Before the Soul Slash pattern occurs
+- Changed the guide message:
+- When entering
+- When the Altar is summoned
+- Added an Interact/Harvest key guide to the Altar effect.
+- Changed the preview effects for:
+- Red Threads
+- Bone Wave
+- Decreased the number of Red Threads by ~14%.
+- Black Mage
+- Increased the number of players who can enter Black Mage per channel.
+- Kaling (Easy, Normal, Hard, Extreme)
+- Changed the location of some Black Flames in Phase 2.
+- Changed the spawn locations and number of some Shock Zones in Phase 2.
+- Changed the Instrument Release pattern's cooldown so it no longer decreases while Frenzied Kaling is Bound in Phase 3.
+- Pianus
+- Removed Reindeer Milk and Sunset Dew from Pianus's drops.
+Legion Champion Boss Changes
+- Added a Final Damage reduction effect when challenging the following bosses in Champion Mode:
+Bosses | 
+Final Damage Reduced | 
+Lotus | 
+30% | 
+Verus Hilla | 
+30% | 
+Chosen Seren | 
+30% | 
+Kalos the Guardian | 
+30% | 
+Black Mage | 
+25% | 
+- Changed the time limit for Black Mage in Champion Mode to 20 minutes.
+Boss Practice Mode Changes
+- Specific boss phases can now be selected in Practice Mode.
+- The phase-specific feature is available for:
+- Bosses from Lotus (Normal) to Kaling (Hard).
+- Genesis Liberation and Destiny 1st Transcendence Missions.
+- The phase-specific feature is not available for Legion Champion Trial and Destiny 2nd Transcendence Missions.
+- You can only practice specific phases if you've entered the phase before in either the actual battle or Practice Mode.
+- If a specific phase was selected in Practice Mode, it will not count as a clear for quests that allow clears in Practice Mode.
+Intense Power Crystal Changes
+- Changed the sale prices (mesos) of the following Intense Power Crystals:
+Boss | 
+Heroic Worlds | 
+Interactive Worlds | 
+Von Leon (Hard) | 
+9,800,000 | 
+1,960,000 | 
+Arkarium (Normal) | 
+10,082,000 | 
+2,016,400 | 
+Magnus (Normal) | 
+10,368,000 | 
+2,073,600 | 
+Papulatus (Normal) | 
+10,658,000 | 
+2,131,600 | 
+Hilla (Hard) | 
+11,250,000 | 
+2,250,000 | 
+Pink Bean (Chaos) | 
+12,800,000 | 
+2,560,000 | 
+Cygnus (Normal) | 
+14,450,000 | 
+2,890,000 | 
+General Boss & Mob Changes
+- Changed certain field patterns so they no longer trigger while a boss is affected by Bind, Absolute Bind, or Sol Hecate: Styx's Bind.
+- Changed so Mechaberry and Mechaberry Psi monsters will now chase characters.
+Back to Top
+Item Changes
+Sol Erda/Sol Erda Fragment
+- Changed so the maximum amount of Sol Erda you can hold increases based on your character level:
+Level | 
+Sol Erda Amount | 
+260 | 
+20 | 
+275 | 
+25 | 
+290 | 
+30 | 
+- Changed the number of Sol Erda/Sol Erda Fragment Selector Coupons that can be used at once to 300.
+- Changed so newly dropped Sol Erda Fragments in Heroic Worlds are tradable within world.
+Whisper Crystal
+- The following items can now be crafted using Whisper Crystals:
+Item | 
+Materials Required | 
+Green Jade Boss Ring Box | 
+Dawn Whisper Crystal (x15) | 
+Red Jade Boss Ring Box | 
+Pitched Whisper Crystal (x25) | 
+Black Jade Boss Ring Box | 
+Pitched Whisper Crystal (x45) | 
+Total Control | 
+Pitched Whisper Crystal (x480) | 
+- Increased the number of Pitched Whisper Crystals dropped by Black Mage (Extreme) from 1 → 3.
+Custom Portrait
+- Custom Portraits now also appear in guide dialogue that features your character avatar, as long as Display is turned on in the Scenario Dialogue window.
+- Added a Request Again feature for Custom Portrait commissions.
+- If you have Request Again attempts remaining when viewing an Illustration Request result made with a Portrait Commission Ticket, you can choose Request Again instead of selecting a result.
+- Requesting again removes all existing results and starts a new request.
+- Added the Silver Portrait Commission Ticket, which can be purchased at the Custom Portrait Shop.
+- The Portrait Commission Ticket will no longer be sold in the shop.
+- Changed so you receive additional Request Again attempts when there are no Illustration Request results, instead of receiving a Special Portrait Commission Ticket.
+General Item Changes
+- Added a message notifying players that expiring Medals cannot be reissued.
+- Added a feature where multiple Mysterious Star Speck Boxes can be opened at once.
+- Changed Grindstones of Life and Grindstones of Faith to drop as instanced rewards in Heroic Worlds.
+- Changed the selling price of OMNI-CLN Components to 1 meso.
+- Improved visibility so that when a Xenon character receives a Genesis Weapon from a sealed Genesis Weapon Box, you can tell which weapon will have the set effect for which job when liberated.
+- Changed the names of the following Growth Potions:
+Before | 
+After | 
+Magnificent Growth Potion (200 - 249) | 
+Growth Potion (200 - 249) | 
+Leap Growth Potion (200 - 259) | 
+Growth Potion (200 - 259) | 
+Transcendent Growth Potion (200 - 269) | 
+Growth Potion (200 - 269) | 
+Legendary Growth Potion (200 - 279) | 
+Growth Potion (200 - 279) | 
+- Changed so Astra Secondary Weapon Remnants can be discarded.
+- Changed the descriptions of skills reset with SP Reset Scroll or Special SP Reset Scroll.
+- Changed so Title stats are displayed on the Sovereign Summoner Title Coupon.
+- Changed so Sol Hecate Skin Exchange Coupons can only be used in towns.
+- Changed the description of the Select Slot Expansion Coupon item.
+- Changed the item descriptions for the Eternal Twisted Armor Box and Eternal Armor of Radiance Box.
+- Changed the shop sale price of the OMNI-CLN Component item to 1 meso.
+- Removed the Medal reissue fee.
+- Removed the daily usage limit for VIP Boosters.
+Back to Top
+Map Changes
+- Improved maps in Odium to reduce delays.
+- Changed so Maple Guide can be used in the Monster Park Waiting map.
+- Changed the placement of monsters and terrain in some Grandis Region hunting fields.
+- Changed so Boss Map names display the difficulty after the map name (for example "Boss Map [difficulty]").
+- Changed so characters are tagged in Champion Raid: Draco Isle when a number key is released instead of when it is pressed.
+- Changed so characters appear closer to the NPC when entering the Strawberry Farm Battle map.
+- Changed the portal location in the Strawberry Farm Battle map.
+- Changed so that during a channel maintenance, characters in the Luxe Sauna or MVP Resort are automatically moved to a channel that is not under maintenance.
+- Automatic channel movement only applies to characters already in either map when it begins. Characters who enter after the movement starts will not be moved automatically.
+- Auto-Enhancement stops if you are automatically moved to another channel.
+Back to Top
+Quest & Story Changes
+Arcane River and Grandis Quest Changes
+- Changed the number of monsters required to complete the Arcane River and Grandis daily quests to 100.
+- The Express Pass will now cost 200 Maple Points for Arcane River and Grandis daily quests.
+- Changed the number of times the Arcane River weekly quest can be completed to 1.
+- Receive 240 Arcane Symbols for each region when completing the quest.
+- The Express Pass will now cost 2,000 Maple Points for Arcane River weekly quests.
+Boss Prerequisite Quest Removal
+- Removed the prerequisite quest requirement for bosses available before the Arcane River region, excluding Root Abyss and Gollux. Only the level requirement applies.
+- Added the option to skip the story in the Root Abyss and Gollux prerequisite quests, regardless of whether you’ve cleared it before.
+Astra Secondary Weapon
+- Characters that have completed the '[Astra Secondary Weapon] Reason for Release' quest can now reset quests related to the Astra Secondary Weapon by talking to Neinheart in Ereve.
+Grand Athenaeum
+- Added Lethe to the Book of the Beginning.
+- Complete 'Lethe's Journal' achievement to unlock the story.
+General Quest Changes
+- Changed the completion condition of the '[Xenon] Black Wings Hat 2' quest to obtaining a Patrol Robot S Memory Chip.
+- Moved the '[Horntail] Hot Brothers' achievement to the Memories tab.
+Back to Top
+UI Changes
+Skill UI
+- Added an Auto-Assign feature for SP and Hyper SP. This feature can be toggled.
+- Use SP Auto-Assign to automatically assign Skill Points for 1st - 4th Job Skills.
+- Added a notification for newly acquired skills.
+- Added a 'Link Skill' button to the bottom of the Skill UI.
+- Improved the Mount UI.
+- Hyper Skills are now available in the top tab.
+- Buff Favorites can now be opened via the Skill UI.
+- Hover over a skill and press the NPC/Gathering key or click the mouse wheel to enter View Other Skill Levels mode.
+- Use the left/right arrow keys or the mouse wheel to check information for other skill levels.
+- Information about the next skill level is no longer displayed.
+- Removed the Hyper Skill reset cost.
+- Changed so the Attack Speed displays up to 10.
+- Changed the design of Phantom's Loadout UI, Target Skill UI, and Skill Swipe success notification window.
+- Changed the design of the 'Erda Link' button.
+Character Preset
+- Titles are now also applied when changing Equipment presets.
+- The following can now be saved in the Character Preset UI:
+- Effect Transparency
+- Special Nodes
+- Damage Skins
+- Fashion
+- After the update, Preset 1 will be saved, but Presets 2 - 5 will be reset.
+- For certain maps, changing the Character Preset does not change Damage Skins or Fashion.
+General UI Changes
+- Added a feature where you can turn the EXP obtained effect on/off at the Luxe Sauna Room.
+- Added a custom sorting order to the Medal UI.
+- In Custom Order, click a Medal, then click the slot where you want it to appear.
+- Newly obtained Medals are added to the end of the custom order.
+- Added a button to open the Medal UI from the Inventory UI.
+- Added information to the Cash Shop purchase confirmation and cancellation notices that Boss Reward Points returned after a cancellation are valid for 7 days.
+- Added an additional confirmation popup when attempting to purchase Royal Wonder Pets, Luna Sweet Pets, or Petite Luna Pets.
+- Changed the design of the minimized Maple Guide window.
+- Changed so the Quest Mailbox UI expands when it contains more than 10 quests, making it easier to see that additional quests are available below.
+- Changed the Buff Favorites UI so you can choose whether to use Buff Favorites.
+- Changed so the Settings UI is not affected by the Apply UI Transparency in Combat option.
+- Changed the design of the confirmation window displayed when automatically distributing AP or SP.
+- Changed so the Enhance UI and Ability Reset UI cannot be open at the same time.
+- Changed so you can use other in-game UIs while the file selection window for registering a Guild Mark is open.
+- The file selection window also closes when the Guild Mark settings window or Guild UI closes.
+- Changed so the face of a character transformed with an Illusion Ring is displayed in the Kaling entry preparation map.
+- Changed the guidance text in the Customization UI to clarify that objects are displayed above the eyes and mouth, and below the hair.
+- Changed so the Guardian Spirit effect of the Nature's Breath Fan is displayed behind the character in the Dyeing UI result confirmation window.
+- Changed the "Display My Character Silhouette in Boss Content" option from a Laboratory tab setting to an official option, and moved it to the Effects tab.
+- Changed so you can check quest completion conditions in the Quest Notifier while progressing through a Luna Crystal quest.
+- Changed so the notice in the Enhance UI displays the failure probability instead of the destruction probability when destruction protection is active during Scroll Enhancement.
+- Changed so unusable items are highlighted in red when you double-click a Weapon Effect Prism.
+Back to Top
+Content Improvements
+EXP Changes
+- The EXP obtained for characters Lv. 295 - 299 has been increased for the following content:
+- Mechaberry Farm
+- Luxe Sauna
+- MVP Resort
+Ursus Improvements
+- Changed the daily challenge limit from 3 → 1.
+- Increased meso rewards by 3x.
+- Increased the materials obtained from Ursus by 3x.
+- Moved Party Play to the top of the menu. A party is automatically created if you are not already in one.
+- Ursus Golden Time is now always active, granting 2x meso rewards at any time.
+- Removed the Ursus Golden Time notification UI.
+Golden Strawberry Farm
+- Adjusted the EXP obtained from Golden Strawberry and Ripe Golden Strawberry monsters.
+- Additional EXP effects no longer apply in Golden Strawberry Farm.
+- Removed the 400% EXP increase from the Strawberry Blessing buff.
+- Changed so Golden Strawberry and Ripe Golden Strawberry monsters chase characters.
+- Changed so buffs are no longer removed when entering Golden Strawberry Farm.
+- Changed so some consumable items can be used in Golden Strawberry Farm.
+- Combo Kill Orbs and Multi-Kills can no longer be obtained in Golden Strawberry Farm.
+Back to Top
+OPERATION ULTIMA EVENTS
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+The Primacy has an urgent request! Something big is happening in Ultimapolis.
+Requirements
+- Lv. 101 and above characters (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Select 'Operation Ultima' from the Event List and click 'Participate' to start the following events.
+Operation Ultima Events Overview
+- Operation Ultima: Chapter 1
+- A new story questline set in Ultimapolis has been added.
+- Ultima Report
+- View and track progress for the Supply Report and Training Report.
+- Supply Report: Daily check-in to collect supplies and rewards.
+- Training Report: Complete Defense Missions to level up event skills.
+- Etherion Relics
+- Activate Relics and enhance their cores for event effects by completing weekly missions.
+- Shadow Bounties
+- Defeat weekly bosses solo to earn Bounty Coins.
+- Shadow Supplies
+- Defeat monsters near your level to summon boxes containing EXP.
+- Specter Blast
+- A 2-player mini-game that rewards EXP once per week.
+Operation Ultima: Chapter 1
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+A new Operation Ultima story chapter set in Ultimapolis has been added. High Flora troops are moving a mysterious magic stone, and their Apostle has ambushed the Alliance's top scouts. Join the Maple Alliance and the Primacy with Ailene to confront the High Flora threat!
+Requirements
+- Lv. 101 and above characters participating in the Operation Ultima quest (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Accept the '[Operation Ultima] Hard-Fought Intel' quest from the lightbulb notification on the left side of the screen.
+- After completing '[Operation Ultima] Hard-Fought Intel', continue the story through the dedicated UI.
+- Event Shops | November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+- Alliance Credit Shop: Access the shop by selecting ‘Alliance Credit Shop’ in the Coin Shops tab within the Event List.
+- Bounty Coin Shop: Access the shop by selecting ‘Bounty Coin Shop’ in the Coin Shops tab within the Event List.
+- Meso Shop: Access the shop by selecting ‘Meso Shop’ in the Coin Shops tab within the Event List.
+Back to Top
+Ultima Report
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Lv. 101 and above characters participating in the Operation Ultima quest (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Select 'Operation Ultima' from the Event List and click 'Participate' to start this event and view your reports.
+- Open the Supply Report or Training Report from the Event List to check event progress.
+- Ultima Report progress is shared across all characters on the same account.
+Supply Report
+- Supplies are automatically collected upon daily login.
+- Each collection grants:
+- 3x EXP Coupon (30 min) x3
+- The daily Supply Report reward.
+- Rewards are claimable once per account.
+- Supplies can be collected up to 5 times per week, up to 60 times during the event period.
+- Missed supply collections from previous weeks can be completed by clicking 'Use' on the Supply Pass on the left side of the event UI.
+- Each missed collection costs 3,000 Maple Points.
+- Stored 3x EXP Coupons (30 min) can be claimed in any quantity by clicking 'Claim'.
+- You can trade 15 3x EXP Coupons (30 min) for 1 4x EXP Coupon (30 min).
+- Both coupons are tradable within world.
+Training Report
+- Defeat 10,000 monsters near your level each week to complete the Defense Mission.
+- Click 'Complete' in the upper-right corner of the event UI for every 2,000 monsters defeated to receive:
+- Alliance Credit (x800): Used to purchase items in the Alliance Shop.
+- Combat Training Card (x5): Used to enhance Combat Training skills.
+- Special Training Card (x5): Used to enhance Special Training skills.
+- Completions can be claimed all at once after defeating 10,000 monsters.
+- The Defense Mission can be completed up to 5 times per week, up to 60 times during the event period.
+- Missed Defense Missions from previous weeks can be completed by clicking 'Use' on the Defense Pass on the left side of the event UI.
+- Each missed mission costs 3,000 Maple Points.
+- Defense Mission progress is shared across all characters on the same account.
+Back to Top
+Etherion Relics
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Etherion Relics are special devices that enhance the power of everyone connected to the artifact created by the Ancient God Erion! Activate these Relics and enhance their cores to obtain powerful benefits!
+Requirements
+- Lv. 101 and above characters participating in the Operation Ultima quest (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Select 'Operation Ultima' from the Event List and click 'Participate' to start.
+- Select 'Etherion Relics' from the Event List to check event progress.
+- Etherion Relics progress is shared across all characters on the same account.
+Weekly Energy Collection Mission
+- Defeat 10,000 monsters near your level (20 levels above and 20 levels below) each week and click 'Collect' to complete the mission.
+- Defeats only count while solo or not in a party.
+- One additional completion becomes available every Wednesday at 12:00 AM UTC, up to 12 times during the event period.
+- Accumulated completions can be used all at once.
+- Each completion activates the Etherion Relic or core, granting Relic Power.
+- Relic Powers activate automatically in the following order:
+- Arcane River, Grandis Daily Quest Rewards
+- Monster Park Clear EXP
+- Sol Erda Obtained While Hunting
+- Sol Erda Obtained When Defeating Bosses
+- Epic Dungeon Base EXP Rewards
+- Treasure Hunter EXP Obtained
+- Cores are chosen by the player and cannot be undone once claimed.
+- The 12th completion grants 100 Etherion.
+- Relic Power applies to all characters on the same account that participated in Etherion Relics.
+Etherion
+- Defeat monsters near your level or weekly bosses to obtain Etherion, used to enhance cores.
+- Prototype Etherion
+- Activated Etherion
+- Augmented Etherion: Dropped only by bosses.
+- Etherion cannot be obtained from Challenger World Bosses, Kai or Mayrin.
+Enhance Cores
+- Spend your Etherion to enhance activated cores up to Level 5 or 6 at a set success rate.
+- Failed enhancements consume Etherion but do not lower the core level.
+- Reach a combined level of 30 across all cores to receive:
+- Etherion Overload Medal: Permanent.
+Back to Top
+Shadow Bounties
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Defeat weekly bosses on your own to collect Bounty Coins, then spend them in the Bounty Coin Shop.
+Requirements
+- Lv. 101 and above characters participating in the Operation Ultima quest (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Accept the '[Operation Ultima] Hard-Fought Intel' quest from the lightbulb notification on the left side of the screen.
+- After completing '[Operation Ultima] Hard-Fought Intel', continue the story through the dedicated UI.
+How to Obtain Bounty Coins
+- Defeat weekly bosses to receive Bounty Coins.
+- Daily and monthly bosses are excluded.
+- Check the Bounty Coins awarded by each boss in the Shadow Bounties UI.
+- If you defeat a boss that awards more Bounty Coins than one already defeated this week, only the difference is awarded.
+- Bounty Coins can be obtained up to the following amounts per week, per world:
+- Basic Bounty Coin: 3,000
+- Intermediate Bounty Coin: 2,000
+- Advanced Bounty Coin: 100
+- Bounty Coins can only be used in the world where they were obtained.
+- Weekly boss defeat records reset every Wednesday at 12:00 AM UTC.
+Boss Defeat Conditions
+- Bosses must be defeated in a 1-person party.
+- Clears in Practice Mode also count.
+- Bounty Coins are awarded immediately upon defeating the boss's final phase.
+Back to Top
+Shadow Supplies
+November 11, 2026 (after maintenance) - December 15, 2026 11:59 PM UTC
+Shadowdealers member Gen supports the Maple Alliance! Recover the Shadowdealers' Box to obtain a large amount of EXP!
+Requirements
+- Lv. 101 and above characters participating in the Operation Ultima quest (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Select 'Operation Ultima' from the Event List and click 'Participate' to start this event along with the other Operation Ultima events.
+- Enter a hunting map with enemies near your level (20 levels above and 20 levels below) to automatically activate the Shadow Supplies skill.
+- Defeat 500 enemies near your level while Shadow Supplies is active to fully charge its gauge and summon a Shadowdealers' Box.
+- Defeat the Shadowdealers' Box to receive EXP.
+- Enemies defeated while a Shadowdealers' Box is summoned do not count toward the next gauge.
+- Each character receives 10 Shadow Supplies activations upon daily login, up to a maximum of 50 stored activations.
+- Activations beyond the maximum are not granted.
+- Toggle Shadow Supplies on or off using the button in the event UI, or by right-clicking the skill in the Beginner skill window.
+Shadowdealers' Box EXP
+- Hunting maps with Lv. 280 and above monsters grant more EXP.
+- EXP is affected by EXP increase effects and by EXP decrease effects from Rune curses and the death penalty.
+- EXP is affected by the Rune of Blessing EXP effect, even when the Rune has not been activated.
+- EXP can raise your character by a maximum of 1 level.
+Back to Top
+Specter Blast
+November 11, 2026 (after maintenance) - December 15, 2026 11:59 PM UTC
+Gaon and Keira have been sucked into the Mindscape! Become Gaon and Keira, escape the Mindscape, and obtain EXP!
+Requirements
+- Lv. 260 and above characters participating in the Operation Ultima event (Zero characters must have completed Story Quest Act 2).
+- Completed the 'A Divine Power' quest.
+How to Participate
+- Select 'Specter Blast' from the Event List to enter Specter Blast: Where the Mind Blooms.
+- Talk to the Inside the Mind NPC to select a character and join through Quick Start or party play.
+- Quick Start is available while not in a party. You will be matched with another player who has applied.
+- Party play is available with a party of 1 - 2 players.
+How to Play
+- Team up with another player to level up and defeat Omega Specter within the time limit.
+- Each player plays as either Gaon or Keira. In party play, each player must choose a different character.
+- Gaon and Keira each have unique skills and learn new skills as they level up.
+- Gaon:
+- Tide Rider
+- Black Wolf
+- Flying Shadow Slash
+- Cresting Wave Strike
+- Low Tide
+- High Tide
+- Aurora Spike
+- Keira:
+- Ripple Step
+- Cascade
+- Whirlpool Wave
+- Aegis of Rivers
+- Aqueous Spear
+- Ablution
+- Blessing of the Ishfira
+- Click a skill icon and press a key to change its key binding. Key bindings are shared across all characters on the same account.
+- Normal and boss monsters appear across 5 different areas. Check your location and your party member’s location.
+- EXP earned from hunting is shared with your party member, even when on different maps.
+- A penalty applies if you are inactive for a certain amount of time, or the first time you leave a game in progress that you joined through Quick Start.
+Back to Top
+CHALLENGER WORLD EVENTS
+Challenger World
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+How to Participate
+- From the world selection screen, you can choose to play in either Challenger-Heroic or Challenger-Interactive world.
+- Challenger Worlds follow the same perks, restrictions, prices, and systems as their respective world counterparts.
+- Once a Challenger World is chosen, all characters created there can only be played in that same world.
+- Example: If your first character was created in Challenger-Heroic, you cannot create or access Challenger-Interactive, even if all existing characters are deleted. So choose carefully!!!
+- You can create up to 5 characters in Challenger World.
+- During character creation, you can designate a character as a Quanah World Leap Character to receive Hyper Burning MAX benefits.
+- Once the character reaches Lv. 260 and completes the 6th Job Advancement, it can then World Leap to Quanah World.
+- Up to 3 Tera Burning characters can be created to level from Lv. 10 - 200, gaining 2 extra levels per level-up!
+- After creating a character, select 'Challenger World' from the Event List UI and click 'Participate' to start the Challenger World event.
+- In Challenger-Interactive worlds, the Meso Market is available through Miss Richfield and closes February 10, 2027 (before maintenance).
+- The following features are unavailable in Challenger World:
+- Transfer Link Skill
+- Legion
+- Legion Artifact System
+- Monster Collection
+- Expand Character Slots
+- The following items cannot be purchased from the Cash Shop in Challenger World:
+- Character Slot Coupon
+- 8 Slot Expansion (Storage)
+- 4 Slot Expansion (Storage)
+- House Wedding Ticket
+Challenger World Perks
+Enjoy exclusive perks and gifts to kickstart your next challenge in a new world!
+- Challenger World Character Creation Gift
+- Click the 'Claim Creation Reward' button in the event UI to receive the following items:
+- Pearl Maple Armor Set Box: Untradable, 7-day duration. Open to receive:
+- Pearl Maple Hat: Untradable, Permanent.
+- Pearl Maple Suit: Untradable, Permanent.
+- Pearl Maple Cape: Untradable, Permanent.
+- Pearl Maple Gum: Untradable, Permanent.
+- Pearl Maple Pendant: Untradable, Permanent.
+- Pearl Maple Buckle: Untradable, Permanent.
+- Power Elixir (x1,000): Untradable, Permanent.
+- (Interactive Worlds) Spell Trace (x1,000): Tradable within world, Permanent.
+- Equip, Use, Etc., and Set-up slots will be expanded to 64.
+- Note: Up to 5 Challenger characters can claim the rewards. Deleting a character will not reset the reward limit.
+- Tera Burning Gift
+- For Tera Burning characters, claim Tera Burning rewards by clicking the 'Claim Your Tera Burning Gift!' button in the event UI.
+- Mysterious Cryptic Chest: Untradable, expires February 10, 2027 at 11:59 PM UTC. Open to receive:
+- Snail Pet: Untradable, 30-day duration.
+- Lv. 30 Equipment Box: Untradable, expires February 10, 2027 at 11:59 PM UTC. Open to receive:
+- Level 30 Equipment: Untradable, Permanent.
+- Legendary Cryptic Chest: Untradable, expires February 10, 2027 at 11:59 PM UTC. Open to receive:
+- Frozen Hat: Untradable, Permanent.
+- Frozen Cape: Untradable, Permanent.
+- Frozen Suit: Untradable, Permanent.
+- Frozen Weapon Box: Untradable, 7-day duration.
+- Frozen Secondary Weapon Box: Untradable, 7-day duration.
+- Root Abyss Set Box (Time-Restricted): Untradable, expires February 10, 2027 at 11:59 PM UTC. Open to receive:
+- Root Abyss Hat: Untradable, 90-day duration.
+- Root Abyss Top: Untradable, 90-day duration.
+- Root Abyss Bottom: Untradable, 90-day duration.
+- Fafnir Weapon Box (Time-Restricted): Untradable, 7-day duration.
+- Eternal Flame Title Coupon: Untradable, expires February 10, 2027 at 11:59 PM UTC. Use to receive:
+- Eternal Flame: Untradable, Permanent.
+- Note: Hyper Burning characters and normal characters cannot claim the Tera Burning Gift.
+- Challenger Buff Skill
+- All Challenger World characters automatically receive a special Challenger skill that provides a buff to support growth.
+- The skill gets stronger when you reach specific tiers in Challenger World that can be unlocked by completing Challenger World Missions and earning Challenger Points.
+- The skill will be removed after World Leap.
+Challenger World Missions
+Complete Challenger World Missions to earn rewards, strengthen your buffs, and raise your Challenger rank!
+Leveling Missions
+- Reach specific level milestones with your Challenger character to earn Challenger Points and Challenger Coins.
+- Missions complete automatically when conditions are met in the Challenger World UI.
+Level | 
+Challenger Points | 
+Challenger Coins | 
+260 | 
+3,000 | 
+3,000 | 
+261 | 
+300 | 
+300 | 
+262 | 
+300 | 
+300 | 
+263 | 
+300 | 
+300 | 
+264 | 
+300 | 
+300 | 
+265 | 
+300 | 
+300 | 
+266 | 
+300 | 
+300 | 
+267 | 
+300 | 
+300 | 
+268 | 
+300 | 
+300 | 
+269 | 
+300 | 
+300 | 
+270 | 
+700 | 
+600 | 
+271 | 
+700 | 
+600 | 
+272 | 
+700 | 
+600 | 
+273 | 
+700 | 
+600 | 
+274 | 
+700 | 
+600 | 
+275 | 
+1,000 | 
+900 | 
+276 | 
+1,000 | 
+900 | 
+277 | 
+1,000 | 
+900 | 
+278 | 
+1,000 | 
+900 | 
+279 | 
+1,000 | 
+900 | 
+280 | 
+1,500 | 
+1,200 | 
+281 | 
+1,500 | 
+1,200 | 
+282 | 
+1,500 | 
+1,200 | 
+283 | 
+1,500 | 
+1,200 | 
+284 | 
+1,500 | 
+1,200 | 
+285 | 
+2,000 | 
+1,500 | 
+286 | 
+2,000 | 
+1,500 | 
+287 | 
+2,000 | 
+1,500 | 
+288 | 
+2,000 | 
+1,500 | 
+289 | 
+2,000 | 
+1,500 | 
+290 | 
+5,000 | 
+2,500 | 
+Boss Missions
+- Defeat bosses to obtain Challenger Points, Challenger Coins, and Advanced Challenger Coins.
+- Defeating a boss in Practice Mode will count toward the mission.
+- Defeats will only count when solo or in a solo party.
+- Defeating a higher difficulty version of a boss will count as completing the mission for the highest listed difficulty for that boss.
+- Example: If the mission lists defeating Lotus in either Normal or Hard difficulty, defeating Extreme Lotus will count as completing the Hard difficulty mission.
+Boss | 
+Difficulty | 
+Points | 
+Challenger Coin | 
+Advanced Challenger Coin | 
+Zakum | 
+Chaos | 
+100 | 
+100 | 
+- | 
+Pierre | 
+Chaos | 
+200 | 
+100 | 
+- | 
+Von Bon | 
+Chaos | 
+200 | 
+100 | 
+- | 
+Crimson Queen | 
+Chaos | 
+200 | 
+200 | 
+- | 
+Magnus | 
+Hard | 
+250 | 
+200 | 
+- | 
+Vellum | 
+Chaos | 
+250 | 
+200 | 
+- | 
+Papulatus | 
+Chaos | 
+300 | 
+200 | 
+- | 
+Lotus | 
+Normal | 
+400 | 
+200 | 
+- | 
+Hard | 
+1,500 | 
+400 | 
+- | 
+Damien | 
+Normal | 
+400 | 
+200 | 
+- | 
+Hard | 
+1,500 | 
+400 | 
+- | 
+Guardian Angel Slime | 
+Normal | 
+500 | 
+200 | 
+- | 
+Chaos | 
+2,500 | 
+600 | 
+- | 
+Lucid | 
+Easy | 
+500 | 
+200 | 
+- | 
+Normal | 
+1,000 | 
+300 | 
+- | 
+Hard | 
+2,000 | 
+600 | 
+- | 
+Will | 
+Easy | 
+500 | 
+200 | 
+- | 
+Normal | 
+1,000 | 
+300 | 
+- | 
+Hard | 
+2,500 | 
+600 | 
+- | 
+Kai | 
+Normal | 
+1,000 | 
+300 | 
+- | 
+Gloom | 
+Normal | 
+1,000 | 
+300 | 
+- | 
+Chaos | 
+2,500 | 
+600 | 
+- | 
+Verus Hilla | 
+Normal | 
+2,000 | 
+600 | 
+- | 
+Hard | 
+3,000 | 
+1,000 | 
+- | 
+Darknell | 
+Normal | 
+1,000 | 
+300 | 
+- | 
+Hard | 
+3,000 | 
+1,000 | 
+- | 
+Black Mage | 
+Hard | 
+6,000 | 
+1,400 | 
+20 | 
+Chosen Seren | 
+Normal | 
+6,000 | 
+1,400 | 
+20 | 
+Hard | 
+7,000 | 
+2,000 | 
+30 | 
+Kalos the Guardian | 
+Easy | 
+7,000 | 
+2,000 | 
+30 | 
+Normal | 
+9,000 | 
+3,000 | 
+60 | 
+First Adversary | 
+Easy | 
+7,000 | 
+2,000 | 
+30 | 
+Normal | 
+9,000 | 
+3,000 | 
+60 | 
+Kaling | 
+Easy | 
+9,000 | 
+3,000 | 
+60 | 
+Mayrin | 
+Normal | 
+5,000 | 
+1,200 | 
+10 | 
+Hard | 
+9,000 | 
+3,000 | 
+60 | 
+Weekly Progression Missions
+- Complete Weekly Progression Missions to earn Challenger Coins! Complete one of the three missions and click the 'Complete' button in the Challenger World UI.
+- Weekly Progression Missions can be completed once per week and progress resets every Wednesday at 12:00 AM UTC.
+- Even if all three missions are completed, the maximum number of Challenger Coins obtainable per week is 1,500.
+Weekly Progression Mission | 
+Challenger Coin | 
+Defeat 5,000 enemies near your level | 
+1,500 | 
+Complete Monster Park 6 times | 
+Complete Symbol Daily Quests 12 times | 
+- Missed a Weekly Progression Mission? Spend 10,000 Maple Points on a Weekly Progression Pass to complete one Weekly Progression Mission that was not completed in a previous week.
+Seasonal Mission
+- Complete specific missions by reaching milestones as your character progresses in Challenger World to earn Challenger Coins.
+Category | 
+Mission | 
+Challenger Coin | 
+Ability | 
+Obtain a Unique rank Ability | 
+100 | 
+Obtain a Legendary rank Ability | 
+300 | 
+Obtain one of the following Legendary Abilities:
+- Boss Damage
+- Chance to skip cooldowns
+- Passive Skill Level +1
+- Buff Duration
+- Attack Power
+- Magic ATT
+ | 
+500 | 
+Arcane Power | 
+Reach a total Arcane Symbol level of 60 | 
+100 | 
+Reach a total Arcane Symbol level of 80 | 
+300 | 
+Reach a total Arcane Symbol level of 100 | 
+500 | 
+Reach a total Arcane Symbol level of 120 | 
+1,000 | 
+Sacred Power | 
+Reach a total Sacred Symbol level of 20 | 
+100 | 
+Reach a total Sacred Symbol level of 25 | 
+100 | 
+Reach a total Sacred Symbol level of 30 | 
+300 | 
+Reach a total Sacred Symbol level of 35 | 
+300 | 
+Reach a total Sacred Symbol level of 40 | 
+500 | 
+Equipment
+(Heroic Worlds) | 
+Equip an Emblem with Legendary Potential | 
+1,500 | 
+Equip a Secondary Weapon with Legendary Potential | 
+1,500 | 
+Equipment
+(Interactive Worlds) | 
+Equip an Emblem with Legendary Potential | 
+1,000 | 
+Equip a Secondary Weapon with Legendary Potential | 
+1,000 | 
+Equip an Emblem with a Unique or higher Bonus Potential | 
+500 | 
+Equip a Secondary Weapon with a Unique or higher Bonus Potential | 
+500 | 
+5th Job Skills | 
+Level up 3 or more Job Nodes to Lv. 30 | 
+100 | 
+Level up 4 or more Job Nodes to Lv. 30 | 
+300 | 
+Level up 2 or more Boost Nodes to Lv. 60 | 
+100 | 
+Level up 4 or more Boost Nodes to Lv. 60 | 
+300 | 
+HEXA Stats | 
+Activate HEXA Stat I | 
+300 | 
+HEXA Skills | 
+Spend 300 or more Sol Erda Fragments on HEXA Skills | 
+100 | 
+Spend 600 or more Sol Erda Fragments on HEXA Skills | 
+300 | 
+Spend 900 or more Sol Erda Fragments on HEXA Skills | 
+300 | 
+Spend 1,200 or more Sol Erda Fragments on HEXA Skills | 
+500 | 
+Spend 1,500 or more Sol Erda Fragments on HEXA Skills | 
+500 | 
+Spend 1,800 or more Sol Erda Fragments on HEXA Skills | 
+1,000 | 
+Combat Power | 
+Reach 10 million Combat Power | 
+100 | 
+Reach 30 million Combat Power | 
+300 | 
+Reach 50 million Combat Power | 
+300 | 
+Reach 70 million Combat Power | 
+500 | 
+Reach 100 million Combat Power | 
+1,000 | 
+Genesis Weapon | 
+Complete the 1st Genesis Awakening | 
+500 | 
+Complete the 2nd Genesis Awakening | 
+1,000 | 
+Challenger World Tier, Rewards, Buffs
+- There are 9 Tiers in Challenger World:
+- Bronze > Silver > Gold > Platinum > Emerald > Sapphire > Diamond > Master > Challenger
+- Earn Challenger Points through missions to increase your Tier, unlock rewards, and strengthen your Challenger Buff skill.
+- Bronze, Silver, Gold, Platinum Tier Rewards: Claimable only in Challenger World.
+- Emerald, Sapphire, Diamond, Master, Challenger Tier Rewards: Claimable in either Challenger World or your main world via the Event List.
+Back to Top
+New Season Boss: Mayrin
+November 12, 2026 12:00 AM UTC - February 9, 2027 11:59 PM UTC
+Requirements
+- Normal Mode: Lv. 270 and above Challenger World characters (Zero characters must have completed Story Quest Act 2).
+- Hard Mode: Lv. 280 and above Challenger World characters (Zero characters must have completed Story Quest Act 2).
+Mayrin Overview
+Entry Lv. Requirement | 
+Normal: Lv. 270+
+Hard: Lv. 280+ | 
+Boss Content | 
+Weekly (once per account) | 
+Party Size | 
+1 | 
+Time Limit | 
+20 minutes | 
+How to Participate
+- Accept the 'Season Boss Mayrin' quest from the Event List.
+- Alternatively, you can talk to Annette in Henesys, Nameless Town, Cernium Square, or the Residential District to challenge Mayrin.
+Back to Top
+Defeat Mayrin Event
+November 12, 2026 12:00 AM UTC - February 9, 2027 11:59 PM UTC
+Requirements
+- Lv. 270 and above characters (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Select '[Boss Defeat Event] Defeat Mayrin Event' from the Event List and click 'Participate' to start.
+Clear Mission
+- Defeat Mayrin at least once in a solo party during the event period to claim the defeat rewards from ‘[Boss Defeat Event] Defeat Mayrin Event’ in the Event List.
+- Rewards vary based on the difficulty of Mayrin (Hard or Normal) being defeated.
+- Clearing at a higher difficulty automatically qualifies you for all lower-tier difficulty rewards.
+- You must enter the Reward Map after defeating Mayrin to complete the mission.
+- Defeating Mayrin in All Phases Practice Mode also counts toward the mission.
+- Defeat records are shared across characters in the same world.
+- Rewards can only be claimed in the Challenger World where the mission was completed.
+Back to Top
+Returning Boss: Kai
+November 12, 2026 12:00 AM UTC - February 9, 2027 11:59 PM UTC
+The Time-Lashed Wanderer, Kai, has returned! Prove you're worthy of the true power of time by facing the strongest being from another world.
+Requirements
+- Lv. 235 and above Challenger World characters (Zero characters must have completed Story Quest Act 2).
+- Characters that have not completed the Kai Clear Event in Challenger World or the Item Burning Plus mission.
+Kai Overview
+Difficulty | 
+Normal | 
+Boss Content | 
+Weekly | 
+Party Size | 
+1 | 
+Time Limit | 
+30 minutes | 
+How to Participate
+- Select Kai in the Boss UI and move to the entrance to enter.
+- Clearing Kai only counts toward the Challenger World and Item Burning Plus missions. No other rewards can be obtained.
+- Clears do not count toward your weekly boss defeat limit.
+Kai Changes
+- Kai (Normal) Death Count has been increased from 5 → 10.
+Back to Top
+Sol Janus Skill Support
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Lv. 260 and above characters in Challenger World (Zero characters must have completed Story Quest Act 2).
+- Completed the '[6th Job] A New Power' quest.
+- Characters with a Sol Janus skill below Lv. 30.
+How to Participate
+- Select 'Sol Janus Skill Support' from the Event List to participate. Your character's Sol Janus skill will be increased to Lv. 30.
+- Characters receiving Sol Janus Skill Support cannot further enhance their Sol Janus skill.
+- The supported Sol Janus skill can only be used in Challenger World during the Challenger World event period.
+- Only one character per account can participate in the event, and the selected character cannot be changed.
+- Deleting the participating character will not allow another character on the same account to participate.
+- When the event ends or the character World Leaps, the Sol Janus skill will revert to its previous level.
+Back to Top
+Challenger Pass
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Lv. 101 and above characters in Challenger World (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Select the ‘Challenger Pass’ event from the Event List and click ‘Participate’ to start the ‘Challenger Pass’ event.
+- You can only participate in the Challenger Pass event once per account.
+- The character participating in the Challenger Pass CANNOT be changed.
+- Complete Weekly Missions to obtain Challenger Pass Points to level up your Challenger Pass and receive Support rewards.
+Back to Top
+Arcane Seal
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Lv. 200 and above characters in Challenger World (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- After completing the 'A Greater Power' quest, you can participate by selecting the '[Challenger] Arcane Seal' event from the Event List and clicking on the 'Participate' button.
+- The 'Arcane Seal' event can only be done by one character at a time.
+- If you participate in the event with a different character after already starting the quest, all event progress on the original character will be reset.
+Back to Top
+EVENT WORLD: QUANAH
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Quanah is a new Event World where Maplers can experience the inspector training, grow stronger, and take on new challenges!
+Requirements
+- Lv. 260 and above characters (Zero characters must have completed Story Quest Act 2).
+- Completed the 6th Job Advancement.
+How to Participate
+- Characters must be created in a Challenger World first and designated as a Quanah World Leap character.
+- Hyper Burning MAX benefits apply to Quanah World Leap characters.
+- Characters designated for Quanah World Leap cannot be designated for Beyond Burning.
+- Once the character reaches Lv. 260 and completes the 6th Job Advancement, it can then World Leap to Quanah World.
+- Select '[World Leap] Invitation to Another Dimension' from the Event List to World Leap.
+- Quanah World's equipment enhancement system follows Heroic World specifications, with the following restrictions:
+- Cubes and Rebirth Flame items cannot be used.
+- Equipment can only be enhanced using Quanah Crystals obtained within Quanah World.
+- Characters cannot access maps outside the designated Quanah World areas.
+- After completing your training in Quanah World, characters can World Leap to an eligible world that matches their original Challenger World type (Interactive or Heroic).
+- Example: Characters who World Leaped from Challenger-Heroic to Quanah World can only World Leap to eligible Heroic Worlds afterward.
+Quanah World Events Overview
+- Train in the Proving Fields to earn Inspector EXP, obtain exclusive equipment, and collect materials to strengthen your character.
+- Increase your Inspector Level to unlock Dimensional Skills and additional combat abilities.
+- Complete Dimensional Missions to increase your Dimensional Rank and unlock abilities through the Mapae Module.
+- Enhance your equipment using Quanah's exclusive enhancement systems, including Equipment Skills and Jewels.
+- Challenge Battlesim and bosses to test your strength and obtain additional equipment and enhancement materials.
+- Rest in the Healing Tree Infirmary to earn Character EXP and Quanah World EXP.
+Quanah World
+How to Participate
+- Accept the '[Quanah] A Strange Sidetrack' quest from the Quest Notifier above your character’s head to start the introduction story.
+- After completing '[Quanah] The Inspectors’ Suggestion', accept the '[Quanah] Advanced Training' quest by talking to Althea to start the tutorial quest.
+- Complete the tutorial quest to learn about the various features and activities available in Quanah World.
+Inspector Level
+In Quanah World, players have an Inspector Level separate from their Character Level. Increasing Inspector Level unlocks Dimensional Skills that help strengthen their characters throughout their training.
+- Inspector Level can be increased up to Lv. 100.
+- Defeat monsters in the Proving Fields or clear the Infinite Dungeon to earn EXP and increase your Inspector Level.
+- Inspector Level resets to Lv. 1 when your character dies in Proving Fields or Battlesim.
+Quest Board
+Complete quests throughout Quanah World to progress through the story, explore new features, and earn rewards. Open the Quest Board from the Event List or by pressing the Quests key in your Key Bindings.
+- Story and Epic Quests: Follow Althea to learn more about Quanah and unlock different systems, including Dimensional Skills, equipment features, and Battlesim.
+- Random Quests: Complete missions where you'll have to defeat monsters, challenge bosses, enhance equipment, and complete Battlesim runs.
+- Random Quests refresh every 4 hours.
+- Random Quests of your choice can be reset using Reset Tickets.
+- Random Quests are available after clearing the tutorial quest.
+Hologram Equipment
+- Obtain exclusive equipment by defeating monsters throughout Quanah World. The following equipment comes with special abilities and enhancement options that help players grow stronger.
+- [Hologram] Berserked
+- [Hologram] Magic Eyepatch
+- [Hologram] Commanding Force Earring
+- [Hologram] Source of Suffering
+- [Hologram] Dreamy Belt
+- [Hologram] Genesis Badge
+- [Hologram] Endless Terror
+Libae’s Supercharged Equipment 
+- Equipment Skills: Libae’s Supercharged Equipment can come with randomly assigned skills that grant additional combat abilities and effects.
+- Jewels: Some equipment comes with Jewel Sockets that allow players to equip Jewels for additional stats and effects.
+- Orbs: Transfer Equipment Skills between eligible equipment of the same slot using Orbs.
+- Equipment Enhancement: Enhance equipment through the dedicated Enhance UI, including Star Force, Potential, Bonus Stats, and Jewel Enhancement.
+- Quanah Crystal is used for equipment enhancement.
+- Libae’s Supercharged Equipment can be enhanced up to 30 stars, while equipment that can be transferred to other worlds can be enhanced up to 22 stars.
+- Equipment Dismantling: Dismantle unwanted Libae’s Supercharged Equipment to obtain Quanah Crystals.
+Inspector’s Mapae
+- Inspector's Mapae is a special badge that can be obtained by defeating Black Mage (Hard or Extreme) in Quanah World.
+- Can be transferred once within your account after a World Leap.
+- Can’t be enhanced further after a World Leap. Bonus Potential and Scroll Enhancement can still be used in Interactive Worlds.
+- Mapae Fragment is an enhancement material that can only be used on the Inspector’s Mapae for Star Force and Potential. Can be obtained by defeating monsters, bosses, and by completing Battlesim runs.
+Quanah Bosses
+Challenge powerful bosses throughout Quanah World to obtain exclusive equipment and enhancement materials.
+- Talk to the Protector General to access the boss map.
+- Obtain Boss Entry Passes by hunting in the Proving Fields and clearing dungeon content in Quanah World. Use the Entry Passes to challenge various bosses!
+- Using an Entry Pass lets you challenge the same boss at the same difficulty again for 1 hour, solo or in a party. The remaining time resets when you clear the boss.
+- Bosses can be challenged solo or with a party, depending on the boss and difficulty.
+- Quanah World boss challenges are separate from regular boss content and do not follow the usual weekly clear limits.
+Back to Top
+Dimensional Skills
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+As players increase their Inspector Level, they can obtain Dimensional Skills, special skills exclusive to Quanah World that provide additional combat abilities and stat bonuses.
+Dimensional Skill
+- Earn a Dimensional Skill Coupon every 5 Inspector Levels to obtain new Dimensional Skills.
+- Dimensional Skills include Active and Passive skills that provide additional combat abilities and stat bonuses.
+- You can hold up to 5 Dimensional Skills at a time.
+- Obtaining duplicate skills increases your level.
+Dimensional Mission and Rank
+- Complete Dimensional Missions to increase your Dimensional Rank.
+- Complete missions by reaching certain Inspector Levels, clearing Battlesim floors, defeating bosses, and reaching Star Force milestones.
+- Increasing your Dimensional Rank improves your chances of obtaining higher-grade Dimensional Skills and grants additional skill refreshes.
+- Permanent Missions remain completed even after your character dies, while Round Mission progress resets.
+Mapae Module
+- The Mapae Module provides additional benefits that make your attacks stronger, increase your survivability, or help you defeat monsters.
+- Complete Dimensional Missions to earn Mapae Module Points.
+- Invest points into different modules to obtain additional stat bonuses, combat effects, and other benefits.
+- Invested Mapae Module Points are retained between runs and can be reset and redistributed.
+Skill Inheritance
+- Although Inspector Level resets to Lv. 1 when your character dies, Skill Inheritance allows you to retain selected Dimensional Skills for your next run.
+- Earn Inheritance Points by reaching certain Inspector Level milestones.
+- After your character dies, talk to SEN-D in Emergency Escape to select which Dimensional Skills to inherit.
+- Inherited skills retain their levels, allowing players to continue strengthening their character across multiple runs.
+Back to Top
+Proving Fields
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+The Proving Fields are a special training ground where players can defeat powerful monsters to earn large amounts of EXP and various rewards.
+How to Participate
+- Enter the Proving Fields through the entrance on the left side of Quanah.
+- Choose between three difficulties:
+- Basic: Lv. 270 monsters
+- Intermediate: Lv. 280 monsters
+- Advanced: Lv. 290 monsters
+- Players can enter solo or in a party of up to 6 players.
+- Defeat monsters to earn mesos, EXP-related items, Libae’s Supercharged Equipment, enhancement materials, and other rewards.
+Back to Top
+Infinite Dungeon: Battlesim
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Put your training to the test in Battlesim, a solo roguelite dungeon where players progress through increasingly difficult floors while collecting powerful effects and rewards.
+How to Participate
+- Enter Battlesim through the dungeon entrance on the right side of Quanah.
+- Each Sector contains 10 floors, including a Mid-Boss and Final Boss. A single run can include multiple Sectors.
+- Each normal floor consists of a combat area and an Encounter.
+- Clear each combat area by defeating all enemies or surviving until the time limit ends, depending on the floor objective.
+- After clearing a combat area, choose 1 of 3 Programs to continue. Programs provide special effects that help players progress through the dungeon.
+- Defeat monsters and clear floors to earn Bytes, which can be used to purchase Programs, special potions, extractable items, and more.
+- Existing recovery potions are limited in Battlesim, so you’ll need to use the Battlesim-exclusive potions.
+- After defeating certain bosses, players can choose to exit with their collected rewards or continue to the next floor for additional rewards.
+- Successfully extracted items can be claimed from the inventory in the Battlesim entry UI.
+- If you die or forfeit without extracting, the run ends and any unextracted rewards are lost.
+- Inspector Level resets to Lv. 1 upon death.
+- Character EXP earned during the run will be retained.
+Projected Weekly Power
+- Battlesim uses a Projected Weekly Power system that determines how many floors players can enter.
+- Projected Weekly Power has a maximum of 150 and resets every Thursday at 12:00 AM UTC.
+- At least 1 Projected Weekly Power is required to begin a new training session.
+- Projected Weekly Power is consumed as players progress through the dungeon and can be restored when advancing to the next sector or with recovery potions obtained in the Proving Fields.
+Back to Top
+Healing Tree Infirmary
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+The Healing Tree Infirmary is a special recovery area located within Quanah Headquarters where players can obtain Character EXP and Quanah World EXP.
+How to Participate
+- Select 'Healing Tree Infirmary' from the Event List to enter the event map.
+- Usage time can be obtained through Maple Points or Healing Tree Infirmary Coupons.
+- While inside, players earn Character EXP and Quanah World EXP!
+Back to Top
+BURNING EVENTS
+Hyper Burning MAX
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Existing Lv. 200 - 258 characters.
+- Zero characters Lv. 200 - 258 that have completed Story Quest Act 2 are now eligible for Hyper Burning MAX.
+- Characters who were newly created during the event period.
+How to Set Up Hyper Burning MAX Character
+- Click 'Set as Hyper Burning MAX' to create your Hyper Burning MAX character in a Challenger World or Regular World (Interactive Worlds and Heroic Worlds).
+Hyper Burning MAX Character Perks
+- 1+4 Level-up
+- Hyper Burning MAX characters can gain 4 extra levels for each level up from Lv. 10 to 260.
+- Levels from Lv. 1 - 10 will only increase by 1.
+- If you create a Zero character as a Hyper Burning MAX character, you will receive the 1+4 level-up benefit from Lv. 100 to Lv. 260.
+- Level-Up Support rewards are distributed to all Hyper Burning MAX characters.
+- You can get rewards by clicking the 'START' button from the Hyper Burning MAX event UI.
+- NOTE:
+- Zero characters cannot use the Frozen Weapon Box and Frozen Secondary Weapon Box within the Legendary Cryptic Chest, or the 15-Star Fafnir Weapon Box within the 15-Star Root Abyss Set Box (Time-Restricted).
+- Characters who already own an Eternal Flame Ring cannot obtain another one using the Eternal Flame Ring Coupon.
+- Reach the level achievements as a Hyper Burning MAX character and obtain rewards!
+- You can get an even more enhanced level achievement reward in Challenger World.
+- When an existing character is set as Hyper Burning MAX, you cannot claim the level rewards for levels you already reached.
+- For example, when a Lv. 235 character is set as Hyper Burning MAX, you cannot claim the level rewards for Levels 200 - 235.
+Back to Top
+Hyper Blink
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Newly created Lv. 10 and above Hyper Burning MAX characters (Zero characters must have completed Story Quest Act 2).
+How to Participate
+- Start the '[Hyper Blink] World Inside the Hat' quest from the Event List or from Spiegelmann in Henesys or Nameless Town.
+- After completing the quest, talk to Spiegelmann in Henesys or Nameless Town to enter Hyper Blink: World Inside the Hat.
+- You can stay in World Inside the Hat for up to 40 minutes per entry.
+- Leave at any time using the Exit button in the upper-right corner or by talking to Spiegelmann.
+Hyper Blink: Spiegelette's Spirit
+- The Hyper Blink: Spiegelette's Spirit skill automatically activates upon reaching Lv. 200.
+- Additional EXP Obtained +5,000%
+- Stacks with other EXP increase effects.
+- The skill remains active through Lv. 259 during the event period and is automatically deactivated upon reaching Lv. 260.
+Hyper Blink Tutorial
+- A Hyper Blink Tutorial notification appears on the left side of the screen upon reaching Lv. 200.
+Back to Top
+Beyond Burning
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Characters between Lv. 260 - 268 (Lv. 260 - 268 Zero characters that have completed Story Quest Act 2).
+How to Participate
+- Designate a Beyond Burning character from the character selection screen or by selecting 'Beyond Burning' event within the Event List.
+- Only 1 Beyond Burning character can be designated per account.
+- Challenger World characters can be designated as Beyond Burning characters.
+- Once confirmed, your character will receive the Beyond Burning effect.
+- The Beyond Burning effect cannot be removed.
+- Beyond Burning characters gain 1 extra level for each level-up from Lv. 260 to 280.
+- When your Beyond Burning character reaches level milestones, Level Achievement Rewards can be claimed from the Beyond Burning event UI.
+- Rewards can be claimed once per account.
+- When an existing character is set as Beyond Burning, you cannot claim rewards for levels you already reached.
+- Example: When a Lv. 264 character is set as Beyond Burning, the level rewards for Lv. 261 - 263 cannot be claimed.
+Back to Top
+Item Burning Plus
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Lv. 200 and above characters (Zero characters must have completed Story Quest Act 2).
+- Completed the 'A Greater Power' quest.
+- Characters already participating in another Item Burning event or Item Burning Plus event cannot participate.
+- Available only in Challenger World.
+How to Participate
+- Select 'Item Burning Plus' within the Event List and click 'Participate' to claim your Item Burning Box.
+- Use the Item Burning Box to start the Item Burning Plus event and receive a Challenger Equipment Set.
+- The Item Burning Plus event can only be completed once per account.
+- Progress can be viewed by selecting ‘Item Burning Plus’ in the Event List.
+- There are 8 Stage Missions to complete, each unlocking perks that enhance your Challenger Equipment!
+Back to Top
+OTHER EVENTS
+New Recruit Support Mission
+November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC
+Requirements
+- Newly created characters.
+How to Participate
+- Select 'New Recruit Missions' from the Event List to start and access the event UI.
+- Earn rewards as you reach specific milestones!
+- Additional exclusive rewards can be obtained when participating with a Lethe character.
+Back to Top
+Genesis Pass
+Sale Period: November 12, 2026 12:00 AM UTC - February 8, 2027 11:59 PM UTC
+Pass Use and Effect Period: Expires February 9, 2027 11:59 PM UTC
+Requirements
+- Purchase Requirements: Only Lv. 255 and above characters that haven’t completed the final awakening of the Genesis Weapon.
+- Pass Usage Requirements: Only Lv. 255 and above characters that have the ‘[Genesis Weapon] Traces of Von Leon the Lion King’ quest either in progress or completed, and the ‘[Genesis Weapon] Power Unbound, Stage 2’ quest not completed. Characters that already completed the Genesis awakening cannot use it.
+How to Participate
+- The Genesis Pass can be purchased through the Cash Shop (Upon purchase, use the Genesis Pass in your Cash Inventory).
+- The pass is untradable and can be purchased once per account.
+- Cannot be used by characters that have already completed the Genesis Weapon's final awakening.
+- Once activated, the Genesis Pass provides the following benefits:
+- Expanded Party Size: Players with an active Genesis Pass who are on the same Genesis Mission stage can form parties of up to 6 members instead of 2.
+- Increased Trace of Darkness: Obtain 3x the usual amount of Trace of Darkness from bosses.
+- Special Boss Buff: Receive a special buff when challenging bosses that drop Trace of Darkness.
+- Guaranteed Weapon Soul: Receive a guaranteed Attack Power or Magic ATT Weapon Soul upon liberating your Genesis Weapon.
+Back to Top

@@ -6,6 +6,7 @@ export type SourceId =
   | "wiki-overdrive"
   | "nexon-events"
   | "nexon-v271"
+  | "nexon-pts-v272"
   | "transcript"
 
 export type Source = {
@@ -56,6 +57,13 @@ export const SOURCES: Record<SourceId, Source> = {
     kind: "official",
     retrieved: "2026-10-29",
   },
+  "nexon-pts-v272": {
+    id: "nexon-pts-v272",
+    title: "Nexon — v.272 Public Test Server patch notes",
+    url: "https://www.nexon.com/maplestory/public-test-server/news/update/47293/v-272-public-test-server-patch-notes",
+    kind: "official",
+    retrieved: "2026-10-30",
+  },
   transcript: {
     id: "transcript",
     title: "jando pre-season video guide transcript",
@@ -92,9 +100,10 @@ export const SOURCE_KIND_LABEL: Record<SourceKind, string> = {
 }
 
 export const DATA_REVISION = {
-  label: "Pre-season — KMS projection",
+  label: "v.272 Public Test Server",
   date: "2026-10-29",
-  patchNotesUrl: null as string | null,
+  patchNotesUrl:
+    "https://www.nexon.com/maplestory/public-test-server/news/update/47293/v-272-public-test-server-patch-notes" as string | null,
 }
 
 export const EVENT = {
@@ -137,6 +146,7 @@ CREST_RULES.notes = [
   `${CREST_RULES.perWeek} crests per week from killing ${CREST_RULES.mobsPerWeek.toLocaleString()} mobs.`,
   `Boss crests accrue instead of resetting weekly, up to ${CREST_RULES.bossCap.toLocaleString()}.`,
   "Week 0 crests are worth grabbing — they push you a week ahead.",
+  "Not confirmed by the v.272 PTS notes: they do not publish crest values. Treat these as KMS numbers until the live patch notes land.",
 ]
 
 // Genesis liberation and the Item Burning crest total both happen to be 6,500.
@@ -166,7 +176,8 @@ GENESIS_RULES.notes = [
   `Three weeks of full Cernium clears plus one Black Mage solo leaves you at ~${GENESIS_RULES.pointsAfterThreeWeeks.toLocaleString()} of ${GENESIS_RULES.pointsToLiberate.value.toLocaleString()}.`,
   `Kill Black Mage on ${GENESIS_RULES.realisticDate} for the last ~${GENESIS_RULES.gapAfterThreeWeeks.value} points, or accept a week-4 liberation.`,
   `A ${GENESIS_RULES.dayZeroDate} liberation needs ${GENESIS_RULES.gapAfterThreeWeeks.value} points on day zero in ~3 hours — improbable (Lotus + Damien + Lucid).`,
-  "The Genesis Pass (~30k NX) shortens liberation to ~3–4 weeks but is weak value on Heroic.",
+  "Not confirmed by the v.272 PTS notes: they do not publish the Genesis point thresholds. Treat these as KMS numbers until the live patch notes land.",
+  "Confirmed by the PTS: the Genesis Pass grants 3x Trace of Darkness from bosses and raises Genesis Mission party size from 2 to 6.",
 ]
 
 const capCrests = () => `Cap ${CREST_RULES.perWeek} crests`
@@ -191,7 +202,7 @@ export const WEEKS: Week[] = [
       "Kill 5,000 mobs for weekly frags",
       "Arcane River + Grandis dailies and weeklies",
       "Boss clears for meso, including Hard Lotus",
-      "Monster Park ×5",
+      "Monster Park ×6",
       "Start Genesis liberation missions",
     ],
   },
@@ -322,7 +333,7 @@ export const PLANS: Plan[] = [
           { label: "Arcane River + Grandis dailies and weeklies" },
           { label: "Boss clears for meso", detail: "~1.4b for an End-Lomein-worth." },
           { label: "Hard Lotus", detail: "An extra week of loot." },
-          { label: "Monster Park ×5" },
+          { label: "Monster Park ×6" },
           { label: "Start Genesis liberation missions" },
         ],
       },
@@ -433,12 +444,24 @@ export type RewardItem = { label: string; detail?: string }
 
 export type Tier = {
   name: string
-  points: Claim<number>
+  /**
+   * Point threshold. `null` means Nexon has not published it. Tier order comes
+   * from the list order, never from the numbers, so an unpublished threshold
+   * cannot corrupt the ordering.
+   */
+  points: Claim<number | null>
   rewards: RewardItem[]
+  /** Where the tier reward can be claimed. */
+  claimableIn: "challenger-world" | "either"
 }
 
-function tierPointsClaim(value: number): Claim<number> {
-  return { value, status: "projected", sources: ["wiki-overdrive", "wiki-availability"] }
+function tierPointsClaim(value: number | null): Claim<number | null> {
+  return {
+    value,
+    status: "projected",
+    sources: ["wiki-overdrive", "wiki-availability"],
+    note: value === null ? "Threshold not published" : undefined,
+  }
 }
 
 export const TIERS: Tier[] = [
@@ -446,38 +469,155 @@ export const TIERS: Tier[] = [
     name: "Bronze",
     points: tierPointsClaim(5000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "challenger-world",
   },
   {
     name: "Silver",
     points: tierPointsClaim(10000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "challenger-world",
   },
   {
     name: "Gold",
     points: tierPointsClaim(15000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "challenger-world",
   },
   {
     name: "Platinum",
     points: tierPointsClaim(20000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "challenger-world",
   },
   {
     name: "Emerald",
     points: tierPointsClaim(30000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "either",
+  },
+  {
+    name: "Sapphire",
+    points: tierPointsClaim(null),
+    rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "either",
   },
   {
     name: "Diamond",
     points: tierPointsClaim(40000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "either",
   },
   {
     name: "Master",
     points: tierPointsClaim(65000),
     rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "either",
+  },
+  {
+    name: "Challenger",
+    points: tierPointsClaim(null),
+    rewards: [{ label: "GMS reward list pending" }],
+    claimableIn: "either",
   },
 ]
+
+/** Tier order confirmed by the v.272 PTS notes. Point thresholds are not published there. */
+export const TIER_ORDER = TIERS.map((tier) => tier.name)
+
+/* ------------------------------------------------------------------ missions */
+
+export type LevelMission = { level: number; points: number; coins: number }
+
+/**
+ * Level missions from the v.272 PTS notes. Reaching a level completes the
+ * mission automatically in the Challenger World UI.
+ */
+export const LEVEL_MISSIONS: LevelMission[] = [
+  { level: 260, points: 3000, coins: 3000 },
+  ...[261, 262, 263, 264, 265, 266, 267, 268, 269].map((level) => ({
+    level,
+    points: 300,
+    coins: 300,
+  })),
+  ...[270, 271, 272, 273, 274].map((level) => ({ level, points: 700, coins: 600 })),
+  ...[275, 276, 277, 278, 279].map((level) => ({ level, points: 1000, coins: 900 })),
+  ...[280, 281, 282, 283, 284].map((level) => ({ level, points: 1500, coins: 1200 })),
+  ...[285, 286, 287, 288, 289].map((level) => ({ level, points: 2000, coins: 1500 })),
+  { level: 290, points: 5000, coins: 2500 },
+]
+
+/** Total Challenger Points obtainable from every level mission. */
+export const LEVEL_MISSION_TOTAL_POINTS = LEVEL_MISSIONS.reduce(
+  (total, mission) => total + mission.points,
+  0
+)
+
+export type BossMission = {
+  boss: string
+  difficulty: string
+  points: number
+  coins: number
+  advancedCoins: number
+}
+
+/**
+ * Boss missions from the v.272 PTS notes. Practice Mode clears count, but
+ * only when solo or in a solo party. Clearing a harder difficulty counts for
+ * every lower difficulty of the same boss.
+ */
+export const BOSS_MISSIONS: BossMission[] = [
+  { boss: "Zakum", difficulty: "Chaos", points: 100, coins: 100, advancedCoins: 0 },
+  { boss: "Pierre", difficulty: "Chaos", points: 200, coins: 100, advancedCoins: 0 },
+  { boss: "Von Bon", difficulty: "Chaos", points: 200, coins: 100, advancedCoins: 0 },
+  { boss: "Crimson Queen", difficulty: "Chaos", points: 200, coins: 200, advancedCoins: 0 },
+  { boss: "Magnus", difficulty: "Hard", points: 250, coins: 200, advancedCoins: 0 },
+  { boss: "Vellum", difficulty: "Chaos", points: 250, coins: 200, advancedCoins: 0 },
+  { boss: "Papulatus", difficulty: "Chaos", points: 300, coins: 200, advancedCoins: 0 },
+  { boss: "Lotus", difficulty: "Normal", points: 400, coins: 200, advancedCoins: 0 },
+  { boss: "Lotus", difficulty: "Hard", points: 1500, coins: 400, advancedCoins: 0 },
+  { boss: "Damien", difficulty: "Normal", points: 400, coins: 200, advancedCoins: 0 },
+  { boss: "Damien", difficulty: "Hard", points: 1500, coins: 400, advancedCoins: 0 },
+  { boss: "Guardian Angel Slime", difficulty: "Normal", points: 500, coins: 200, advancedCoins: 0 },
+  { boss: "Guardian Angel Slime", difficulty: "Chaos", points: 2500, coins: 600, advancedCoins: 0 },
+  { boss: "Lucid", difficulty: "Easy", points: 500, coins: 200, advancedCoins: 0 },
+  { boss: "Lucid", difficulty: "Normal", points: 1000, coins: 300, advancedCoins: 0 },
+  { boss: "Lucid", difficulty: "Hard", points: 2000, coins: 600, advancedCoins: 0 },
+  { boss: "Will", difficulty: "Easy", points: 500, coins: 200, advancedCoins: 0 },
+  { boss: "Will", difficulty: "Normal", points: 1000, coins: 300, advancedCoins: 0 },
+  { boss: "Will", difficulty: "Hard", points: 2500, coins: 600, advancedCoins: 0 },
+  { boss: "Kai", difficulty: "Normal", points: 1000, coins: 300, advancedCoins: 0 },
+  { boss: "Gloom", difficulty: "Normal", points: 1000, coins: 300, advancedCoins: 0 },
+  { boss: "Gloom", difficulty: "Chaos", points: 2500, coins: 600, advancedCoins: 0 },
+  { boss: "Verus Hilla", difficulty: "Normal", points: 2000, coins: 600, advancedCoins: 0 },
+  { boss: "Verus Hilla", difficulty: "Hard", points: 3000, coins: 1000, advancedCoins: 0 },
+  { boss: "Darknell", difficulty: "Normal", points: 1000, coins: 300, advancedCoins: 0 },
+  { boss: "Darknell", difficulty: "Hard", points: 3000, coins: 1000, advancedCoins: 0 },
+  { boss: "Black Mage", difficulty: "Hard", points: 6000, coins: 1400, advancedCoins: 20 },
+  { boss: "Chosen Seren", difficulty: "Normal", points: 6000, coins: 1400, advancedCoins: 20 },
+  { boss: "Chosen Seren", difficulty: "Hard", points: 7000, coins: 2000, advancedCoins: 30 },
+  { boss: "Kalos the Guardian", difficulty: "Easy", points: 7000, coins: 2000, advancedCoins: 30 },
+  { boss: "Kalos the Guardian", difficulty: "Normal", points: 9000, coins: 3000, advancedCoins: 60 },
+  { boss: "First Adversary", difficulty: "Easy", points: 7000, coins: 2000, advancedCoins: 30 },
+  { boss: "First Adversary", difficulty: "Normal", points: 9000, coins: 3000, advancedCoins: 60 },
+  { boss: "Kaling", difficulty: "Easy", points: 9000, coins: 3000, advancedCoins: 60 },
+  { boss: "Mayrin", difficulty: "Normal", points: 5000, coins: 1200, advancedCoins: 10 },
+  { boss: "Mayrin", difficulty: "Hard", points: 9000, coins: 3000, advancedCoins: 60 },
+]
+
+export const BOSS_MISSION_TOTAL_POINTS = BOSS_MISSIONS.reduce(
+  (total, mission) => total + mission.points,
+  0
+)
+
+export type WeeklyMission = { label: string; coins: number }
+
+export const WEEKLY_MISSIONS: WeeklyMission[] = [
+  { label: "Defeat 5,000 enemies near your level", coins: 1500 },
+  { label: "Complete Monster Park 6 times", coins: 0 },
+  { label: "Complete Symbol Daily Quests 12 times", coins: 0 },
+]
+
+export const WEEKLY_MISSION_MAX_COINS = 1500
 
 export type TaskCategory =
   | "mobs"
@@ -573,11 +713,11 @@ export const WEEKLY_TASKS: WeeklyTask[] = [
   },
   {
     key: "monster-park",
-    label: "Monster Park ×5",
-    detail: "The Monster Park Extreme XP perk now needs 5 runs per week.",
+    label: "Monster Park ×6",
+    detail: "Weekly Progression Mission: clear Monster Park 6 times.",
     category: "monster-park",
     kind: "count",
-    target: 5,
+    target: 6,
   },
   {
     key: "note",
@@ -744,7 +884,14 @@ export const SEASON_CHANGES: { title: string; detail: string; status: Status }[]
   },
   {
     title: "Monster Park Extreme removed",
-    detail: "Pending removal on 2026-11-11; the MP Extreme XP perk now needs 5 Monster Park runs/week.",
+    detail:
+      "Removed on 2026-11-11. A new Extreme Monster Parker weekly quest replaces it: clear Monster Park 5 times, claimable on up to 2 characters per world.",
+    status: "confirmed",
+  },
+  {
+    title: "Monster Park Sweep",
+    detail:
+      "Clear multiple Monster Park runs at once. Free entry tickets are used before Maple Points.",
     status: "confirmed",
   },
   {
@@ -767,39 +914,173 @@ export const SEASON_CHANGES: { title: string; detail: string; status: Status }[]
     detail: `Crests are no longer consumed; ${CREST_RULES.perWeek}/week from ${CREST_RULES.mobsPerWeek.toLocaleString()} mobs; boss crests accrue to ${CREST_RULES.bossCap.toLocaleString()}.`,
     status: "projected",
   },
+  {
+    title: "9 Challenger World tiers",
+    detail:
+      "Bronze, Silver, Gold, Platinum, Emerald, Sapphire, Diamond, Master, Challenger. Bronze to Platinum are claimable only in Challenger World; Emerald and up are claimable in your main world too.",
+    status: "confirmed",
+  },
+  {
+    title: "5 characters per Challenger World",
+    detail:
+      "Up to 5 characters, and you can designate a Quanah World Leap character at creation to receive Hyper Burning MAX benefits.",
+    status: "confirmed",
+  },
+  {
+    title: "Weekly Progression Missions",
+    detail:
+      "Three missions, max 1,500 Challenger Coins per week, resetting every Wednesday. A missed one costs 10,000 Maple Points to backfill.",
+    status: "confirmed",
+  },
+  {
+    title: "Beyond Burning to Lv. 280",
+    detail:
+      "1+1 leveling from Lv. 260 to 280, one designated character per account, and it cannot be removed once applied.",
+    status: "confirmed",
+  },
+  {
+    title: "Blueberry Farm",
+    detail:
+      "Lv. 260-300, a 30-minute limit, and entry passes from the Challenger Pass. Lv. 280 and above earn the same EXP as Lv. 279.",
+    status: "confirmed",
+  },
+  {
+    title: "New Recruit Support Mission",
+    detail: "Milestone rewards for newly created characters, with extra rewards for a Lethe character.",
+    status: "confirmed",
+  },
 ]
 
 export const QUANAH_BADGE_PORTABILITY: Claim<string> = {
-  value: "World-locked to the event world",
-  status: "disputed",
-  sources: ["transcript"],
-  note: "The transcript mentions both positions without settling it.",
-  alternatives: [
-    {
-      value: "Portable to the main world",
-      source: "transcript",
-      note: "jando raises the possibility that the badge transfers with the character.",
-    },
-  ],
+  value: "Transferable once within your account after a World Leap",
+  status: "confirmed",
+  sources: ["nexon-pts-v272"],
+  note: "The v.272 PTS notes settle the badge question. The Inspector's Mapae is an equippable badge from Black Mage (Hard or Extreme), not a profile badge.",
 }
 
 export const QUANAH = {
   name: "Quanah",
   status: "confirmed" as Status,
-  source: "gms-maplayer-one",
+  source: "nexon-pts-v272",
+  period: "November 11, 2026 (after maintenance) - February 9, 2027 11:59 PM UTC",
   summary:
-    "A temporary event world with its own Inspector Level system, special equipment skills, fast leveling, dungeon stages, challenge dungeons, and boss attempts tied to entry tickets.",
+    "A temporary event world built around inspector training. Characters have an Inspector Level separate from their Character Level, plus Dimensional Skills, a Mapae Module, and Hologram equipment.",
   requirements: [
-    "Lv. 260",
+    "Lv. 260 and above",
     "6th Job Advancement completed",
-    "One designated Challenger World character",
+    "Created in a Challenger World and designated as a Quanah World Leap character",
   ],
   notes: [
-    "The transfer is one-way and irreversible.",
-    "It grants a profile badge.",
-    "The transcript mentions both badge-portability positions without settling it.",
+    "Designate the character as a Quanah World Leap character at creation to receive Hyper Burning MAX benefits.",
+    "Quanah World Leap characters cannot be designated for Beyond Burning.",
+    "Equipment enhancement follows Heroic World specifications: no cubes, no Rebirth Flames.",
+    "Equipment can only be enhanced with Quanah Crystals obtained inside Quanah World.",
+    "Characters cannot access maps outside the designated Quanah World areas.",
+    "After Quanah, characters World Leap to a world matching their original Challenger type (Interactive or Heroic).",
   ],
+  inspectorLevel: {
+    max: 100,
+    resetsOnDeath: true,
+    note: "Inspector Level resets to Lv. 1 when your character dies in Proving Fields or Battlesim. Skill Inheritance lets you keep selected Dimensional Skills across a death.",
+  },
+  equipment: {
+    starCap: 30,
+    transferableStarCap: 22,
+    note: "Libae's Supercharged Equipment can be enhanced up to 30 stars; equipment that can be transferred to other worlds caps at 22 stars.",
+  },
+  provingFields: [
+    { difficulty: "Basic", level: 270 },
+    { difficulty: "Intermediate", level: 280 },
+    { difficulty: "Advanced", level: 290 },
+  ],
+  provingFieldsNote: "Proving Fields accepts solo play or a party of up to 6.",
+  badge: {
+    name: "Inspector's Mapae",
+    source: "Defeat Black Mage (Hard or Extreme) in Quanah World",
+    note: "Can be transferred once within your account after a World Leap. Cannot be enhanced further after the leap, but Bonus Potential and Scroll Enhancement still work in Interactive Worlds.",
+  },
   badgePortability: QUANAH_BADGE_PORTABILITY,
+} as const
+
+export const MAYRIN = {
+  name: "Mayrin",
+  status: "confirmed" as Status,
+  source: "nexon-pts-v272",
+  period: "November 12, 2026 12:00 AM UTC - February 9, 2027 11:59 PM UTC",
+  normalLevel: 270,
+  hardLevel: 280,
+  partySize: 1,
+  timeLimitMinutes: 20,
+  frequency: "Weekly, once per account",
+  notes: [
+    "Accept the 'Season Boss Mayrin' quest from the Event List, or talk to Annette in Henesys, Nameless Town, Cernium Square, or the Residential District.",
+    "The Defeat Mayrin Event needs a solo clear; All Phases Practice Mode counts too.",
+    "Clearing a higher difficulty qualifies you for all lower-tier difficulty rewards.",
+    "Defeat records are shared across characters in the same world.",
+  ],
+} as const
+
+export const BLUEBERRY_FARM = {
+  status: "confirmed" as Status,
+  source: "nexon-pts-v272",
+  minLevel: 260,
+  maxLevel: 300,
+  timeLimitMinutes: 30,
+  reentryWindowHours: 24,
+  notes: [
+    "Entry Passes come from the Challenger Pass.",
+    "EXP buff effects are not applied inside, and Multi-Kills do not occur.",
+    "Lv. 280 and above characters earn the same EXP as a Lv. 279 character.",
+    "Defeat the Giant Blueberry to bring the harvest to 100% and exit automatically.",
+  ],
+} as const
+
+export const MONSTER_PARK = {
+  status: "confirmed" as Status,
+  source: "nexon-pts-v272",
+  notes: [
+    "A Sweep feature clears multiple Monster Park runs at once; free entry tickets are used before Maple Points.",
+    "Monster Park Extreme and its related contents are removed.",
+    "A new Extreme Monster Parker weekly quest replaces it: clear Monster Park dungeons 5 times, claimable on up to 2 characters per world.",
+    "Monster Park Extreme Momo is sold for 150 Monster Park Commemorative Coins, up to 5 times a week per world.",
+  ],
+} as const
+
+export const GENESIS_PASS = {
+  status: "confirmed" as Status,
+  source: "nexon-pts-v272",
+  salePeriod: "November 12, 2026 12:00 AM UTC - February 8, 2027 11:59 PM UTC",
+  expires: "February 9, 2027 11:59 PM UTC",
+  notes: [
+    "Purchasable once per account; untradable.",
+    "Only Lv. 255+ characters who have not completed the final Genesis awakening can use it.",
+    "Party size on the same Genesis Mission stage rises from 2 to 6.",
+    "Grants 3x the usual Trace of Darkness from bosses, plus a special boss buff.",
+    "Guarantees an Attack Power or Magic ATT Weapon Soul when the Genesis Weapon is liberated.",
+  ],
+} as const
+
+export const ITEM_BURNING_PLUS = {
+  status: "confirmed" as Status,
+  source: "nexon-pts-v272",
+  stageMissions: 8,
+  notes: [
+    "Available only in Challenger World, for Lv. 200+ characters who completed the 'A Greater Power' quest.",
+    "One Item Burning Plus event per account; it cannot be combined with another Item Burning event.",
+  ],
+} as const
+
+export const CHALLENGER_WORLD_RULES = {
+  status: "confirmed" as Status,
+  source: "nexon-pts-v272",
+  maxCharacters: 5,
+  notes: [
+    "You can create up to 5 characters in Challenger World.",
+    "Your first choice locks the world type: creating in Challenger-Heroic means Challenger-Interactive stays unavailable even after deleting every character.",
+    "Up to 3 Tera Burning characters, Lv. 10-200, gaining 2 extra levels per level-up.",
+    "Unavailable in Challenger World: Transfer Link Skill, Legion, Legion Artifact System, Monster Collection, and Expand Character Slots.",
+    "The Meso Market closes February 10, 2027, before maintenance.",
+  ],
 } as const
 
 export const DAY_ZERO = {
@@ -812,7 +1093,7 @@ export const DAY_ZERO = {
     "Arcane River + Grandis dailies and weeklies.",
     "Boss clears for meso (~1.4b for an End-Lomein-worth).",
     "Hard Lotus for an extra week of loot.",
-    "Monster Park ×5.",
+    "Monster Park ×6.",
     "Genesis liberation missions.",
   ],
 } as const

@@ -5,7 +5,7 @@ const GENESIS_CALENDAR_DAYS = 21
 // Derived from the transcript: 6,030 points over that calendar window.
 const GENESIS_POINTS_PER_DAY = GENESIS_RULES.pointsAfterThreeWeeks / GENESIS_CALENDAR_DAYS
 
-export type TierLike = { points: { value: number } }
+export type TierLike = { points: { value: number | null } }
 
 function startOfDay(date: Date): number {
   return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime()
@@ -22,11 +22,20 @@ export function currentWeek(now: Date, weeks: Week[]): number {
   return index
 }
 
+/**
+ * Tiers whose threshold Nexon has not published carry a null threshold. They
+ * are skipped here: ordering by number would otherwise push an unpublished
+ * tier to the bottom of the table.
+ */
 export function tierFor<T extends TierLike>(points: number, tiers: T[]): T | null {
   let reached: T | null = null
+  let reachedThreshold = -Infinity
   for (const tier of tiers) {
-    if (tier.points.value <= points && (!reached || tier.points.value > reached.points.value)) {
+    const threshold = tier.points.value
+    if (threshold === null || threshold > points) continue
+    if (threshold > reachedThreshold) {
       reached = tier
+      reachedThreshold = threshold
     }
   }
   return reached
@@ -37,12 +46,16 @@ export function nextTier<T extends TierLike>(
   tiers: T[]
 ): { tier: T; pointsNeeded: number } | null {
   let next: T | null = null
+  let nextThreshold = Infinity
   for (const tier of tiers) {
-    if (tier.points.value > points && (!next || tier.points.value < next.points.value)) {
+    const threshold = tier.points.value
+    if (threshold === null || threshold <= points) continue
+    if (threshold < nextThreshold) {
       next = tier
+      nextThreshold = threshold
     }
   }
-  return next ? { tier: next, pointsNeeded: next.points.value - points } : null
+  return next ? { tier: next, pointsNeeded: nextThreshold - points } : null
 }
 
 function percentOf(value: number, max: number): number {

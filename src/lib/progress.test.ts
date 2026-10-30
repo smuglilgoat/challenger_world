@@ -41,9 +41,9 @@ describe("currentWeek", () => {
   })
 })
 
-const bronze = TIERS[0].points.value
-const silver = TIERS[1].points.value
-const master = TIERS[TIERS.length - 1].points.value
+const bronze = TIERS[0].points.value as number
+const silver = TIERS[1].points.value as number
+const master = TIERS.find((tier) => tier.name === "Master")!.points.value as number
 
 describe("tierFor", () => {
   it("returns null below Bronze", () => {
@@ -61,6 +61,12 @@ describe("tierFor", () => {
   it("returns Master exactly at its threshold", () => {
     expect(tierFor(master, TIERS)?.name).toBe("Master")
   })
+
+  it("skips tiers whose threshold is not published", () => {
+    // Sapphire and Challenger have no published threshold, so a huge point
+    // total must not select them.
+    expect(tierFor(10_000_000, TIERS)?.name).toBe("Master")
+  })
 })
 
 describe("nextTier", () => {
@@ -74,6 +80,11 @@ describe("nextTier", () => {
 
   it("returns null at Master", () => {
     expect(nextTier(master, TIERS)).toBeNull()
+  })
+
+  it("never points at a tier with no published threshold", () => {
+    expect(nextTier(bronze, TIERS)?.tier.name).not.toBe("Sapphire")
+    expect(nextTier(bronze, TIERS)?.tier.name).not.toBe("Challenger")
   })
 })
 

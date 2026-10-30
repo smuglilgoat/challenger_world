@@ -1,11 +1,6 @@
-import { TriangleAlertIcon } from "lucide-react"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { ClaimBadge } from "@/components/claim-badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { StatusBadge } from "@/components/status-badge"
-import { QUANAH, SEASON_CHANGES, SOURCES } from "@/lib/event-data"
+import { SEASON_CHANGES } from "@/lib/event-data"
 
 export function SeasonChanges() {
   return (
@@ -26,54 +21,6 @@ export function SeasonChanges() {
             </li>
           ))}
         </ul>
-      </CardContent>
-    </Card>
-  )
-}
-
-export function QuanahExplainer() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{QUANAH.name} — the new event world</CardTitle>
-        <CardDescription>{QUANAH.summary}</CardDescription>
-        <CardAction className="flex flex-wrap items-center justify-end gap-1">
-          <StatusBadge status={QUANAH.status} />
-          <span className="text-xs text-muted-foreground">
-            Source: {SOURCES[QUANAH.source].title}
-          </span>
-        </CardAction>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <p className="text-sm font-medium">Transfer requirements</p>
-          <ul className="flex flex-wrap gap-2">
-            {QUANAH.requirements.map((requirement) => (
-              <li key={requirement}>
-                <Badge variant="outline">{requirement}</Badge>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Separator />
-
-        <Alert variant="destructive">
-          <TriangleAlertIcon />
-          <AlertTitle>One designated character, one way</AlertTitle>
-          <AlertDescription>
-            You move one designated Challenger World character into Quanah. The transfer is irreversible.
-          </AlertDescription>
-        </Alert>
-
-        <Alert>
-          <TriangleAlertIcon />
-          <AlertTitle className="flex flex-wrap items-center gap-2">
-            Profile badge portability
-            <ClaimBadge claim={QUANAH.badgePortability} />
-          </AlertTitle>
-          <AlertDescription>{QUANAH.badgePortability.note}</AlertDescription>
-        </Alert>
       </CardContent>
     </Card>
   )
