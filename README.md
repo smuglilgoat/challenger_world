@@ -1,37 +1,28 @@
 # Challenger World Season 4 — Guide & Tracker
 
-A visual guide and per-character weekly progress tracker for the Global MapleStory
-Challenger World Season 4 event (2026-11-11 → 2027-02-09).
+A visual guide and per-character weekly progress tracker for the Global MapleStory Challenger World Season 4 event (2026-11-11 → 2027-02-09).
 
-- **Guide** — dates, weekly timeline, tier thresholds, crest and Genesis math,
-  pre-launch prep, Season 4 changes, Quanah. Every fact is marked
-  **Confirmed (GMS)** or **Projected (KMS/transcript)**.
-- **Characters** — add characters and track crests, Genesis points, tier points
-  and a per-week checklist. Data lives in `localStorage` in your browser.
+## What it does
 
-Event data lives in `docs/event-data.md` (source of truth) and
-`src/lib/event-data.ts` (typed constants). Tier thresholds are still Season 3
-numbers, flagged **Projected** — swap the numbers in `tierPointsClaim(...)`
-when the GMS patch notes land.
+- **Guide** — dates, weekly timeline, tier thresholds, crest and Genesis math, pre-launch prep, Season 4 changes and Quanah. Every fact is marked **Confirmed (GMS)** or **Projected (KMS/transcript)**.
+- **Characters** — add characters and track crests, Genesis points, tier points and a per-week checklist.
 
-### Updating the data when the patch notes arrive
+Character data, checklists and the prep checklist are stored in `localStorage` in the browser. There is no backend or account.
 
-Every numeric fact is defined **once**, in `src/lib/event-data.ts`. Prose
-interpolates those constants, so changing a number updates the whole app at
-once and the guide can never contradict itself. A guard test fails if an event
-number is reintroduced into `src/lib/progress.ts`.
+## Data model
 
-- `CLAIM` — a fact with its status (`confirmed` / `projected` / `disputed`),
-  the sources behind it, and any competing values from other sources.
+Event data lives in `docs/event-data.md` (source of truth) and `src/lib/event-data.ts` (typed constants).
+
+- `CLAIM` — a fact with its status (`confirmed` / `projected` / `disputed`), its sources and any competing values.
 - `SOURCES` — typed registry of every source, with kind and retrieval date.
-- `DATA_REVISION` — one constant that reframes the guide header; bump it when
-  the real patch notes land.
-- `PLANS` — community progression plans a character can be put on.
+- `DATA_REVISION` — constant that frames the guide header; bump it when the real patch notes land.
+- `PLANS` — community progression plans a character can follow.
+
+Every numeric fact is defined once in `src/lib/event-data.ts`; prose interpolates those constants. A guard test fails if an event number is reintroduced into `src/lib/progress.ts`. Tier thresholds are still Season 3 numbers, flagged **Projected** — update `tierPointsClaim(...)` when the GMS patch notes land.
 
 ## Stack
 
-Vite + React + TypeScript, Tailwind CSS v4, shadcn/ui (radix base, nova style,
-lucide icons), Vitest.
+Vite + React + TypeScript, Tailwind CSS v4, shadcn/ui (Radix base, nova style, lucide icons), Vitest, oxlint.
 
 ## Commands
 
@@ -46,51 +37,26 @@ npm run lint       # oxlint
 
 ## Deploy
 
-Netlify site `challenger-world-guide`, built from `netlify.toml`
-(`npm run build` → `dist`, SPA fallback).
+Netlify site `challenger-world-guide`, built from `netlify.toml` (`npm run build` → `dist`, SPA fallback).
 
-### Continuous deployment
-
-Every push to `main` builds and deploys to production automatically, via
-`.github/workflows/deploy.yml`:
+Every push to `main` builds and deploys to production through `.github/workflows/deploy.yml`:
 
 ```
 push to main -> npm ci -> npm test -> npm run typecheck -> npm run build
              -> netlify deploy --dir=dist --prod
 ```
 
-`main` is the production branch. Test and typecheck are gates — a failing
-check means no deploy and the previous version stays live.
+Test and typecheck are gates: a failing check means no deploy and the previous version stays live. Credentials live in repository secrets (`NETLIFY_AUTH_TOKEN`, `NETLIFY_SITE_ID`), never in the repo.
 
-Credentials live in repository secrets, never in the repo:
-
-| Secret | Value |
-| --- | --- |
-| `NETLIFY_AUTH_TOKEN` | Netlify personal access token (Team → API access) |
-| `NETLIFY_SITE_ID` | `54efbd52-092c-4d6b-b944-4da514b3dfd4` |
-
-### Switching to native Netlify Git CD
-
-The Netlify GitHub App is not installed on the account yet, so the site has
-no repo link and the workflow above does the deploying. To hand over to
-Netlify's own Git CD:
-
-1. In Netlify, open the site → **Site configuration** → **Version control**
-   → **Connect repository** → pick `smuglilgoat/challenger_world` and
-   install the Netlify GitHub App on it.
-2. Set the production branch to `main` and the build command to
-   `npm run build` with publish directory `dist` (or leave them blank —
-   `netlify.toml` supplies both).
-3. Delete `.github/workflows/deploy.yml` so the two paths do not both
-   deploy.
-
-Until then the Actions workflow is the only thing publishing, and it works
-as-is.
-
-### Deploying from the CLI
+From the CLI:
 
 ```bash
 npx netlify-cli login
 npx netlify-cli link --id 54efbd52-092c-4d6b-b944-4da514b3dfd4
 npx netlify-cli deploy --prod
 ```
+
+## Notes
+
+- The Netlify GitHub App is not connected, so the Actions workflow performs the deploy. If native Netlify Git CD is enabled later, delete the workflow so both paths do not deploy.
+- `docs/` also holds the patch notes and video transcripts used to source the event data.
